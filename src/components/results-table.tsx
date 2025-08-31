@@ -22,7 +22,7 @@ import { exportToCsv } from '@/lib/utils';
 import type { Company } from '@/lib/data';
 import { useIsMobile } from '@/hooks/use-mobile';
 
-type SortKey = keyof Company | '';
+type SortKey = keyof Company | 'tech_count' | '';
 type SortDirection = 'asc' | 'desc';
 
 export function ResultsTable({ data }: { data: Company[] }) {
@@ -34,8 +34,15 @@ export function ResultsTable({ data }: { data: Company[] }) {
     if (!sortKey) return data;
 
     return [...data].sort((a, b) => {
-      const aValue = a[sortKey];
-      const bValue = b[sortKey];
+      let aValue, bValue;
+
+      if (sortKey === 'tech_count') {
+        aValue = a.technologies.length;
+        bValue = b.technologies.length;
+      } else {
+        aValue = a[sortKey as keyof Company];
+        bValue = b[sortKey as keyof Company];
+      }
 
       if (aValue < bValue) {
         return sortDirection === 'asc' ? -1 : 1;
@@ -64,6 +71,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
       hq_country: c.hq_country,
       revenue_usd: c.revenue,
       employees: c.employees,
+      tech_count: c.technologies.length,
       technologies: c.technologies.join(', '),
       office_locations: c.office_locations.join(', '),
     }));
@@ -136,6 +144,10 @@ export function ResultsTable({ data }: { data: Company[] }) {
                     <div className="text-sm text-muted-foreground">Employees</div>
                     <div className="font-medium">{company.employees.toLocaleString()}</div>
                   </div>
+                  <div className="flex justify-between">
+                    <div className="text-sm text-muted-foreground">Tech Count</div>
+                    <div className="font-medium">{company.technologies.length}</div>
+                  </div>
                   <div>
                     <h4 className="text-sm font-medium mb-2">Technologies</h4>
                     <div className="flex flex-wrap gap-1">
@@ -183,6 +195,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
               <SortableHeader sortKey="hq_country">HQ</SortableHeader>
               <SortableHeader sortKey="revenue">Revenue</SortableHeader>
               <SortableHeader sortKey="employees">Employees</SortableHeader>
+              <SortableHeader sortKey="tech_count">Tech Count</SortableHeader>
               <TableHead>Technologies</TableHead>
               <TableHead>Office Locations</TableHead>
             </TableRow>
@@ -204,6 +217,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
                   <TableCell>{company.hq_country}</TableCell>
                   <TableCell>{formatRevenue(company.revenue)}</TableCell>
                   <TableCell>{company.employees.toLocaleString()}</TableCell>
+                  <TableCell>{company.technologies.length}</TableCell>
                   <TableCell>
                     <div className="flex flex-wrap gap-1 max-w-xs">
                       {company.technologies.slice(0, 3).map((tech) => (
@@ -228,7 +242,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={7} className="h-24 text-center">
+                <TableCell colSpan={8} className="h-24 text-center">
                   No results found. Try adjusting your filters.
                 </TableCell>
               </TableRow>
