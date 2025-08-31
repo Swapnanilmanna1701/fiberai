@@ -481,26 +481,21 @@ function TechnologyMultiSelect({
                   const selection = selected.find(s => s.value === option.value);
                   const isSelected = !!selection;
                   return (
-                    <CommandItem
+                    <div
                       key={option.value}
-                      value={option.value}
-                      onSelect={() => handleSelect(option.value)}
-                      className="flex flex-col items-start !p-0"
+                      className="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                      onClick={() => handleSelect(option.value)}
                     >
-                      <div className="flex items-center w-full p-2">
-                        <Check className={cn("mr-2 h-4 w-4", isSelected ? "opacity-100" : "opacity-0")} />
-                        <span className="flex-1">{option.label}</span>
-                      </div>
+                      <Check className={cn("mr-2 h-4 w-4", isSelected ? "opacity-100" : "opacity-0")} />
+                      <span className="flex-1">{option.label}</span>
                       {isSelected && (
-                        <div className="w-full pl-8 pr-2 pb-2" onClick={(e) => e.stopPropagation()}>
-                          <div className='flex gap-2 text-xs'>
-                            <Button size="sm" variant={selection.condition === 'AND' ? 'secondary' : 'ghost'} className="h-6 px-2" onClick={() => handleConditionChange(option.value, 'AND')}>AND</Button>
-                            <Button size="sm" variant={selection.condition === 'OR' ? 'secondary' : 'ghost'} className="h-6 px-2" onClick={() => handleConditionChange(option.value, 'OR')}>OR</Button>
-                            <Button size="sm" variant={selection.condition === 'NOT' ? 'secondary' : 'ghost'} className="h-6 px-2" onClick={() => handleConditionChange(option.value, 'NOT')}>NOT</Button>
-                          </div>
+                        <div className="flex gap-1 ml-auto" onClick={(e) => e.stopPropagation()}>
+                          <Button size="sm" variant={selection.condition === 'AND' ? 'secondary' : 'ghost'} className="h-6 px-1.5 text-xs" onClick={() => handleConditionChange(option.value, 'AND')}>AND</Button>
+                          <Button size="sm" variant={selection.condition === 'OR' ? 'secondary' : 'ghost'} className="h-6 px-1.5 text-xs" onClick={() => handleConditionChange(option.value, 'OR')}>OR</Button>
+                          <Button size="sm" variant={selection.condition === 'NOT' ? 'secondary' : 'ghost'} className="h-6 px-1.5 text-xs" onClick={() => handleConditionChange(option.value, 'NOT')}>NOT</Button>
                         </div>
                       )}
-                    </CommandItem>
+                    </div>
                   );
                 })}
               </ScrollArea>
