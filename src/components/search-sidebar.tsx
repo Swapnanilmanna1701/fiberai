@@ -356,6 +356,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
                                   placeholder="Min"
                                   className="w-full"
                                   {...field}
+                                  value={field.value === undefined ? '' : field.value}
                                   onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))}
                               />
                           )}
@@ -370,6 +371,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
                                   placeholder="Max"
                                   className="w-full"
                                   {...field}
+                                   value={field.value === undefined ? '' : field.value}
                                   onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))}
                               />
                           )}
@@ -470,25 +472,24 @@ function MultiSelectPopover({
           <CommandGroup>
             <ScrollArea className="h-64">
               {selected.length > 0 && (
-                <div
-                    className="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none text-red-500 hover:!text-red-500"
-                    onClick={() => onChange([])}
+                <CommandItem
+                    className="text-red-500 hover:!text-red-500"
+                    onSelect={() => onChange([])}
                 >
                     <X className="mr-2 h-4 w-4" />
                     Clear selection
-                </div>
+                </CommandItem>
               )}
               {options.map((option) => {
                 const isSelected = selected.includes(option.value);
                 return (
-                  <div
+                  <CommandItem
                     key={option.value}
-                    className="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
-                    onClick={() => handleSelect(option.value)}
+                    onSelect={() => handleSelect(option.value)}
                   >
                     <Check className={cn("mr-2 h-4 w-4", isSelected ? "opacity-100" : "opacity-0")} />
                     {option.label}
-                  </div>
+                  </CommandItem>
                 );
               })}
             </ScrollArea>
@@ -578,22 +579,21 @@ function TechnologyMultiSelect({
             <CommandGroup>
               <ScrollArea className="h-64">
                 {selected.length > 0 && (
-                   <div
-                    className="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none text-red-500 hover:!text-red-500"
-                    onClick={() => onChange([])}
+                   <CommandItem
+                    className="text-red-500 hover:!text-red-500"
+                    onSelect={() => onChange([])}
                     >
                         <X className="mr-2 h-4 w-4" />
                         Clear selection
-                    </div>
+                    </CommandItem>
                 )}
                 {options.map((option) => {
                   const selection = selected.find(s => s.value === option.value);
                   const isSelected = !!selection;
                   return (
-                    <div
+                    <CommandItem
                       key={option.value}
-                      className="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
-                       onClick={(e) => { e.preventDefault(); handleSelect(option.value); }}
+                      onSelect={() => handleSelect(option.value)}
                     >
                       <Check className={cn("mr-2 h-4 w-4", isSelected ? "opacity-100" : "opacity-0")} />
                       <span className="flex-1">{option.label}</span>
@@ -604,7 +604,7 @@ function TechnologyMultiSelect({
                           <Button size="sm" variant={selection.condition === 'NOT' ? 'secondary' : 'ghost'} className="h-6 px-1.5 text-xs" onClick={() => handleConditionChange(option.value, 'NOT')}>NOT</Button>
                         </div>
                       )}
-                    </div>
+                    </CommandItem>
                   );
                 })}
               </ScrollArea>

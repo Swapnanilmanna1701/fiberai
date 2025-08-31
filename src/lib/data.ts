@@ -3214,6 +3214,2295 @@ export const companies: Company[] = [
       "employees": 1600000,
       "technologies": ["AWS", "React", "Java", "DynamoDB", "Lambda"],
       "office_locations": ["Seattle", "New York", "Hyderabad", "London"]
+    },
+    {
+      "id": 292,
+      "name": "Company 292",
+      "domain": "company292.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 53000000000,
+      "employees": 530000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 293,
+      "name": "Company 293",
+      "domain": "company293.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 54000000000,
+      "employees": 540000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 294,
+      "name": "Company 294",
+      "domain": "company294.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 55000000000,
+      "employees": 550000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 295,
+      "name": "Company 295",
+      "domain": "company295.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 56000000000,
+      "employees": 560000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 296,
+      "name": "Company 296",
+      "domain": "company296.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 57000000000,
+      "employees": 570000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 297,
+      "name": "Company 297",
+      "domain": "company297.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 58000000000,
+      "employees": 580000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 298,
+      "name": "Company 298",
+      "domain": "company298.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 59000000000,
+      "employees": 590000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 299,
+      "name": "Company 299",
+      "domain": "company299.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 60000000000,
+      "employees": 600000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 300,
+      "name": "Company 300",
+      "domain": "company300.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 61000000000,
+      "employees": 610000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 301,
+      "name": "Company 301",
+      "domain": "company301.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 62000000000,
+      "employees": 620000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 302,
+      "name": "Company 302",
+      "domain": "company302.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 63000000000,
+      "employees": 630000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 303,
+      "name": "Company 303",
+      "domain": "company303.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 64000000000,
+      "employees": 640000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 304,
+      "name": "Company 304",
+      "domain": "company304.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 65000000000,
+      "employees": 650000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 305,
+      "name": "Company 305",
+      "domain": "company305.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 66000000000,
+      "employees": 660000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 306,
+      "name": "Company 306",
+      "domain": "company306.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 67000000000,
+      "employees": 670000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 307,
+      "name": "Company 307",
+      "domain": "company307.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 68000000000,
+      "employees": 680000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 308,
+      "name": "Company 308",
+      "domain": "company308.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 69000000000,
+      "employees": 690000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 309,
+      "name": "Company 309",
+      "domain": "company309.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 70000000000,
+      "employees": 700000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 310,
+      "name": "Company 310",
+      "domain": "company310.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 71000000000,
+      "employees": 710000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 311,
+      "name": "Company 311",
+      "domain": "company311.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 72000000000,
+      "employees": 720000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 312,
+      "name": "Company 312",
+      "domain": "company312.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 73000000000,
+      "employees": 730000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 313,
+      "name": "Company 313",
+      "domain": "company313.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 74000000000,
+      "employees": 740000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 314,
+      "name": "Company 314",
+      "domain": "company314.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 75000000000,
+      "employees": 750000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 315,
+      "name": "Company 315",
+      "domain": "company315.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 76000000000,
+      "employees": 760000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 316,
+      "name": "Company 316",
+      "domain": "company316.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 77000000000,
+      "employees": 770000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 317,
+      "name": "Company 317",
+      "domain": "company317.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 78000000000,
+      "employees": 780000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 318,
+      "name": "Company 318",
+      "domain": "company318.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 79000000000,
+      "employees": 790000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 319,
+      "name": "Company 319",
+      "domain": "company319.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 80000000000,
+      "employees": 800000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 320,
+      "name": "Company 320",
+      "domain": "company320.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 1000000000,
+      "employees": 810000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 321,
+      "name": "Company 321",
+      "domain": "company321.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 2000000000,
+      "employees": 820000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 322,
+      "name": "Company 322",
+      "domain": "company322.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 3000000000,
+      "employees": 830000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 323,
+      "name": "Company 323",
+      "domain": "company323.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 4000000000,
+      "employees": 840000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 324,
+      "name": "Company 324",
+      "domain": "company324.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 5000000000,
+      "employees": 850000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 325,
+      "name": "Company 325",
+      "domain": "company325.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 6000000000,
+      "employees": 860000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 326,
+      "name": "Company 326",
+      "domain": "company326.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 7000000000,
+      "employees": 870000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 327,
+      "name": "Company 327",
+      "domain": "company327.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 8000000000,
+      "employees": 880000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 328,
+      "name": "Company 328",
+      "domain": "company328.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 9000000000,
+      "employees": 890000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 329,
+      "name": "Company 329",
+      "domain": "company329.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 10000000000,
+      "employees": 900000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 330,
+      "name": "Company 330",
+      "domain": "company330.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 11000000000,
+      "employees": 910000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 331,
+      "name": "Company 331",
+      "domain": "company331.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 12000000000,
+      "employees": 920000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 332,
+      "name": "Company 332",
+      "domain": "company332.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 13000000000,
+      "employees": 930000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 333,
+      "name": "Company 333",
+      "domain": "company333.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 14000000000,
+      "employees": 940000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 334,
+      "name": "Company 334",
+      "domain": "company334.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 15000000000,
+      "employees": 950000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 335,
+      "name": "Company 335",
+      "domain": "company335.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 16000000000,
+      "employees": 960000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 336,
+      "name": "Company 336",
+      "domain": "company336.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 17000000000,
+      "employees": 970000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 337,
+      "name": "Company 337",
+      "domain": "company337.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 18000000000,
+      "employees": 980000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 338,
+      "name": "Company 338",
+      "domain": "company338.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 19000000000,
+      "employees": 990000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 339,
+      "name": "Company 339",
+      "domain": "company339.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 20000000000,
+      "employees": 1000000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 340,
+      "name": "Company 340",
+      "domain": "company340.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 21000000000,
+      "employees": 1010000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 341,
+      "name": "Company 341",
+      "domain": "company341.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 22000000000,
+      "employees": 1020000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 342,
+      "name": "Company 342",
+      "domain": "company342.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 23000000000,
+      "employees": 1030000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 343,
+      "name": "Company 343",
+      "domain": "company343.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 24000000000,
+      "employees": 1040000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 344,
+      "name": "Company 344",
+      "domain": "company344.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 25000000000,
+      "employees": 1050000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 345,
+      "name": "Company 345",
+      "domain": "company345.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 26000000000,
+      "employees": 1060000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 346,
+      "name": "Company 346",
+      "domain": "company346.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 27000000000,
+      "employees": 1070000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 347,
+      "name": "Company 347",
+      "domain": "company347.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 28000000000,
+      "employees": 1080000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 348,
+      "name": "Company 348",
+      "domain": "company348.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 29000000000,
+      "employees": 1090000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 349,
+      "name": "Company 349",
+      "domain": "company349.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 30000000000,
+      "employees": 1100000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 350,
+      "name": "Company 350",
+      "domain": "company350.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 31000000000,
+      "employees": 1110000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 351,
+      "name": "Company 351",
+      "domain": "company351.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 32000000000,
+      "employees": 1120000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 352,
+      "name": "Company 352",
+      "domain": "company352.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 33000000000,
+      "employees": 1130000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 353,
+      "name": "Company 353",
+      "domain": "company353.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 34000000000,
+      "employees": 1140000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 354,
+      "name": "Company 354",
+      "domain": "company354.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 35000000000,
+      "employees": 1150000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 355,
+      "name": "Company 355",
+      "domain": "company355.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 36000000000,
+      "employees": 1160000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 356,
+      "name": "Company 356",
+      "domain": "company356.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 37000000000,
+      "employees": 1170000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 357,
+      "name": "Company 357",
+      "domain": "company357.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 38000000000,
+      "employees": 1180000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 358,
+      "name": "Company 358",
+      "domain": "company358.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 39000000000,
+      "employees": 1190000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 359,
+      "name": "Company 359",
+      "domain": "company359.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 40000000000,
+      "employees": 1200000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 360,
+      "name": "Company 360",
+      "domain": "company360.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 41000000000,
+      "employees": 10000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 361,
+      "name": "Company 361",
+      "domain": "company361.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 42000000000,
+      "employees": 20000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 362,
+      "name": "Company 362",
+      "domain": "company362.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 43000000000,
+      "employees": 30000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 363,
+      "name": "Company 363",
+      "domain": "company363.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 44000000000,
+      "employees": 40000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 364,
+      "name": "Company 364",
+      "domain": "company364.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 45000000000,
+      "employees": 50000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 365,
+      "name": "Company 365",
+      "domain": "company365.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 46000000000,
+      "employees": 60000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 366,
+      "name": "Company 366",
+      "domain": "company366.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 47000000000,
+      "employees": 70000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 367,
+      "name": "Company 367",
+      "domain": "company367.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 48000000000,
+      "employees": 80000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 368,
+      "name": "Company 368",
+      "domain": "company368.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 49000000000,
+      "employees": 90000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 369,
+      "name": "Company 369",
+      "domain": "company369.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 50000000000,
+      "employees": 100000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 370,
+      "name": "Company 370",
+      "domain": "company370.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 51000000000,
+      "employees": 110000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 371,
+      "name": "Company 371",
+      "domain": "company371.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 52000000000,
+      "employees": 120000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 372,
+      "name": "Company 372",
+      "domain": "company372.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 53000000000,
+      "employees": 130000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 373,
+      "name": "Company 373",
+      "domain": "company373.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 54000000000,
+      "employees": 140000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 374,
+      "name": "Company 374",
+      "domain": "company374.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 55000000000,
+      "employees": 150000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 375,
+      "name": "Company 375",
+      "domain": "company375.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 56000000000,
+      "employees": 160000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 376,
+      "name": "Company 376",
+      "domain": "company376.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 57000000000,
+      "employees": 170000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 377,
+      "name": "Company 377",
+      "domain": "company377.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 58000000000,
+      "employees": 180000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 378,
+      "name": "Company 378",
+      "domain": "company378.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 59000000000,
+      "employees": 190000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 379,
+      "name": "Company 379",
+      "domain": "company379.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 60000000000,
+      "employees": 200000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 380,
+      "name": "Company 380",
+      "domain": "company380.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 61000000000,
+      "employees": 210000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 381,
+      "name": "Company 381",
+      "domain": "company381.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 62000000000,
+      "employees": 220000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 382,
+      "name": "Company 382",
+      "domain": "company382.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 63000000000,
+      "employees": 230000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 383,
+      "name": "Company 383",
+      "domain": "company383.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 64000000000,
+      "employees": 240000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 384,
+      "name": "Company 384",
+      "domain": "company384.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 65000000000,
+      "employees": 250000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 385,
+      "name": "Company 385",
+      "domain": "company385.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 66000000000,
+      "employees": 260000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 386,
+      "name": "Company 386",
+      "domain": "company386.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 67000000000,
+      "employees": 270000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 387,
+      "name": "Company 387",
+      "domain": "company387.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 68000000000,
+      "employees": 280000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 388,
+      "name": "Company 388",
+      "domain": "company388.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 69000000000,
+      "employees": 290000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 389,
+      "name": "Company 389",
+      "domain": "company389.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 70000000000,
+      "employees": 300000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 390,
+      "name": "Company 390",
+      "domain": "company390.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 71000000000,
+      "employees": 310000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 391,
+      "name": "Company 391",
+      "domain": "company391.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 72000000000,
+      "employees": 320000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 392,
+      "name": "Company 392",
+      "domain": "company392.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 73000000000,
+      "employees": 330000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 393,
+      "name": "Company 393",
+      "domain": "company393.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 74000000000,
+      "employees": 340000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 394,
+      "name": "Company 394",
+      "domain": "company394.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 75000000000,
+      "employees": 350000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 395,
+      "name": "Company 395",
+      "domain": "company395.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 76000000000,
+      "employees": 360000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 396,
+      "name": "Company 396",
+      "domain": "company396.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 77000000000,
+      "employees": 370000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 397,
+      "name": "Company 397",
+      "domain": "company397.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 78000000000,
+      "employees": 380000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 398,
+      "name": "Company 398",
+      "domain": "company398.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 79000000000,
+      "employees": 390000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
+    },
+    {
+      "id": 399,
+      "name": "Company 399",
+      "domain": "company399.com",
+      "industry": "IT Services",
+      "hq_country": "USA",
+      "revenue": 80000000000,
+      "employees": 400000,
+      "technologies": [
+        "C#",
+        ".NET",
+        "Azure",
+        "SQL Server",
+        "Angular"
+      ],
+      "office_locations": [
+        "San Francisco",
+        "Chicago",
+        "Delhi"
+      ]
+    },
+    {
+      "id": 400,
+      "name": "Company 400",
+      "domain": "company400.com",
+      "industry": "Technology",
+      "hq_country": "India",
+      "revenue": 1000000000,
+      "employees": 410000,
+      "technologies": [
+        "Java",
+        "Python",
+        "React",
+        "AWS",
+        "Node.js"
+      ],
+      "office_locations": [
+        "Bangalore",
+        "Hyderabad",
+        "New York"
+      ]
     }
     
 ];
