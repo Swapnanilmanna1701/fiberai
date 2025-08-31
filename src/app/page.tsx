@@ -61,6 +61,11 @@ export default function Home() {
         return false;
       }
       
+      // Office location count filter
+      if (company.office_locations.length < filters.officeLocationCount[0] || company.office_locations.length > filters.officeLocationCount[1]) {
+        return false;
+      }
+
       // Technology boolean logic
       const techFilters = filters.technologies;
       if (techFilters.length > 0) {
