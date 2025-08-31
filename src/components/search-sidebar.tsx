@@ -5,6 +5,7 @@ import { useForm, useFieldArray, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { suggestFilters } from '@/ai/flows/intelligent-filter-suggestions';
+import { naturalLanguageToFilters } from '@/ai/flows/natural-language-to-filters';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -16,7 +17,7 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { allTechnologies, allIndustries, allCountries } from '@/lib/data';
 import { cn } from '@/lib/utils';
-import { Check, ChevronsUpDown, PlusCircle, Sparkles, Trash2, X } from 'lucide-react';
+import { Check, ChevronsUpDown, PlusCircle, Sparkles, Trash2, Wand2, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Logo } from './icons';
 import { Separator } from './ui/separator';
@@ -46,6 +47,7 @@ const countryOptions = allCountries.map(c => ({ label: c, value: c }));
 export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
   const { toast } = useToast();
   const [isSuggesting, setIsSuggesting] = useState(false);
+  const [isParsing, setIsParsing] = useState(false);
 
   const form = useForm<z.infer<typeof FiltersSchema>>({
     resolver: zodResolver(FiltersSchema),
@@ -58,7 +60,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
     },
   });
 
-  const { fields, append, remove } = useFieldArray({
+  const { fields, append, remove, replace } = useFieldArray({
     control: form.control,
     name: 'technologies',
   });
@@ -96,7 +98,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
       form.setValue('countries', suggestions.suggestedCountries || []);
       
       const currentTechs = form.getValues('technologies');
-      const newTechs = suggestions.suggestedTechnologies
+      const newTechs = (suggestions.suggestedTechnologies || [])
         .filter(tech => !currentTechs.some(t => t.value === tech))
         .map(tech => ({ value: tech, condition: 'AND' as const }));
 
@@ -121,6 +123,52 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
     }
   };
 
+  const handleNaturalLanguageSearch = async () => {
+    const search = form.getValues('search');
+    if (!search) {
+      toast({
+        title: 'Natural Language Search',
+        description: 'Please type a search query first.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    setIsParsing(true);
+    try {
+      const filters = await naturalLanguageToFilters({
+        query: search,
+        availableTechnologies: allTechnologies,
+        availableCountries: allCountries,
+        availableIndustries: allIndustries,
+      });
+
+      // Reset previous filters but apply new ones
+      const searchInput = form.getValues('search');
+      form.reset({ search: searchInput }); // Keep the search input
+      
+      form.setValue('search', filters.search || searchInput);
+      form.setValue('industries', filters.industries || []);
+      form.setValue('countries', filters.countries || []);
+      replace(filters.technologies || []);
+      form.setValue('techCount', filters.techCount || [0, 50]);
+
+      toast({
+        title: 'AI Search Complete',
+        description: 'Filters have been set based on your query. Click "Search" to see results.',
+      });
+
+    } catch (error) {
+      console.error('Natural language search error:', error);
+      toast({
+        title: 'Error',
+        description: 'Could not process your natural language query.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsParsing(false);
+    }
+  };
 
   return (
     <div className="flex h-full flex-col">
@@ -132,13 +180,19 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
         <ScrollArea className="flex-1">
         <div className="p-4 space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="search">General Search</Label>
+              <Label htmlFor="search">General & Natural Language Search</Label>
               <div className="flex gap-2">
-                <Input id="search" placeholder="Company, tech..." {...form.register('search')} />
+                <Input id="search" placeholder="Company, or 'tech companies in USA...'" {...form.register('search')} />
+                 <Button variant="ghost" size="icon" type="button" onClick={handleNaturalLanguageSearch} disabled={isParsing} aria-label="Use Natural Language Search">
+                    <Wand2 className={cn("h-4 w-4", isParsing && "animate-spin")} />
+                </Button>
                 <Button variant="ghost" size="icon" type="button" onClick={handleAiSuggestions} disabled={isSuggesting} aria-label="Get AI Suggestions">
                     <Sparkles className={cn("h-4 w-4", isSuggesting && "animate-spin")} />
                 </Button>
               </div>
+               <p className="text-xs text-muted-foreground">
+                  Use <Wand2 className="inline-block h-3 w-3" /> for natural language or <Sparkles className="inline-block h-3 w-3" /> for suggestions.
+                </p>
             </div>
 
              <Accordion type="multiple" defaultValue={['technologies', 'details']} className="w-full">
