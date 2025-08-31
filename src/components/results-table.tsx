@@ -103,6 +103,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
               <SortableHeader sortKey="revenue">Revenue</SortableHeader>
               <SortableHeader sortKey="employees">Employees</SortableHeader>
               <TableHead>Technologies</TableHead>
+              <TableHead>Office Locations</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -132,11 +133,21 @@ export function ResultsTable({ data }: { data: Company[] }) {
                       )}
                     </div>
                   </TableCell>
+                  <TableCell>
+                    <div className="flex flex-wrap gap-1 max-w-xs">
+                      {company.office_locations.slice(0, 3).map((location) => (
+                        <Badge key={location} variant="secondary">{location}</Badge>
+                      ))}
+                      {company.office_locations.length > 3 && (
+                          <Badge variant="outline">+{company.office_locations.length - 3} more</Badge>
+                      )}
+                    </div>
+                  </TableCell>
                 </TableRow>
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={6} className="h-24 text-center">
+                <TableCell colSpan={7} className="h-24 text-center">
                   No results found. Try adjusting your filters.
                 </TableCell>
               </TableRow>
