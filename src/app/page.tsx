@@ -117,7 +117,7 @@ export default function Home() {
       </Sidebar>
       <SidebarInset>
         <div className="flex h-svh flex-col">
-          <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background/95 px-4 backdrop-blur-sm sm:h-16 md:px-6">
+          <header className="relative flex h-14 items-center gap-4 border-b bg-background/95 px-4 backdrop-blur-sm sm:h-16 md:px-6">
             <AppSidebarTrigger />
             <h1 className="text-lg font-semibold md:text-xl">TechStack Explorer</h1>
           </header>
