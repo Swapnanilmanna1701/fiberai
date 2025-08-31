@@ -73,16 +73,19 @@ export default function Home() {
         const excluded = techFilters.filter(t => t.condition === 'NOT').map(t => t.value);
         const or = techFilters.filter(t => t.condition === 'OR').map(t => t.value);
 
+        // Handle NOT conditions first
         if (excluded.some(tech => company.technologies.includes(tech))) {
           return false;
         }
 
+        // Handle AND conditions
         if (!included.every(tech => company.technologies.includes(tech))) {
           return false;
         }
         
+        // Handle OR conditions
         if (or.length > 0 && !or.some(tech => company.technologies.includes(tech))) {
-          if (included.length === 0) return false;
+           return false;
         }
       }
 
