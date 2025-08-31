@@ -9,7 +9,7 @@
  */
 
 import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+import {z} from 'zod';
 
 const SuggestFiltersInputSchema = z.object({
   initialInput: z
@@ -20,6 +20,7 @@ const SuggestFiltersInputSchema = z.object({
   availableTechnologies: z.array(z.string()).describe('List of available technologies for filtering.'),
   availableCountries: z.array(z.string()).describe('List of available countries for filtering.'),
   availableIndustries: z.array(z.string()).describe('List of available industries for filtering.'),
+  availableOfficeLocations: z.array(z.string()).describe('List of available office locations for filtering.'),
 });
 export type SuggestFiltersInput = z.infer<typeof SuggestFiltersInputSchema>;
 
@@ -33,6 +34,9 @@ const SuggestFiltersOutputSchema = z.object({
   suggestedIndustries: z
     .array(z.string())
     .describe('Suggested industries based on the initial input.'),
+  suggestedOfficeLocations: z
+    .array(z.string())
+    .describe('Suggested office locations based on the initial input.'),
 });
 export type SuggestFiltersOutput = z.infer<typeof SuggestFiltersOutputSchema>;
 
@@ -51,13 +55,15 @@ Initial Input: {{{initialInput}}}
 Available Technologies: {{#each availableTechnologies}}{{{this}}}{{#unless @last}}, {{/unless}}{{/each}}
 Available Countries: {{#each availableCountries}}{{{this}}}{{#unless @last}}, {{/unless}}{{/each}}
 Available Industries: {{#each availableIndustries}}{{{this}}}{{#unless @last}}, {{/unless}}{{/each}}
+Available Office Locations: {{#each availableOfficeLocations}}{{{this}}}{{#unless @last}}, {{/unless}}{{/each}}
 
-Consider the initial input and provide suggestions for technologies, countries, and industries that would be most helpful for the user to find the companies they are looking for. Only provide suggestions that are present in the list of available options.
+Consider the initial input and provide suggestions for technologies, countries, industries, and office locations that would be most helpful for the user to find the companies they are looking for. Only provide suggestions that are present in the list of available options.
 
 Format your response as a JSON object with the following keys:
 - suggestedTechnologies: An array of suggested technologies.
 - suggestedCountries: An array of suggested countries.
-- suggestedIndustries: An array of suggested industries.`,
+- suggestedIndustries: An array of suggested industries.
+- suggestedOfficeLocations: An array of suggested office locations.`,
 });
 
 const suggestFiltersFlow = ai.defineFlow(

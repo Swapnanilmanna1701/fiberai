@@ -15,7 +15,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { allTechnologies, allIndustries, allCountries } from '@/lib/data';
+import { allTechnologies, allIndustries, allCountries, allOfficeLocations } from '@/lib/data';
 import { cn } from '@/lib/utils';
 import { Check, ChevronsUpDown, PlusCircle, Sparkles, Trash2, Wand2, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -31,6 +31,7 @@ export const FiltersSchema = z.object({
   search: z.string().optional(),
   industries: z.array(z.string()),
   countries: z.array(z.string()),
+  officeLocations: z.array(z.string()),
   technologies: z.array(technologySchema),
   techCount: z.tuple([z.number(), z.number()]),
 });
@@ -43,6 +44,7 @@ type SearchSidebarProps = {
 const techOptions = allTechnologies.map(t => ({ label: t, value: t }));
 const industryOptions = allIndustries.map(i => ({ label: i, value: i }));
 const countryOptions = allCountries.map(c => ({ label: c, value: c }));
+const officeLocationOptions = allOfficeLocations.map(l => ({label: l, value: l}));
 
 export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
   const { toast } = useToast();
@@ -55,6 +57,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
       search: '',
       industries: [],
       countries: [],
+      officeLocations: [],
       technologies: [],
       techCount: [0, 50],
     },
@@ -92,10 +95,12 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
         availableTechnologies: allTechnologies,
         availableCountries: allCountries,
         availableIndustries: allIndustries,
+        availableOfficeLocations: allOfficeLocations,
       });
       
       form.setValue('industries', suggestions.suggestedIndustries || []);
       form.setValue('countries', suggestions.suggestedCountries || []);
+      form.setValue('officeLocations', suggestions.suggestedOfficeLocations || []);
       
       const currentTechs = form.getValues('technologies');
       const newTechs = (suggestions.suggestedTechnologies || [])
@@ -141,6 +146,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
         availableTechnologies: allTechnologies,
         availableCountries: allCountries,
         availableIndustries: allIndustries,
+        availableOfficeLocations: allOfficeLocations,
       });
 
       // Reset previous filters but apply new ones
@@ -150,6 +156,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
       form.setValue('search', filters.search || searchInput);
       form.setValue('industries', filters.industries || []);
       form.setValue('countries', filters.countries || []);
+      form.setValue('officeLocations', filters.officeLocations || []);
       replace(filters.technologies || []);
       form.setValue('techCount', filters.techCount || [0, 50]);
 
@@ -274,6 +281,21 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
                             selected={field.value}
                             onChange={field.onChange}
                             placeholder="Select countries..."
+                           />
+                        )}
+                        />
+                  </div>
+                   <div className="space-y-2">
+                    <Label>Office Location</Label>
+                     <Controller
+                        control={form.control}
+                        name="officeLocations"
+                        render={({ field }) => (
+                           <MultiSelectPopover
+                            options={officeLocationOptions}
+                            selected={field.value}
+                            onChange={field.onChange}
+                            placeholder="Select office locations..."
                            />
                         )}
                         />

@@ -40,6 +40,11 @@ export default function Home() {
         return false;
       }
 
+      // Office Location filter
+      if (filters.officeLocations.length > 0 && !filters.officeLocations.some(loc => company.office_locations.includes(loc))) {
+        return false;
+      }
+
       // Technology count filter
       if (company.technologies.length < filters.techCount[0] || company.technologies.length > filters.techCount[1]) {
         return false;

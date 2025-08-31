@@ -236,3 +236,4 @@ export const companies: Company[] = [
 export const allTechnologies = [...new Set(companies.flatMap(c => c.technologies))].sort();
 export const allIndustries = [...new Set(companies.map(c => c.industry))].sort();
 export const allCountries = [...new Set(companies.map(c => c.hq_country))].sort();
+export const allOfficeLocations = [...new Set(companies.flatMap(c => c.office_locations))].sort();

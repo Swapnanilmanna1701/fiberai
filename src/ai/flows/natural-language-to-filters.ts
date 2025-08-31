@@ -21,6 +21,7 @@ const NaturalLanguageToFiltersInputSchema = z.object({
     availableTechnologies: z.array(z.string()).describe('List of available technologies for filtering.'),
     availableCountries: z.array(z.string()).describe('List of available countries for filtering.'),
     availableIndustries: z.array(z.string()).describe('List of available industries for filtering.'),
+    availableOfficeLocations: z.array(z.string()).describe('List of available office locations for filtering.'),
 });
 export type NaturalLanguageToFiltersInput = z.infer<typeof NaturalLanguageToFiltersInputSchema>;
 
@@ -29,6 +30,7 @@ const NaturalLanguageToFiltersOutputSchema = z.object({
   search: z.string().optional().describe('General search term.'),
   industries: z.array(z.string()).describe('Selected industries.'),
   countries: z.array(z.string()).describe('Selected countries.'),
+  officeLocations: z.array(z.string()).describe('Selected office locations.'),
   technologies: z.array(technologySchema).describe('Selected technologies with conditions.'),
   techCount: z.tuple([z.number(), z.number()]).describe('A range for the number of technologies (min, max).'),
 });
@@ -52,9 +54,10 @@ Available Filter Options:
 - Industries: {{#each availableIndustries}}{{{this}}}{{#unless @last}}, {{/unless}}{{/each}}
 - Countries: {{#each availableCountries}}{{{this}}}{{#unless @last}}, {{/unless}}{{/each}}
 - Technologies: {{#each availableTechnologies}}{{{this}}}{{#unless @last}}, {{/unless}}{{/each}}
+- Office Locations: {{#each availableOfficeLocations}}{{{this}}}{{#unless @last}}, {{/unless}}{{/each}}
 
 Your Task:
-1.  **Extract Filters**: Identify industries, countries, and technologies mentioned in the query. Only use values present in the "Available Filter Options".
+1.  **Extract Filters**: Identify industries, countries, office locations, and technologies mentioned in the query. Only use values present in the "Available Filter Options".
 2.  **Determine Technology Logic**:
     - If the user wants companies that use multiple specific technologies, use the "AND" condition. (e.g., "React and Node.js").
     - If the user wants companies that use any of a list of technologies, use the "OR" condition. (e.g., "React or Angular").
@@ -70,12 +73,13 @@ Your Task:
 5.  **Construct JSON Output**: Return a JSON object matching the required output schema.
 
 Example:
-Query: "Show me tech companies in the USA using React but not Java, with at least 5 technologies"
+Query: "Show me tech companies in the USA with an office in New York, using React but not Java, with at least 5 technologies"
 Output:
 {
   "search": "",
   "industries": ["Technology"],
   "countries": ["USA"],
+  "officeLocations": ["New York"],
   "technologies": [
     { "value": "React", "condition": "AND" },
     { "value": "Java", "condition": "NOT" }
