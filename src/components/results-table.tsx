@@ -12,7 +12,6 @@ import {
 import {
   Card,
   CardContent,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
@@ -97,7 +96,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
     return (
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold">Search Results ({data.length})</h2>
+          <h2 className="text-xl font-bold">Search Results ({data.length})</h2>
           <Button onClick={handleExport} disabled={data.length === 0} size="sm">
             <Download className="mr-2 h-4 w-4" />
             Export
@@ -169,7 +168,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold">Search Results</h2>
+        <h2 className="text-2xl font-bold">Search Results ({data.length})</h2>
         <Button onClick={handleExport} disabled={data.length === 0}>
           <Download className="mr-2 h-4 w-4" />
           Export CSV

@@ -1,14 +1,13 @@
 'use client';
 
 import type { z } from 'zod';
-import React, { useState, useEffect, useMemo } from 'react';
-import { SidebarProvider, Sidebar, SidebarInset, SidebarTrigger, SidebarContent, SidebarHeader, SidebarFooter } from '@/components/ui/sidebar';
+import React, { useState, useEffect } from 'react';
+import { SidebarProvider, Sidebar, SidebarInset, useSidebar, SidebarContent } from '@/components/ui/sidebar';
 import { SearchSidebar, type FiltersSchema } from '@/components/search-sidebar';
 import { ResultsTable } from '@/components/results-table';
 import { companies, type Company } from '@/lib/data';
 import { Button } from '@/components/ui/button';
-import { PanelLeft, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
-import { useSidebar } from '@/components/ui/sidebar';
+import { PanelLeft } from 'lucide-react';
 
 export default function Home() {
   const [results, setResults] = useState<Company[]>(companies);
@@ -92,8 +91,8 @@ export default function Home() {
         </SidebarContent>
       </Sidebar>
       <SidebarInset>
-        <div className="flex h-full flex-col">
-          <header className="flex h-14 items-center gap-4 border-b bg-background/95 px-4 backdrop-blur-sm sm:h-16 md:px-6 sticky top-0 z-30">
+        <div className="flex h-full min-h-svh flex-col">
+          <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background/95 px-4 backdrop-blur-sm sm:h-16 md:px-6">
             <AppSidebarTrigger />
             <h1 className="text-lg font-semibold md:text-xl">TechStack Explorer</h1>
           </header>
