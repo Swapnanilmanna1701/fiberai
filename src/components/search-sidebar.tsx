@@ -1,6 +1,8 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useClickAway } from 'react-use';
 import { useForm, useFieldArray, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -33,6 +35,7 @@ export const FiltersSchema = z.object({
   officeLocations: z.array(z.string()),
   technologies: z.array(technologySchema),
   techCount: z.tuple([z.number(), z.number()]),
+  revenue: z.tuple([z.number(), z.number()]),
 });
 
 type SearchSidebarProps = {
@@ -59,6 +62,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
       officeLocations: [],
       technologies: [],
       techCount: [0, 50],
+      revenue: [0, 600000],
     },
   });
 
@@ -176,6 +180,13 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
     }
   };
 
+  const formatRevenueLabel = (value: number) => {
+    if (value >= 1000) {
+      return `$${(value / 1000).toFixed(1)}B`;
+    }
+    return `$${value}M`;
+  };
+  
   return (
     <div className="flex h-full flex-col">
        <div className="flex h-16 items-center gap-2 border-b px-4">
@@ -289,6 +300,27 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
                       )}
                     />
                   </div>
+                  <div className="space-y-2 pt-2">
+                     <Controller
+                      control={form.control}
+                      name="revenue"
+                      render={({ field }) => (
+                        <>
+                          <div className="flex justify-between text-sm">
+                            <Label>Revenue (USD Millions)</Label>
+                            <span>{formatRevenueLabel(field.value[0])} - {formatRevenueLabel(field.value[1])}</span>
+                          </div>
+                          <Slider
+                            min={0}
+                            max={600000} // Up to 600B
+                            step={100}
+                            value={field.value}
+                            onValueChange={field.onChange}
+                          />
+                        </>
+                      )}
+                    />
+                  </div>
                 </AccordionContent>
               </AccordionItem>
              </Accordion>
@@ -321,7 +353,14 @@ function MultiSelectPopover({
   className?: string;
 }) {
   const [open, setOpen] = React.useState(false);
+  const popoverRef = React.useRef<HTMLDivElement>(null);
 
+  useClickAway(popoverRef, () => {
+    if (open) {
+      setOpen(false);
+    }
+  });
+  
   const handleSelect = (selectedValue: string) => {
     const newSelected = selected.includes(selectedValue)
       ? selected.filter((s) => s !== selectedValue)
@@ -344,7 +383,8 @@ function MultiSelectPopover({
             variant="secondary"
             className="cursor-pointer hover:bg-muted"
             onClick={(e) => {
-              e.stopPropagation(); // prevent popover from opening
+              e.stopPropagation();
+              e.preventDefault();
               handleSelect(item.value);
             }}
           >
@@ -367,7 +407,7 @@ function MultiSelectPopover({
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[--radix-popover-trigger-width] p-0" align="start">
+      <PopoverContent ref={popoverRef} className="w-[--radix-popover-trigger-width] p-0" align="start">
         <Command>
           <CommandInput placeholder="Search..." />
           <CommandList>
@@ -375,22 +415,25 @@ function MultiSelectPopover({
           <CommandGroup>
             <ScrollArea className="h-64">
               {selected.length > 0 && (
-                <CommandItem onSelect={() => onChange([])} className="text-red-500 hover:!text-red-500">
+                <div
+                    className="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none text-red-500 hover:!text-red-500"
+                    onClick={() => onChange([])}
+                >
                     <X className="mr-2 h-4 w-4" />
                     Clear selection
-                </CommandItem>
+                </div>
               )}
               {options.map((option) => {
                 const isSelected = selected.includes(option.value);
                 return (
-                  <CommandItem
+                  <div
                     key={option.value}
-                    value={option.value}
-                    onSelect={() => handleSelect(option.value)}
+                    className="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                    onClick={() => handleSelect(option.value)}
                   >
                     <Check className={cn("mr-2 h-4 w-4", isSelected ? "opacity-100" : "opacity-0")} />
                     {option.label}
-                  </CommandItem>
+                  </div>
                 );
               })}
             </ScrollArea>
@@ -417,7 +460,14 @@ function TechnologyMultiSelect({
   className?: string;
 }) {
   const [open, setOpen] = React.useState(false);
+  const popoverRef = React.useRef<HTMLDivElement>(null);
 
+  useClickAway(popoverRef, () => {
+    if (open) {
+      setOpen(false);
+    }
+  });
+  
   const handleSelect = (selectedValue: string) => {
     const existing = selected.find(s => s.value === selectedValue);
     if (existing) {
@@ -441,7 +491,8 @@ function TechnologyMultiSelect({
             variant="secondary"
             className="cursor-pointer hover:bg-muted"
             onClick={(e) => {
-              e.stopPropagation(); // prevent popover from opening
+              e.stopPropagation();
+              e.preventDefault();
               handleSelect(s.value);
             }}
           >
@@ -464,7 +515,7 @@ function TechnologyMultiSelect({
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[--radix-popover-trigger-width] p-0" align="start">
+      <PopoverContent ref={popoverRef} className="w-[--radix-popover-trigger-width] p-0" align="start">
         <Command>
           <CommandInput placeholder="Search technologies..." />
           <CommandList>
@@ -472,10 +523,13 @@ function TechnologyMultiSelect({
             <CommandGroup>
               <ScrollArea className="h-64">
                 {selected.length > 0 && (
-                  <CommandItem onSelect={() => onChange([])} className="text-red-500 hover:!text-red-500">
-                    <X className="mr-2 h-4 w-4" />
-                    Clear selection
-                  </CommandItem>
+                   <div
+                    className="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none text-red-500 hover:!text-red-500"
+                    onClick={() => onChange([])}
+                    >
+                        <X className="mr-2 h-4 w-4" />
+                        Clear selection
+                    </div>
                 )}
                 {options.map((option) => {
                   const selection = selected.find(s => s.value === option.value);
@@ -483,8 +537,8 @@ function TechnologyMultiSelect({
                   return (
                     <div
                       key={option.value}
-                      className="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
-                      onClick={() => handleSelect(option.value)}
+                      className="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                       onClick={(e) => { e.preventDefault(); handleSelect(option.value); }}
                     >
                       <Check className={cn("mr-2 h-4 w-4", isSelected ? "opacity-100" : "opacity-0")} />
                       <span className="flex-1">{option.label}</span>

@@ -3160,6 +3160,61 @@ export const companies: Company[] = [
       technologies: ["Java", "Python", "PostgreSQL", "IoT"],
       office_locations: ["Freetown", "Bo", "Makeni", "Kenema"]
     },
+    {
+      "id": 287,
+      "name": "Tata Consultancy Services",
+      "domain": "tcs.com",
+      "industry": "IT Services",
+      "hq_country": "India",
+      "revenue": 27000000000,
+      "employees": 600000,
+      "technologies": ["Java", "Python", "AWS", "Azure", "SAP"],
+      "office_locations": ["Mumbai", "Bangalore", "New York", "London"]
+    },
+    {
+      "id": 288,
+      "name": "Infosys",
+      "domain": "infosys.com",
+      "industry": "IT Services",
+      "hq_country": "India",
+      "revenue": 18000000000,
+      "employees": 350000,
+      "technologies": ["Java", "Spring", "React", "Oracle", "AWS"],
+      "office_locations": ["Bangalore", "Pune", "New York", "Toronto"]
+    },
+    {
+      "id": 289,
+      "name": "Wipro",
+      "domain": "wipro.com",
+      "industry": "IT Services",
+      "hq_country": "India",
+      "revenue": 11000000000,
+      "employees": 250000,
+      "technologies": [".NET", "Java", "SAP", "AWS", "Azure"],
+      "office_locations": ["Bangalore", "Hyderabad", "London", "New Jersey"]
+    },
+    {
+      "id": 290,
+      "name": "Google",
+      "domain": "google.com",
+      "industry": "Technology",
+      "hq_country": "USA",
+      "revenue": 280000000000,
+      "employees": 190000,
+      "technologies": ["Python", "Go", "TensorFlow", "Kubernetes", "BigQuery"],
+      "office_locations": ["Mountain View", "New York", "Bangalore", "London"]
+    },
+    {
+      "id": 291,
+      "name": "Amazon",
+      "domain": "amazon.com",
+      "industry": "E-commerce",
+      "hq_country": "USA",
+      "revenue": 514000000000,
+      "employees": 1600000,
+      "technologies": ["AWS", "React", "Java", "DynamoDB", "Lambda"],
+      "office_locations": ["Seattle", "New York", "Hyderabad", "London"]
+    }
     
 ];
 

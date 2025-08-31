@@ -47,6 +47,11 @@ export default function Home() {
         return false;
       }
 
+      // Revenue filter (in millions)
+      if (company.revenue / 1_000_000 < filters.revenue[0] || company.revenue / 1_000_000 > filters.revenue[1]) {
+        return false;
+      }
+      
       // Technology count filter
       if (company.technologies.length < filters.techCount[0] || company.technologies.length > filters.techCount[1]) {
         return false;
