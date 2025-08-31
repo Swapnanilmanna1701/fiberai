@@ -142,6 +142,94 @@ export const companies: Company[] = [
     employees: 150,
     technologies: ["Google Analytics", "Facebook Ads", "Wordpress"],
     office_locations: ["Perth"]
+  },
+  {
+    id: 13,
+    name: "DataDriven Inc.",
+    domain: "datadriven.com",
+    industry: "Technology",
+    hq_country: "USA",
+    revenue: 180000000,
+    employees: 2000,
+    technologies: ["Python", "Spark", "Hadoop", "Tableau", "AWS"],
+    office_locations: ["Palo Alto", "Boston"]
+  },
+  {
+    id: 14,
+    name: "BioGenCorp",
+    domain: "biogencorp.com",
+    industry: "Biotechnology",
+    hq_country: "USA",
+    revenue: 450000000,
+    employees: 5000,
+    technologies: ["Python", "R", "Next-Generation Sequencing", "CRISPR"],
+    office_locations: ["Cambridge", "San Diego"]
+  },
+  {
+    id: 15,
+    name: "RoboLogistics",
+    domain: "robologistics.com",
+    industry: "Logistics",
+    hq_country: "Germany",
+    revenue: 95000000,
+    employees: 1200,
+    technologies: ["C++", "ROS", "Python", "AWS"],
+    office_locations: ["Stuttgart", "Dresden"]
+  },
+  {
+    id: 16,
+    name: "QuantumLeap",
+    domain: "quantumleap.ai",
+    industry: "Technology",
+    hq_country: "Canada",
+    revenue: 60000000,
+    employees: 400,
+    technologies: ["Python", "Qiskit", "Google Cloud", "TensorFlow"],
+    office_locations: ["Waterloo", "Montreal"]
+  },
+  {
+    id: 17,
+    name: "EduVerse",
+    domain: "eduverse.com",
+    industry: "Education",
+    hq_country: "UK",
+    revenue: 35000000,
+    employees: 500,
+    technologies: ["React", "Node.js", "MongoDB", "WebRTC"],
+    office_locations: ["London", "Bristol"]
+  },
+  {
+    id: 18,
+    name: "AgriTech Global",
+    domain: "agritech.global",
+    industry: "Agriculture",
+    hq_country: "Netherlands",
+    revenue: 80000000,
+    employees: 900,
+    technologies: ["IoT", "Python", "Azure", "React Native"],
+    office_locations: ["Wageningen", "Eindhoven"]
+  },
+  {
+    id: 19,
+    name: "MediaStream",
+    domain: "mediastream.com",
+    industry: "Media",
+    hq_country: "USA",
+    revenue: 220000000,
+    employees: 2500,
+    technologies: ["React", "Node.js", "AWS", "FFmpeg", "Stripe"],
+    office_locations: ["Los Angeles", "New York"]
+  },
+  {
+    id: 20,
+    name: "SpaceQuest",
+    domain: "spacequest.com",
+    industry: "Aerospace",
+    hq_country: "USA",
+    revenue: 1000000000,
+    employees: 10000,
+    technologies: ["C++", "Python", "MATLAB", "Simulink", "FPGA"],
+    office_locations: ["Hawthorne", "Cape Canaveral"]
   }
 ];
 
