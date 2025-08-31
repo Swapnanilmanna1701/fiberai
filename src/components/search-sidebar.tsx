@@ -275,25 +275,38 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
                         />
                   </div>
                   <div className="space-y-2 pt-2">
-                    <Controller
-                      control={form.control}
-                      name="techCount"
-                      render={({ field }) => (
-                        <>
-                          <div className="flex justify-between text-sm">
-                            <Label>Tech Stack Size</Label>
-                            <span>{field.value[0]} - {field.value[1] === 50 ? '50+' : field.value[1]}</span>
-                          </div>
-                          <Slider
-                            min={0}
-                            max={50}
-                            step={1}
-                            value={[field.value[0], field.value[1]]}
-                            onValueChange={(value) => field.onChange([value[0], value[1]])}
-                          />
-                        </>
-                      )}
-                    />
+                    <Label>Tech Stack Size</Label>
+                    <div className="flex items-center gap-2">
+                      <Controller
+                          control={form.control}
+                          name="techCount.0"
+                          render={({ field }) => (
+                              <Input
+                                  type="number"
+                                  placeholder="Min"
+                                  className="w-full"
+                                  {...field}
+                                  value={field.value ?? ''}
+                                  onChange={e => field.onChange(e.target.value === '' ? 0 : Number(e.target.value))}
+                              />
+                          )}
+                      />
+                      <span>-</span>
+                      <Controller
+                          control={form.control}
+                          name="techCount.1"
+                           render={({ field }) => (
+                              <Input
+                                  type="number"
+                                  placeholder="Max"
+                                  className="w-full"
+                                  {...field}
+                                  value={field.value === 50 ? '' : (field.value ?? '')}
+                                  onChange={e => field.onChange(e.target.value === '' ? 50 : Number(e.target.value))}
+                              />
+                          )}
+                      />
+                    </div>
                   </div>
                   <div className="space-y-2 pt-2">
                     <Label>Revenue (USD Millions)</Label>
