@@ -1,3 +1,4 @@
+
 'use client';
 
 import type { z } from 'zod';
@@ -8,10 +9,12 @@ import { ResultsTable } from '@/components/results-table';
 import { companies, type Company } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { PanelLeft } from 'lucide-react';
+import { Input } from '@/components/ui/input';
 
 export default function Home() {
   const [results, setResults] = useState<Company[]>(companies);
   const [isMounted, setIsMounted] = useState(false);
+  const [mainSearchTerm, setMainSearchTerm] = useState('');
 
   useEffect(() => {
     setIsMounted(true);
@@ -78,6 +81,14 @@ export default function Home() {
   const handleReset = () => {
     setResults(companies);
   };
+  
+  const displayedResults = mainSearchTerm
+    ? results.filter(company =>
+        company.name.toLowerCase().includes(mainSearchTerm.toLowerCase()) ||
+        company.domain.toLowerCase().includes(mainSearchTerm.toLowerCase())
+      )
+    : results;
+
 
   if (!isMounted) {
     return null; // or a loading skeleton
@@ -97,7 +108,15 @@ export default function Home() {
             <h1 className="text-lg font-semibold md:text-xl">TechStack Explorer</h1>
           </header>
           <main className="flex-1 overflow-auto p-4 sm:p-6">
-            <ResultsTable data={results} />
+            <div className="mb-4">
+               <Input 
+                  placeholder="Search by company name or domain from the current results..."
+                  value={mainSearchTerm}
+                  onChange={(e) => setMainSearchTerm(e.target.value)}
+                  className="max-w-sm"
+                />
+            </div>
+            <ResultsTable data={displayedResults} />
           </main>
         </div>
       </SidebarInset>
