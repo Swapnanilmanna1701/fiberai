@@ -20,7 +20,7 @@ import { cn } from '@/lib/utils';
 import { Check, ChevronsUpDown, PlusCircle, Sparkles, Trash2, Wand2, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Logo } from './icons';
-import { Separator } from './ui/separator';
+import { Badge } from '@/components/ui/badge';
 
 const technologySchema = z.object({
   value: z.string().min(1, 'Please select a technology'),
@@ -316,48 +316,6 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
   );
 }
 
-// MultiSelect for single value (tech filter)
-function TechnologySelect({ options, value, onChange, placeholder }: { options: {value: string, label: string}[], value: string, onChange: (value:string) => void, placeholder: string}) {
-  const [open, setOpen] = React.useState(false);
-  const selected = options.find(opt => opt.value === value);
-
-  return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button variant="outline" className="w-full justify-between">
-          {selected?.label || placeholder}
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
-        <Command>
-          <CommandInput placeholder="Search..." />
-          <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <ScrollArea className="h-64">
-          <CommandGroup>
-            {options.map((option) => (
-              <CommandItem
-                key={option.value}
-                value={option.value}
-                onSelect={(currentValue) => {
-                  onChange(currentValue === value ? "" : currentValue);
-                  setOpen(false);
-                }}
-              >
-                <Check className={cn("mr-2 h-4 w-4", value === option.value ? "opacity-100" : "opacity-0")} />
-                {option.label}
-              </CommandItem>
-            ))}
-          </CommandGroup>
-          </ScrollArea>
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
-  );
-}
-
 // MultiSelect for multiple values (industry, country)
 function MultiSelectPopover({
   options,
@@ -385,15 +343,19 @@ function MultiSelectPopover({
       onChange(newSelected);
     } else {
       onChange(selectedValue === value ? '' : selectedValue);
+      setOpen(false);
     }
-    setOpen(false);
   };
   
   const getDisplayValue = () => {
     if (isMulti) {
       if (selected.length === 0) return placeholder;
-      if (selected.length === 1) return options.find(opt => opt.value === selected[0])?.label;
-      return `${selected.length} selected`;
+      const selectedLabels = selected.map(s => options.find(o => o.value === s)?.label).filter(Boolean);
+      return (
+        <div className="flex flex-wrap items-center gap-1">
+          {selectedLabels.map(label => <Badge key={label} variant="secondary">{label}</Badge>)}
+        </div>
+      )
     }
     return options.find(opt => opt.value === value)?.label || placeholder;
   };
@@ -403,9 +365,9 @@ function MultiSelectPopover({
       <PopoverTrigger asChild>
         <Button
           variant="outline"
-          className={cn("w-full justify-between font-normal", className)}
+          className={cn("w-full justify-between font-normal min-h-10 h-auto", className)}
         >
-          <span className="truncate">{getDisplayValue()}</span>
+          <span className="truncate flex-1 text-left">{getDisplayValue()}</span>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -416,6 +378,12 @@ function MultiSelectPopover({
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup>
             <ScrollArea className="h-64">
+              {isMulti && selected.length > 0 && (
+                <CommandItem onSelect={() => onChange([])} className="text-red-500 hover:!text-red-500">
+                    <X className="mr-2 h-4 w-4" />
+                    Clear selection
+                </CommandItem>
+              )}
               {options.map((option) => {
                 const isSelected = isMulti ? selected.includes(option.value) : value === option.value;
                 return (
