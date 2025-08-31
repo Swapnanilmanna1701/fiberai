@@ -94,7 +94,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
   }
 
   const SortableHeader = ({ sortKey: key, children, className }: { sortKey: SortKey, children: React.ReactNode, className?: string }) => (
-    <TableHead className={cn('sticky top-0 z-10 bg-background/95 backdrop-blur-sm', className)}>
+    <TableHead className={cn('sticky top-0 z-10 bg-card', className)}>
       <Button variant="ghost" onClick={() => handleSort(key)}>
         {children}
         <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -190,7 +190,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
       </div>
       <div className="rounded-lg border flex-grow overflow-auto">
         <Table>
-          <TableHeader>
+          <TableHeader className="sticky top-0 bg-card z-10">
             <TableRow>
               <SortableHeader sortKey="name">Company</SortableHeader>
               <SortableHeader sortKey="industry">Industry</SortableHeader>
@@ -198,8 +198,8 @@ export function ResultsTable({ data }: { data: Company[] }) {
               <SortableHeader sortKey="revenue">Revenue</SortableHeader>
               <SortableHeader sortKey="employees">Employees</SortableHeader>
               <SortableHeader sortKey="tech_count">Tech Count</SortableHeader>
-              <TableHead className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm">Technologies</TableHead>
-              <TableHead className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm">Office Locations</TableHead>
+              <TableHead className="sticky top-0 z-10 bg-card">Technologies</TableHead>
+              <TableHead className="sticky top-0 z-10 bg-card">Office Locations</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
