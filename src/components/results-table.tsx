@@ -9,11 +9,19 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowUpDown, Download, ExternalLink } from 'lucide-react';
 import { exportToCsv } from '@/lib/utils';
 import type { Company } from '@/lib/data';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 type SortKey = keyof Company | '';
 type SortDirection = 'asc' | 'desc';
@@ -21,6 +29,7 @@ type SortDirection = 'asc' | 'desc';
 export function ResultsTable({ data }: { data: Company[] }) {
   const [sortKey, setSortKey] = useState<SortKey>('');
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
+  const isMobile = useIsMobile();
 
   const sortedData = useMemo(() => {
     if (!sortKey) return data;
@@ -75,14 +84,87 @@ export function ResultsTable({ data }: { data: Company[] }) {
     return `$${value}`;
   }
 
-  const SortableHeader = ({ sortKey: key, children }: { sortKey: SortKey, children: React.ReactNode }) => (
-    <TableHead>
+  const SortableHeader = ({ sortKey: key, children, className }: { sortKey: SortKey, children: React.ReactNode, className?: string }) => (
+    <TableHead className={className}>
       <Button variant="ghost" onClick={() => handleSort(key)}>
         {children}
         <ArrowUpDown className="ml-2 h-4 w-4" />
       </Button>
     </TableHead>
   );
+  
+  if (isMobile) {
+    return (
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-2xl font-bold">Search Results ({data.length})</h2>
+          <Button onClick={handleExport} disabled={data.length === 0} size="sm">
+            <Download className="mr-2 h-4 w-4" />
+            Export
+          </Button>
+        </div>
+        {sortedData.length > 0 ? (
+          <div className="grid gap-4">
+            {sortedData.map((company) => (
+              <Card key={company.id}>
+                <CardHeader>
+                  <CardTitle>
+                    <div className="flex items-center gap-2">
+                       <a href={`https://${company.domain}`} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                          {company.name}
+                       </a>
+                       <a href={`https://${company.domain}`} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">
+                        <ExternalLink className="h-4 w-4" />
+                       </a>
+                    </div>
+                  </CardTitle>
+                  <p className="text-sm text-muted-foreground">{company.domain}</p>
+                </CardHeader>
+                <CardContent className="grid gap-4">
+                  <div className="flex justify-between">
+                    <div className="text-sm text-muted-foreground">Industry</div>
+                    <div className="font-medium">{company.industry}</div>
+                  </div>
+                  <div className="flex justify-between">
+                    <div className="text-sm text-muted-foreground">HQ</div>
+                    <div className="font-medium">{company.hq_country}</div>
+                  </div>
+                  <div className="flex justify-between">
+                    <div className="text-sm text-muted-foreground">Revenue</div>
+                    <div className="font-medium">{formatRevenue(company.revenue)}</div>
+                  </div>
+                   <div className="flex justify-between">
+                    <div className="text-sm text-muted-foreground">Employees</div>
+                    <div className="font-medium">{company.employees.toLocaleString()}</div>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium mb-2">Technologies</h4>
+                    <div className="flex flex-wrap gap-1">
+                      {company.technologies.map((tech) => (
+                        <Badge key={tech} variant="secondary">{tech}</Badge>
+                      ))}
+                    </div>
+                  </div>
+                   <div>
+                    <h4 className="text-sm font-medium mb-2">Office Locations</h4>
+                    <div className="flex flex-wrap gap-1">
+                      {company.office_locations.map((location) => (
+                        <Badge key={location} variant="secondary">{location}</Badge>
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        ) : (
+           <div className="text-center py-12 text-muted-foreground">
+             No results found. Try adjusting your filters.
+           </div>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-4">

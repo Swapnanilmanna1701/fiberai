@@ -7,7 +7,7 @@ import { SearchSidebar, type FiltersSchema } from '@/components/search-sidebar';
 import { ResultsTable } from '@/components/results-table';
 import { companies, type Company } from '@/lib/data';
 import { Button } from '@/components/ui/button';
-import { PanelLeftClose, PanelLeftOpen } from 'lucide-react';
+import { PanelLeft, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
 import { useSidebar } from '@/components/ui/sidebar';
 
 export default function Home() {
@@ -107,11 +107,11 @@ export default function Home() {
 }
 
 function AppSidebarTrigger() {
-  const { open, toggleSidebar } = useSidebar();
+  const { toggleSidebar } = useSidebar();
   
   return (
     <Button variant="ghost" size="icon" className="md:hidden" onClick={toggleSidebar}>
-      <PanelLeftOpen />
+      <PanelLeft />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );
