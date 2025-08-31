@@ -35,7 +35,8 @@ export const FiltersSchema = z.object({
   officeLocations: z.array(z.string()),
   technologies: z.array(technologySchema),
   techCount: z.tuple([z.number(), z.number()]),
-  revenue: z.tuple([z.number(), z.number()]),
+  minRevenue: z.number().optional(),
+  maxRevenue: z.number().optional(),
 });
 
 type SearchSidebarProps = {
@@ -62,7 +63,8 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
       officeLocations: [],
       technologies: [],
       techCount: [0, 50],
-      revenue: [0, 600000],
+      minRevenue: undefined,
+      maxRevenue: undefined,
     },
   });
 
@@ -179,13 +181,6 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
       setIsParsing(false);
     }
   };
-
-  const formatRevenueLabel = (value: number) => {
-    if (value >= 1000) {
-      return `$${(value / 1000).toFixed(1)}B`;
-    }
-    return `$${value}M`;
-  };
   
   return (
     <div className="flex h-full flex-col">
@@ -301,25 +296,36 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
                     />
                   </div>
                   <div className="space-y-2 pt-2">
-                     <Controller
-                      control={form.control}
-                      name="revenue"
-                      render={({ field }) => (
-                        <>
-                          <div className="flex justify-between text-sm">
-                            <Label>Revenue (USD Millions)</Label>
-                            <span>{formatRevenueLabel(field.value[0])} - {formatRevenueLabel(field.value[1])}</span>
-                          </div>
-                          <Slider
-                            min={0}
-                            max={600000} // Up to 600B
-                            step={100}
-                            value={field.value}
-                            onValueChange={field.onChange}
-                          />
-                        </>
-                      )}
-                    />
+                    <Label>Revenue (USD Millions)</Label>
+                    <div className="flex items-center gap-2">
+                      <Controller
+                          control={form.control}
+                          name="minRevenue"
+                          render={({ field }) => (
+                              <Input
+                                  type="number"
+                                  placeholder="Min"
+                                  className="w-full"
+                                  {...field}
+                                  onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))}
+                              />
+                          )}
+                      />
+                      <span>-</span>
+                      <Controller
+                          control={form.control}
+                          name="maxRevenue"
+                          render={({ field }) => (
+                              <Input
+                                  type="number"
+                                  placeholder="Max"
+                                  className="w-full"
+                                  {...field}
+                                  onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))}
+                              />
+                          )}
+                      />
+                    </div>
                   </div>
                 </AccordionContent>
               </AccordionItem>

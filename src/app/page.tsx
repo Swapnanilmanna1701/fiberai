@@ -48,7 +48,11 @@ export default function Home() {
       }
 
       // Revenue filter (in millions)
-      if (company.revenue / 1_000_000 < filters.revenue[0] || company.revenue / 1_000_000 > filters.revenue[1]) {
+      const companyRevenueMillions = company.revenue / 1_000_000;
+      if (filters.minRevenue !== undefined && companyRevenueMillions < filters.minRevenue) {
+        return false;
+      }
+      if (filters.maxRevenue !== undefined && companyRevenueMillions > filters.maxRevenue) {
         return false;
       }
       
