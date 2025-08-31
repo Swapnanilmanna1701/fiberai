@@ -11,13 +11,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Slider } from '@/components/ui/slider';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { allTechnologies, allIndustries, allCountries, allOfficeLocations } from '@/lib/data';
 import { cn } from '@/lib/utils';
-import { Check, ChevronsUpDown, PlusCircle, Sparkles, Trash2, Wand2, X } from 'lucide-react';
+import { Check, ChevronsUpDown, Sparkles, Wand2, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Logo } from './icons';
 import { Badge } from '@/components/ui/badge';
@@ -63,7 +62,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
     },
   });
 
-  const { fields, append, remove, replace } = useFieldArray({
+  const { replace } = useFieldArray({
     control: form.control,
     name: 'technologies',
   });
@@ -108,7 +107,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
         .map(tech => ({ value: tech, condition: 'AND' as const }));
 
       if (newTechs.length > 0) {
-        append(newTechs);
+        form.setValue('technologies', [...currentTechs, ...newTechs]);
       }
       
       toast({
@@ -206,49 +205,18 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
               <AccordionItem value="technologies">
                 <AccordionTrigger className="text-base font-semibold">Technologies</AccordionTrigger>
                 <AccordionContent>
-                  <div className="space-y-3">
-                    {fields.map((field, index) => (
-                       <Controller
-                         key={field.id}
-                         control={form.control}
-                         name={`technologies.${index}`}
-                         render={({ field }) => (
-                           <div className="space-y-2 rounded-md border p-2">
-                             <div className="flex gap-2">
-                              <MultiSelectPopover
-                                options={techOptions}
-                                value={field.value.value}
-                                onChange={(value) => field.onChange({ ...field.value, value })}
-                                placeholder="Select technology..."
-                              />
-                               <Button variant="ghost" size="icon" onClick={() => remove(index)}><Trash2 className="h-4 w-4" /></Button>
-                             </div>
-                              <RadioGroup
-                                value={field.value.condition}
-                                onValueChange={(condition: 'AND' | 'OR' | 'NOT') => field.onChange({ ...field.value, condition })}
-                                className="flex gap-2"
-                              >
-                                <div className="flex items-center space-x-1">
-                                  <RadioGroupItem value="AND" id={`and-${index}`} />
-                                  <Label htmlFor={`and-${index}`} className="text-xs">AND</Label>
-                                </div>
-                                <div className="flex items-center space-x-1">
-                                  <RadioGroupItem value="OR" id={`or-${index}`} />
-                                  <Label htmlFor={`or-${index}`} className="text-xs">OR</Label>
-                                </div>
-                                <div className="flex items-center space-x-1">
-                                  <RadioGroupItem value="NOT" id={`not-${index}`} />
-                                  <Label htmlFor={`not-${index}`} className="text-xs">NOT</Label>
-                                </div>
-                              </RadioGroup>
-                           </div>
-                         )}
-                       />
-                    ))}
-                    <Button type="button" variant="outline" size="sm" onClick={() => append({ value: '', condition: 'AND' })}>
-                      <PlusCircle className="mr-2 h-4 w-4" /> Add Technology
-                    </Button>
-                  </div>
+                  <Controller
+                    control={form.control}
+                    name="technologies"
+                    render={({ field }) => (
+                      <TechnologyMultiSelect
+                        options={techOptions}
+                        selected={field.value}
+                        onChange={field.onChange}
+                        placeholder="Select technologies..."
+                      />
+                    )}
+                  />
                 </AccordionContent>
               </AccordionItem>
 
@@ -345,41 +313,30 @@ function MultiSelectPopover({
   onChange,
   placeholder,
   className,
-  value,
 }: {
   options: { label: string; value: string }[];
-  selected?: string[];
+  selected: string[];
   onChange: (selected: any) => void;
   placeholder: string;
   className?: string;
-  value?: string;
 }) {
   const [open, setOpen] = React.useState(false);
-  const isMulti = Array.isArray(selected);
 
   const handleSelect = (selectedValue: string) => {
-    if (isMulti) {
-      const newSelected = selected.includes(selectedValue)
-        ? selected.filter((s) => s !== selectedValue)
-        : [...selected, selectedValue];
-      onChange(newSelected);
-    } else {
-      onChange(selectedValue === value ? '' : selectedValue);
-      setOpen(false);
-    }
+    const newSelected = selected.includes(selectedValue)
+      ? selected.filter((s) => s !== selectedValue)
+      : [...selected, selectedValue];
+    onChange(newSelected);
   };
   
   const getDisplayValue = () => {
-    if (isMulti) {
-      if (selected.length === 0) return placeholder;
-      const selectedLabels = selected.map(s => options.find(o => o.value === s)?.label).filter(Boolean);
-      return (
-        <div className="flex flex-wrap items-center gap-1">
-          {selectedLabels.map(label => <Badge key={label} variant="secondary">{label}</Badge>)}
-        </div>
-      )
-    }
-    return options.find(opt => opt.value === value)?.label || placeholder;
+    if (selected.length === 0) return placeholder;
+    const selectedLabels = selected.map(s => options.find(o => o.value === s)?.label).filter(Boolean);
+    return (
+      <div className="flex flex-wrap items-center gap-1">
+        {selectedLabels.map(label => <Badge key={label} variant="secondary">{label}</Badge>)}
+      </div>
+    )
   };
 
   return (
@@ -400,14 +357,14 @@ function MultiSelectPopover({
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup>
             <ScrollArea className="h-64">
-              {isMulti && selected.length > 0 && (
+              {selected.length > 0 && (
                 <CommandItem onSelect={() => onChange([])} className="text-red-500 hover:!text-red-500">
                     <X className="mr-2 h-4 w-4" />
                     Clear selection
                 </CommandItem>
               )}
               {options.map((option) => {
-                const isSelected = isMulti ? selected.includes(option.value) : value === option.value;
+                const isSelected = selected.includes(option.value);
                 return (
                   <CommandItem
                     key={option.value}
@@ -421,6 +378,103 @@ function MultiSelectPopover({
               })}
             </ScrollArea>
           </CommandGroup>
+          </CommandList>
+        </Command>
+      </PopoverContent>
+    </Popover>
+  );
+}
+
+// MultiSelect for technologies with conditions
+function TechnologyMultiSelect({
+  options,
+  selected,
+  onChange,
+  placeholder,
+  className,
+}: {
+  options: { label: string; value: string }[];
+  selected: z.infer<typeof technologySchema>[];
+  onChange: (selected: z.infer<typeof technologySchema>[]) => void;
+  placeholder: string;
+  className?: string;
+}) {
+  const [open, setOpen] = React.useState(false);
+
+  const handleSelect = (selectedValue: string) => {
+    const existing = selected.find(s => s.value === selectedValue);
+    if (existing) {
+      onChange(selected.filter(s => s.value !== selectedValue));
+    } else {
+      onChange([...selected, { value: selectedValue, condition: 'AND' }]);
+    }
+  };
+
+  const handleConditionChange = (value: string, condition: 'AND' | 'OR' | 'NOT') => {
+    onChange(selected.map(s => s.value === value ? { ...s, condition } : s));
+  };
+
+  const getDisplayValue = () => {
+    if (selected.length === 0) return placeholder;
+    return (
+      <div className="flex flex-wrap items-center gap-1">
+        {selected.map(s => <Badge key={s.value} variant="secondary">{s.value}</Badge>)}
+      </div>
+    );
+  };
+
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          className={cn("w-full justify-between font-normal min-h-10 h-auto", className)}
+        >
+          <span className="truncate flex-1 text-left">{getDisplayValue()}</span>
+          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-[--radix-popover-trigger-width] p-0" align="start">
+        <Command>
+          <CommandInput placeholder="Search technologies..." />
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandGroup>
+              <ScrollArea className="h-64">
+                {selected.length > 0 && (
+                  <CommandItem onSelect={() => onChange([])} className="text-red-500 hover:!text-red-500">
+                    <X className="mr-2 h-4 w-4" />
+                    Clear selection
+                  </CommandItem>
+                )}
+                {options.map((option) => {
+                  const selection = selected.find(s => s.value === option.value);
+                  const isSelected = !!selection;
+                  return (
+                    <CommandItem
+                      key={option.value}
+                      value={option.value}
+                      onSelect={() => handleSelect(option.value)}
+                      className="flex flex-col items-start !p-0"
+                    >
+                      <div className="flex items-center w-full p-2">
+                        <Check className={cn("mr-2 h-4 w-4", isSelected ? "opacity-100" : "opacity-0")} />
+                        <span className="flex-1">{option.label}</span>
+                      </div>
+                      {isSelected && (
+                        <div className="w-full pl-8 pr-2 pb-2" onClick={(e) => e.stopPropagation()}>
+                          <div className='flex gap-2 text-xs'>
+                            <Button size="sm" variant={selection.condition === 'AND' ? 'secondary' : 'ghost'} className="h-6 px-2" onClick={() => handleConditionChange(option.value, 'AND')}>AND</Button>
+                            <Button size="sm" variant={selection.condition === 'OR' ? 'secondary' : 'ghost'} className="h-6 px-2" onClick={() => handleConditionChange(option.value, 'OR')}>OR</Button>
+                            <Button size="sm" variant={selection.condition === 'NOT' ? 'secondary' : 'ghost'} className="h-6 px-2" onClick={() => handleConditionChange(option.value, 'NOT')}>NOT</Button>
+                          </div>
+                        </div>
+                      )}
+                    </CommandItem>
+                  );
+                })}
+              </ScrollArea>
+            </CommandGroup>
           </CommandList>
         </Command>
       </PopoverContent>
