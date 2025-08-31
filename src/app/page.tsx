@@ -69,24 +69,28 @@ export default function Home() {
       // Technology boolean logic
       const techFilters = filters.technologies;
       if (techFilters.length > 0) {
-        const andTechs = techFilters.filter(t => t.condition === 'AND').map(t => t.value);
-        const notTechs = techFilters.filter(t => t.condition === 'NOT').map(t => t.value);
-        const orTechs = techFilters.filter(t => t.condition === 'OR').map(t => t.value);
-
+        const andTechs = techFilters.filter((t) => t.condition === 'AND').map((t) => t.value);
+        const orTechs = techFilters.filter((t) => t.condition === 'OR').map((t) => t.value);
+        const notTechs = techFilters.filter((t) => t.condition === 'NOT').map((t) => t.value);
+        
         // Handle NOT conditions: company must not have any of these
-        if (notTechs.some(tech => company.technologies.includes(tech))) {
+        if (notTechs.some((tech) => company.technologies.includes(tech))) {
           return false;
         }
 
         // Handle AND conditions: company must have all of these
-        if (!andTechs.every(tech => company.technologies.includes(tech))) {
+        const hasAllAnds = andTechs.every((tech) => company.technologies.includes(tech));
+        if (!hasAllAnds) {
           return false;
         }
-        
-        // Handle OR conditions: if OR techs exist, company must have at least one of them
-        // This logic applies only if there are OR conditions specified.
-        if (orTechs.length > 0 && !orTechs.some(tech => company.technologies.includes(tech))) {
-           return false;
+
+        // Handle OR conditions: if OR conditions exist, company must have at least one of them
+        // This check is only performed if there are OR filters.
+        if (orTechs.length > 0) {
+          const hasAnyOr = orTechs.some((tech) => company.technologies.includes(tech));
+          if (!hasAnyOr) {
+            return false;
+          }
         }
       }
 
