@@ -1,3 +1,4 @@
+
 'use server';
 
 /**
@@ -59,10 +60,10 @@ Available Filter Options:
 Your Task:
 1.  **Extract Filters**: Identify industries, countries, office locations, and technologies mentioned in the query. Only use values present in the "Available Filter Options".
 2.  **Determine Technology Logic**:
-    - If the user wants companies that use multiple specific technologies, use the "AND" condition. (e.g., "React and Node.js").
-    - If the user wants companies that use any of a list of technologies, use the "OR" condition. (e.g., "React or Angular").
-    - If the user wants to exclude a technology, use the "NOT" condition. (e.g., "all but Java" or "not Java").
-    - Default to "AND" if the logic is ambiguous.
+    - "AND": Use for queries like "uses React and Node.js". The company must use all specified technologies.
+    - "OR": Use for queries like "uses React or Angular". The company can use any one of the specified technologies.
+    - "NOT": Use for queries like "all but Java" or "not Java". The company must not use the specified technology.
+    - **Default to "AND" if the logic is ambiguous or not specified.** For "React, Node.js", assume "React AND Node.js".
 3.  **Extract Tech Stack Size**:
     - Look for phrases like "more than 10 technologies", "at least 5 techs", "less than 8 technologies", "between 5 and 10".
     - Set the \`techCount\` tuple accordingly. The first value is the minimum, the second is the maximum.
@@ -72,7 +73,7 @@ Your Task:
 4.  **Identify General Search Term**: If parts of the query don't map to a specific filter (e.g., a company name like "Innovate Inc."), put that in the \`search\` field.
 5.  **Construct JSON Output**: Return a JSON object matching the required output schema.
 
-Example:
+Example 1 (AND and NOT):
 Query: "Show me tech companies in the USA with an office in New York, using React but not Java, with at least 5 technologies"
 Output:
 {
@@ -85,6 +86,37 @@ Output:
     { "value": "Java", "condition": "NOT" }
   ],
   "techCount": [5, 50]
+}
+
+Example 2 (OR):
+Query: "Find companies in Germany that use Python or Java"
+Output:
+{
+  "search": "",
+  "industries": [],
+  "countries": ["Germany"],
+  "officeLocations": [],
+  "technologies": [
+    { "value": "Python", "condition": "OR" },
+    { "value": "Java", "condition": "OR" }
+  ],
+  "techCount": [0, 50]
+}
+
+Example 3 (AND and OR):
+Query: "Companies in the UK that use (React or Angular) and also AWS"
+Output:
+{
+  "search": "",
+  "industries": [],
+  "countries": ["UK"],
+  "officeLocations": [],
+  "technologies": [
+    { "value": "React", "condition": "OR" },
+    { "value": "Angular", "condition": "OR" },
+    { "value": "AWS", "condition": "AND" }
+  ],
+  "techCount": [0, 50]
 }
 
 Now, process the user's query.`,
