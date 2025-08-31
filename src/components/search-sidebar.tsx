@@ -331,12 +331,29 @@ function MultiSelectPopover({
   
   const getDisplayValue = () => {
     if (selected.length === 0) return placeholder;
-    const selectedLabels = selected.map(s => options.find(o => o.value === s)?.label).filter(Boolean);
+    
+    const selectedItems = selected
+      .map(value => options.find(o => o.value === value))
+      .filter(Boolean) as { label: string; value: string }[];
+
     return (
       <div className="flex flex-wrap items-center gap-1">
-        {selectedLabels.map(label => <Badge key={label} variant="secondary">{label}</Badge>)}
+        {selectedItems.map(item => (
+          <Badge
+            key={item.value}
+            variant="secondary"
+            className="cursor-pointer hover:bg-muted"
+            onClick={(e) => {
+              e.stopPropagation(); // prevent popover from opening
+              handleSelect(item.value);
+            }}
+          >
+            {item.label}
+            <X className="ml-1 h-3 w-3" />
+          </Badge>
+        ))}
       </div>
-    )
+    );
   };
 
   return (
@@ -418,7 +435,20 @@ function TechnologyMultiSelect({
     if (selected.length === 0) return placeholder;
     return (
       <div className="flex flex-wrap items-center gap-1">
-        {selected.map(s => <Badge key={s.value} variant="secondary">{s.value}</Badge>)}
+        {selected.map(s => (
+           <Badge
+            key={s.value}
+            variant="secondary"
+            className="cursor-pointer hover:bg-muted"
+            onClick={(e) => {
+              e.stopPropagation(); // prevent popover from opening
+              handleSelect(s.value);
+            }}
+          >
+            {s.value}
+            <X className="ml-1 h-3 w-3" />
+          </Badge>
+        ))}
       </div>
     );
   };
