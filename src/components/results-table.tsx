@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useMemo } from 'react';
@@ -21,6 +22,7 @@ import { ArrowUpDown, Download, ExternalLink } from 'lucide-react';
 import { exportToCsv } from '@/lib/utils';
 import type { Company } from '@/lib/data';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { cn } from '@/lib/utils';
 
 type SortKey = keyof Company | 'tech_count' | '';
 type SortDirection = 'asc' | 'desc';
@@ -92,7 +94,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
   }
 
   const SortableHeader = ({ sortKey: key, children, className }: { sortKey: SortKey, children: React.ReactNode, className?: string }) => (
-    <TableHead className={className}>
+    <TableHead className={cn('sticky top-0 z-10 bg-background/95 backdrop-blur-sm', className)}>
       <Button variant="ghost" onClick={() => handleSort(key)}>
         {children}
         <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -178,15 +180,15 @@ export function ResultsTable({ data }: { data: Company[] }) {
   }
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
+    <div className="space-y-4 h-full flex flex-col">
+      <div className="flex items-center justify-between flex-shrink-0">
         <h2 className="text-2xl font-bold">Search Results ({data.length})</h2>
         <Button onClick={handleExport} disabled={data.length === 0}>
           <Download className="mr-2 h-4 w-4" />
           Export CSV
         </Button>
       </div>
-      <div className="rounded-lg border">
+      <div className="rounded-lg border flex-grow overflow-auto">
         <Table>
           <TableHeader>
             <TableRow>
@@ -196,8 +198,8 @@ export function ResultsTable({ data }: { data: Company[] }) {
               <SortableHeader sortKey="revenue">Revenue</SortableHeader>
               <SortableHeader sortKey="employees">Employees</SortableHeader>
               <SortableHeader sortKey="tech_count">Tech Count</SortableHeader>
-              <TableHead>Technologies</TableHead>
-              <TableHead>Office Locations</TableHead>
+              <TableHead className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm">Technologies</TableHead>
+              <TableHead className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm">Office Locations</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
