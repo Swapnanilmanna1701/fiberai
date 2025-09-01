@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import type { Company } from '@/lib/data';
 import type { z } from 'zod';
 import type { FiltersSchema } from '@/components/search-sidebar';
@@ -72,29 +72,24 @@ export function useCompanySearch(allCompanies: Company[]) {
         // Technology boolean logic
         const techFilters = filters.technologies;
         if (techFilters.length > 0) {
-          const andTechs = techFilters.filter((t) => t.condition === 'AND').map((t) => t.value);
-          const orTechs = techFilters.filter((t) => t.condition === 'OR').map((t) => t.value);
-          const notTechs = techFilters.filter((t) => t.condition === 'NOT').map((t) => t.value);
-          
-          // Handle NOT conditions: company must not have any of these
-          if (notTechs.some((tech) => company.technologies.includes(tech))) {
-            return false;
-          }
-          
-          // Handle AND conditions: company must have all of these
-          const hasAllAnds = andTechs.every((tech) => company.technologies.includes(tech));
-          if (andTechs.length > 0 && !hasAllAnds) {
-              return false;
-          }
-          
-          // Handle OR conditions: if OR conditions exist, company must have at least one of them
-          // This check is only performed if there are OR filters.
-          if (orTechs.length > 0) {
-            const hasAnyOr = orTechs.some((tech) => company.technologies.includes(tech));
-            if (!hasAnyOr) {
-              return false;
+            const andTechs = techFilters.filter((t) => t.condition === 'AND').map((t) => t.value);
+            const orTechs = techFilters.filter((t) => t.condition === 'OR').map((t) => t.value);
+            const notTechs = techFilters.filter((t) => t.condition === 'NOT').map((t) => t.value);
+
+            // Handle NOT conditions: company must not have any of these
+            if (notTechs.some((tech) => company.technologies.includes(tech))) {
+                return false;
             }
-          }
+
+            // Handle AND conditions: company must have all of these
+            if (andTechs.length > 0 && !andTechs.every((tech) => company.technologies.includes(tech))) {
+                return false;
+            }
+
+            // Handle OR conditions: if OR conditions exist, company must have at least one of them
+            if (orTechs.length > 0 && !orTechs.some((tech) => company.technologies.includes(tech))) {
+                return false;
+            }
         }
         return true;
       });
@@ -108,3 +103,5 @@ export function useCompanySearch(allCompanies: Company[]) {
 
   return { results, search, reset };
 }
+
+    
