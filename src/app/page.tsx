@@ -27,7 +27,13 @@ export default function Home() {
     const fetchCompanies = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "companies"));
-        const companiesData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Company[];
+        const companiesData = querySnapshot.docs.map(doc => {
+          const data = doc.data();
+          return {
+            ...data,
+            id: parseInt(doc.id, 10),
+          } as Company;
+        });
         setAllCompanies(companiesData);
       } catch (error) {
         console.error("Error fetching companies:", error);
