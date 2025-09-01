@@ -220,7 +220,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
                         render={() => (
                           <TechnologyCombobox
                             options={techOptions}
-                            selected={fields}
+                            selected={fields.map(f => f.value)}
                             onSelect={(value) => {
                                if (!fields.some(f => f.value === value)) {
                                  append({ value, condition: 'AND' });
@@ -490,7 +490,7 @@ function TechnologyCombobox({
   className,
 }: {
   options: { label: string; value: string }[];
-  selected: { value: string, condition: 'AND' | 'OR' | 'NOT' }[];
+  selected: string[];
   onSelect: (value: string) => void;
   className?: string;
 }) {
@@ -515,7 +515,7 @@ function TechnologyCombobox({
             <CommandGroup>
               <ScrollArea className="h-64">
                 {options.map((option) => {
-                  const isSelected = selected.some(s => s.value === option.value);
+                  const isSelected = selected.some(s => s === option.value);
                   return (
                     <CommandItem
                       key={option.value}
@@ -538,5 +538,7 @@ function TechnologyCombobox({
     </Popover>
   );
 }
+
+    
 
     

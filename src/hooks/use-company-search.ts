@@ -87,8 +87,14 @@ export function useCompanySearch(allCompanies: Company[]) {
             }
 
             // Handle OR conditions: if OR conditions exist, company must have at least one of them
-            if (orTechs.length > 0 && !orTechs.some((tech) => company.technologies.includes(tech))) {
+            // This logic is tricky. A company must have one of the OR technologies,
+            // but only if there are any OR conditions. If there are also AND conditions, it must satisfy both.
+            if (orTechs.length > 0) {
+              // If there are also AND conditions, a company must meet all ANDs, and at least one of the ORs.
+              // The current AND check already covers the first part. We just need to check the OR part.
+              if (!orTechs.some((tech) => company.technologies.includes(tech))) {
                 return false;
+              }
             }
         }
         return true;
