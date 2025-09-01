@@ -439,47 +439,69 @@ function MultiSelectCombobox({
     onChange(newSelected);
   };
   
+  const handleRemove = (valueToRemove: string) => {
+    onChange(selected.filter(s => s !== valueToRemove));
+  };
+  
   const getDisplayValue = () => {
     if (selected.length === 0) return placeholder;
-    if (selected.length <= 3) return selected.join(', ');
+    if (selected.length <= 2) return selected.join(', ');
     return `${selected.length} selected`;
   };
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          className={cn("w-full justify-between font-normal", className)}
-        >
-          <span className="truncate flex-1 text-left">{getDisplayValue()}</span>
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-[--radix-popover-trigger-width] p-0" align="start">
-        <Command>
-          <CommandInput placeholder="Search..." />
-          <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            <CommandGroup>
-              <ScrollArea className="h-64">
-                {options.map((option) => {
-                  const isSelected = selected.includes(option.value);
-                  return (
-                    <CommandItem
-                      key={option.value}
-                      onSelect={() => handleSelect(option.value)}
-                    >
-                      <Check className={cn("mr-2 h-4 w-4", isSelected ? "opacity-100" : "opacity-0")} />
-                      {option.label}
-                    </CommandItem>
-                  );
-                })}
-              </ScrollArea>
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
+    <div className="space-y-2">
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <Button
+            variant="outline"
+            className={cn("w-full justify-between font-normal", className)}
+          >
+            <span className="truncate flex-1 text-left">{getDisplayValue()}</span>
+            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-[--radix-popover-trigger-width] p-0" align="start">
+          <Command>
+            <CommandInput placeholder="Search..." />
+            <CommandList>
+              <CommandEmpty>No results found.</CommandEmpty>
+              <CommandGroup>
+                <ScrollArea className="h-64">
+                  {options.map((option) => {
+                    const isSelected = selected.includes(option.value);
+                    return (
+                      <CommandItem
+                        key={option.value}
+                        onSelect={() => handleSelect(option.value)}
+                      >
+                        <Check className={cn("mr-2 h-4 w-4", isSelected ? "opacity-100" : "opacity-0")} />
+                        {option.label}
+                      </CommandItem>
+                    );
+                  })}
+                </ScrollArea>
+              </CommandGroup>
+            </CommandList>
+          </Command>
+        </PopoverContent>
+      </Popover>
+      {selected.length > 0 && (
+        <div className="flex flex-wrap gap-1">
+          {selected.map(value => (
+            <Badge key={value} variant="secondary" className="flex items-center gap-1">
+              {value}
+              <button
+                onClick={() => handleRemove(value)}
+                className="rounded-full hover:bg-muted-foreground/20 p-0.5"
+                aria-label={`Remove ${value}`}
+              >
+                <X className="h-3 w-3" />
+              </button>
+            </Badge>
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
