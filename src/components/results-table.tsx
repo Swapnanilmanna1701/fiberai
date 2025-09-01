@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Table,
   TableBody,
@@ -18,11 +18,12 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ArrowUpDown, Download, ExternalLink } from 'lucide-react';
+import { ArrowUpDown, Download, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { exportToCsv } from '@/lib/utils';
 import type { Company } from '@/lib/data';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 type SortKey = keyof Company | 'tech_count' | '';
 type SortDirection = 'asc' | 'desc';
@@ -30,7 +31,13 @@ type SortDirection = 'asc' | 'desc';
 export function ResultsTable({ data }: { data: Company[] }) {
   const [sortKey, setSortKey] = useState<SortKey>('');
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [data, rowsPerPage]);
 
   const sortedData = useMemo(() => {
     if (!sortKey) return data;
@@ -55,6 +62,13 @@ export function ResultsTable({ data }: { data: Company[] }) {
       return 0;
     });
   }, [data, sortKey, sortDirection]);
+  
+  const paginatedData = useMemo(() => {
+    const startIndex = (currentPage - 1) * rowsPerPage;
+    return sortedData.slice(startIndex, startIndex + rowsPerPage);
+  }, [sortedData, currentPage, rowsPerPage]);
+
+  const totalPages = Math.ceil(sortedData.length / rowsPerPage);
 
   const handleSort = (key: SortKey) => {
     if (sortKey === key) {
@@ -102,6 +116,56 @@ export function ResultsTable({ data }: { data: Company[] }) {
     </TableHead>
   );
   
+    const PaginationControls = () => (
+    <div className="flex items-center justify-between py-4">
+      <div className="text-sm text-muted-foreground">
+        Showing{' '}
+        <strong>
+          {Math.min((currentPage - 1) * rowsPerPage + 1, sortedData.length)}-
+          {Math.min(currentPage * rowsPerPage, sortedData.length)}
+        </strong>{' '}
+        of <strong>{sortedData.length}</strong> results
+      </div>
+      <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
+            <span className="text-sm">Rows per page:</span>
+            <Select value={String(rowsPerPage)} onValueChange={(value) => setRowsPerPage(Number(value))}>
+                <SelectTrigger className="w-20">
+                    <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectItem value="10">10</SelectItem>
+                    <SelectItem value="25">25</SelectItem>
+                    <SelectItem value="50">50</SelectItem>
+                    <SelectItem value="100">100</SelectItem>
+                </SelectContent>
+            </Select>
+        </div>
+        <div className="text-sm text-muted-foreground">
+          Page {currentPage} of {totalPages}
+        </div>
+        <div className="flex items-center gap-2">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => setCurrentPage(c => c - 1)}
+            disabled={currentPage === 1}
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => setCurrentPage(c => c + 1)}
+            disabled={currentPage === totalPages}
+          >
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+
   if (isMobile) {
     return (
       <div className="space-y-4">
@@ -112,9 +176,9 @@ export function ResultsTable({ data }: { data: Company[] }) {
             Export
           </Button>
         </div>
-        {sortedData.length > 0 ? (
+        {paginatedData.length > 0 ? (
           <div className="grid gap-4">
-            {sortedData.map((company) => (
+            {paginatedData.map((company) => (
               <Card key={company.id}>
                 <CardHeader>
                   <CardTitle>
@@ -169,6 +233,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
                 </CardContent>
               </Card>
             ))}
+             <PaginationControls />
           </div>
         ) : (
            <div className="text-center py-12 text-muted-foreground">
@@ -203,8 +268,8 @@ export function ResultsTable({ data }: { data: Company[] }) {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {sortedData.length > 0 ? (
-              sortedData.map((company) => (
+            {paginatedData.length > 0 ? (
+              paginatedData.map((company) => (
                 <TableRow key={company.id}>
                   <TableCell className="font-medium">
                     <div className="flex items-center gap-2">
@@ -252,6 +317,9 @@ export function ResultsTable({ data }: { data: Company[] }) {
           </TableBody>
         </Table>
       </div>
+      {data.length > 0 && <PaginationControls />}
     </div>
   );
 }
+
+    
