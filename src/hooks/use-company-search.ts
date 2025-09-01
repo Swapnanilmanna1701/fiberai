@@ -70,33 +70,23 @@ export function useCompanySearch(allCompanies: Company[]) {
         }
 
         // Technology boolean logic
-        const techFilters = filters.technologies;
-        if (techFilters.length > 0) {
-            const andTechs = techFilters.filter((t) => t.condition === 'AND').map((t) => t.value);
-            const orTechs = techFilters.filter((t) => t.condition === 'OR').map((t) => t.value);
-            const notTechs = techFilters.filter((t) => t.condition === 'NOT').map((t) => t.value);
+        const { technologiesAnd, technologiesOr, technologiesNot } = filters;
 
-            // Handle NOT conditions: company must not have any of these
-            if (notTechs.some((tech) => company.technologies.includes(tech))) {
-                return false;
-            }
-
-            // Handle AND conditions: company must have all of these
-            if (andTechs.length > 0 && !andTechs.every((tech) => company.technologies.includes(tech))) {
-                return false;
-            }
-
-            // Handle OR conditions: if OR conditions exist, company must have at least one of them
-            // This logic is tricky. A company must have one of the OR technologies,
-            // but only if there are any OR conditions. If there are also AND conditions, it must satisfy both.
-            if (orTechs.length > 0) {
-              // If there are also AND conditions, a company must meet all ANDs, and at least one of the ORs.
-              // The current AND check already covers the first part. We just need to check the OR part.
-              if (!orTechs.some((tech) => company.technologies.includes(tech))) {
-                return false;
-              }
-            }
+        // NOT condition
+        if (technologiesNot.length > 0 && technologiesNot.some(tech => company.technologies.includes(tech))) {
+          return false;
         }
+
+        // AND condition
+        if (technologiesAnd.length > 0 && !technologiesAnd.every(tech => company.technologies.includes(tech))) {
+          return false;
+        }
+        
+        // OR condition
+        if (technologiesOr.length > 0 && !technologiesOr.some(tech => company.technologies.includes(tech))) {
+          return false;
+        }
+        
         return true;
       });
 
@@ -109,5 +99,3 @@ export function useCompanySearch(allCompanies: Company[]) {
 
   return { results, search, reset };
 }
-
-    

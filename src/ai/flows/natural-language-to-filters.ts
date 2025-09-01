@@ -32,7 +32,7 @@ const NaturalLanguageToFiltersOutputSchema = z.object({
   industries: z.array(z.string()).describe('Selected industries.'),
   countries: z.array(z.string()).describe('Selected countries.'),
   officeLocations: z.array(z.string()).describe('Selected office locations.'),
-  technologies: z.array(technologySchema).describe('Selected technologies with conditions.'),
+  technologies: z.array(technologySchema).describe('Selected technologies with conditions. This is the main output for tech filters.'),
   techCount: z.tuple([z.number(), z.number()]).describe('A range for the number of technologies (min, max).'),
 });
 export type NaturalLanguageToFiltersOutput = z.infer<typeof NaturalLanguageToFiltersOutputSchema>;
@@ -71,7 +71,7 @@ Your Task:
     - If only a maximum is specified (e.g., "less than 8"), set the minimum to 0.
     - If not specified, the default is [0, 50].
 4.  **Identify General Search Term**: If parts of the query don't map to a specific filter (e.g., a company name like "Innovate Inc."), put that in the \`search\` field.
-5.  **Construct JSON Output**: Return a JSON object matching the required output schema.
+5.  **Construct JSON Output**: Return a JSON object matching the required output schema. Populate the 'technologies' array with all extracted tech filters, each with its appropriate condition.
 
 Example 1 (AND and NOT):
 Query: "Show me tech companies in the USA with an office in New York, using React but not Java, with at least 5 technologies"

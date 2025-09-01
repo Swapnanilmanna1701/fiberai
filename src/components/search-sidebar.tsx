@@ -22,17 +22,14 @@ import { useToast } from '@/hooks/use-toast';
 import { Logo } from './icons';
 import { Badge } from '@/components/ui/badge';
 
-const technologySchema = z.object({
-  value: z.string().min(1, 'Please select a technology'),
-  condition: z.enum(['AND', 'OR', 'NOT']),
-});
-
 export const FiltersSchema = z.object({
   search: z.string().optional(),
   industries: z.array(z.string()),
   countries: z.array(z.string()),
   officeLocations: z.array(z.string()),
-  technologies: z.array(technologySchema),
+  technologiesAnd: z.array(z.string()),
+  technologiesOr: z.array(z.string()),
+  technologiesNot: z.array(z.string()),
   techCount: z.tuple([z.number(), z.number()]),
   officeLocationCount: z.tuple([z.number(), z.number()]),
   minRevenue: z.number().optional(),
@@ -61,17 +58,14 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
       industries: [],
       countries: [],
       officeLocations: [],
-      technologies: [],
+      technologiesAnd: [],
+      technologiesOr: [],
+      technologiesNot: [],
       techCount: [0, 50],
       officeLocationCount: [0, 50],
       minRevenue: undefined,
       maxRevenue: undefined,
     },
-  });
-
-  const { fields, append, remove, update } = useFieldArray({
-    control: form.control,
-    name: "technologies",
   });
 
   const onSubmit = (data: z.infer<typeof FiltersSchema>) => {
@@ -107,12 +101,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
       form.setValue('industries', suggestions.suggestedIndustries || []);
       form.setValue('countries', suggestions.suggestedCountries || []);
       form.setValue('officeLocations', suggestions.suggestedOfficeLocations || []);
-      
-      const currentTechs = form.getValues('technologies');
-      const newTechs = (suggestions.suggestedTechnologies || [])
-        .filter(tech => !currentTechs.some(t => t.value === tech));
-
-      newTechs.forEach(tech => append({ value: tech, condition: 'AND' }));
+      form.setValue('technologiesAnd', suggestions.suggestedTechnologies || []);
       
       toast({
         title: 'AI Suggestions Applied',
@@ -160,10 +149,9 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
       form.setValue('industries', filters.industries || []);
       form.setValue('countries', filters.countries || []);
       form.setValue('officeLocations', filters.officeLocations || []);
-      
-      // Clear existing technologies and append new ones
-      remove();
-      (filters.technologies || []).forEach(tech => append(tech));
+      form.setValue('technologiesAnd', filters.technologies.filter(t => t.condition === 'AND').map(t => t.value));
+      form.setValue('technologiesOr', filters.technologies.filter(t => t.condition === 'OR').map(t => t.value));
+      form.setValue('technologiesNot', filters.technologies.filter(t => t.condition === 'NOT').map(t => t.value));
 
       form.setValue('techCount', filters.techCount || [0, 50]);
 
@@ -212,39 +200,52 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
              <Accordion type="multiple" defaultValue={['technologies', 'details']} className="w-full">
               <AccordionItem value="technologies">
                 <AccordionTrigger className="text-base font-semibold">Technologies</AccordionTrigger>
-                <AccordionContent>
-                  <div className="space-y-2">
-                    <Controller
-                        control={form.control}
-                        name="technologies"
-                        render={() => (
-                          <TechnologyCombobox
-                            options={techOptions}
-                            selected={fields.map(f => f.value)}
-                            onSelect={(value) => {
-                               if (!fields.some(f => f.value === value)) {
-                                 append({ value, condition: 'AND' });
-                               }
-                            }}
-                          />
-                        )}
-                      />
-                      <div className="space-y-2">
-                        {fields.map((field, index) => (
-                          <div key={field.id} className="flex items-center gap-2 bg-muted p-2 rounded-md">
-                            <span className="font-medium text-sm flex-1">{field.value}</span>
-                            <div className="flex items-center gap-1">
-                                <Button size="sm" variant={field.condition === 'AND' ? 'secondary' : 'ghost'} className="h-6 px-1.5 text-xs" onClick={() => update(index, { ...field, condition: 'AND' })}>AND</Button>
-                                <Button size="sm" variant={field.condition === 'OR' ? 'secondary' : 'ghost'} className="h-6 px-1.5 text-xs" onClick={() => update(index, { ...field, condition: 'OR' })}>OR</Button>
-                                <Button size="sm" variant={field.condition === 'NOT' ? 'secondary' : 'ghost'} className="h-6 px-1.5 text-xs" onClick={() => update(index, { ...field, condition: 'NOT' })}>NOT</Button>
-                            </div>
-                            <Button variant="ghost" size="icon" className="h-6 w-6" onClick={() => remove(index)}>
-                               <X className="h-4 w-4" />
-                            </Button>
-                          </div>
-                        ))}
-                      </div>
-                  </div>
+                <AccordionContent className="space-y-4">
+                    <div className="space-y-2">
+                        <Label>Include ALL (AND)</Label>
+                        <Controller
+                            control={form.control}
+                            name="technologiesAnd"
+                            render={({ field }) => (
+                               <MultiSelectCombobox
+                                options={techOptions}
+                                selected={field.value}
+                                onChange={field.onChange}
+                                placeholder="e.g. Stripe, Shopify"
+                               />
+                            )}
+                        />
+                    </div>
+                     <div className="space-y-2">
+                        <Label>Include ANY (OR)</Label>
+                        <Controller
+                            control={form.control}
+                            name="technologiesOr"
+                            render={({ field }) => (
+                               <MultiSelectCombobox
+                                options={techOptions}
+                                selected={field.value}
+                                onChange={field.onChange}
+                                placeholder="e.g. Next.js, React"
+                               />
+                            )}
+                        />
+                    </div>
+                     <div className="space-y-2">
+                        <Label>Exclude (NOT)</Label>
+                        <Controller
+                            control={form.control}
+                            name="technologiesNot"
+                            render={({ field }) => (
+                               <MultiSelectCombobox
+                                options={techOptions}
+                                selected={field.value}
+                                onChange={field.onChange}
+                                placeholder="e.g. Intercom"
+                               />
+                            )}
+                        />
+                    </div>
                 </AccordionContent>
               </AccordionItem>
 
@@ -440,7 +441,7 @@ function MultiSelectCombobox({
   
   const getDisplayValue = () => {
     if (selected.length === 0) return placeholder;
-    if (selected.length === 1) return options.find(o => o.value === selected[0])?.label;
+    if (selected.length <= 3) return selected.join(', ');
     return `${selected.length} selected`;
   };
 
@@ -482,63 +483,3 @@ function MultiSelectCombobox({
     </Popover>
   );
 }
-
-function TechnologyCombobox({
-  options,
-  selected,
-  onSelect,
-  className,
-}: {
-  options: { label: string; value: string }[];
-  selected: string[];
-  onSelect: (value: string) => void;
-  className?: string;
-}) {
-  const [open, setOpen] = React.useState(false);
-
-  return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          className={cn("w-full justify-between font-normal", className)}
-        >
-          Add technology...
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-[--radix-popover-trigger-width] p-0" align="start">
-        <Command>
-          <CommandInput placeholder="Search technologies..." />
-          <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            <CommandGroup>
-              <ScrollArea className="h-64">
-                {options.map((option) => {
-                  const isSelected = selected.some(s => s === option.value);
-                  return (
-                    <CommandItem
-                      key={option.value}
-                      onSelect={() => {
-                        onSelect(option.value);
-                        setOpen(false);
-                      }}
-                      disabled={isSelected}
-                      className={cn(isSelected && "opacity-50 cursor-not-allowed")}
-                    >
-                      {option.label}
-                    </CommandItem>
-                  );
-                })}
-              </ScrollArea>
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
-  );
-}
-
-    
-
-    
