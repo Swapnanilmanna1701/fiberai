@@ -1,9 +1,8 @@
 
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { useClickAway } from 'react-use';
-import { useForm, useFieldArray, Controller } from 'react-hook-form';
+import React, { useState, useEffect, useMemo } from 'react';
+import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { suggestFilters } from '@/ai/flows/intelligent-filter-suggestions';
@@ -15,12 +14,13 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { allTechnologies, allIndustries, allCountries, allOfficeLocations } from '@/lib/data';
 import { cn } from '@/lib/utils';
 import { Check, ChevronsUpDown, Sparkles, Wand2, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Logo } from './icons';
 import { Badge } from '@/components/ui/badge';
+import type { Company } from '@/lib/data';
+
 
 export const FiltersSchema = z.object({
   search: z.string().optional(),
@@ -37,19 +37,28 @@ export const FiltersSchema = z.object({
 });
 
 type SearchSidebarProps = {
+  allCompanies: Company[];
   onSearch: (filters: z.infer<typeof FiltersSchema>) => void;
   onReset: () => void;
 };
 
-const techOptions = allTechnologies.map(t => ({ label: t, value: t }));
-const industryOptions = allIndustries.map(i => ({ label: i, value: i }));
-const countryOptions = allCountries.map(c => ({ label: c, value: c }));
-const officeLocationOptions = allOfficeLocations.map(l => ({label: l, value: l}));
-
-export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
+export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebarProps) {
   const { toast } = useToast();
   const [isSuggesting, setIsSuggesting] = useState(false);
   const [isParsing, setIsParsing] = useState(false);
+
+  const { allTechnologies, allIndustries, allCountries, allOfficeLocations } = useMemo(() => {
+    const technologies = [...new Set(allCompanies.flatMap(c => c.technologies))].sort();
+    const industries = [...new Set(allCompanies.map(c => c.industry))].sort();
+    const countries = [...new Set(allCompanies.map(c => c.hq_country))].sort();
+    const officeLocations = [...new Set(allCompanies.flatMap(c => c.office_locations))].sort();
+    return { 
+      allTechnologies: technologies.map(t => ({ label: t, value: t })),
+      allIndustries: industries.map(i => ({ label: i, value: i })),
+      allCountries: countries.map(c => ({ label: c, value: c })),
+      allOfficeLocations: officeLocations.map(l => ({ label: l, value: l })),
+    };
+  }, [allCompanies]);
 
   const form = useForm<z.infer<typeof FiltersSchema>>({
     resolver: zodResolver(FiltersSchema),
@@ -92,10 +101,10 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
     try {
       const suggestions = await suggestFilters({
         initialInput: search,
-        availableTechnologies: allTechnologies,
-        availableCountries: allCountries,
-        availableIndustries: allIndustries,
-        availableOfficeLocations: allOfficeLocations,
+        availableTechnologies: allTechnologies.map(t => t.value),
+        availableCountries: allCountries.map(c => c.value),
+        availableIndustries: allIndustries.map(i => i.value),
+        availableOfficeLocations: allOfficeLocations.map(l => l.value),
       });
       
       form.setValue('industries', suggestions.suggestedIndustries || []);
@@ -135,10 +144,10 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
     try {
       const filters = await naturalLanguageToFilters({
         query: search,
-        availableTechnologies: allTechnologies,
-        availableCountries: allCountries,
-        availableIndustries: allIndustries,
-        availableOfficeLocations: allOfficeLocations,
+        availableTechnologies: allTechnologies.map(t => t.value),
+        availableCountries: allCountries.map(c => c.value),
+        availableIndustries: allIndustries.map(i => i.value),
+        availableOfficeLocations: allOfficeLocations.map(l => l.value),
       });
 
       // Reset previous filters but apply new ones
@@ -208,7 +217,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
                             name="technologiesAnd"
                             render={({ field }) => (
                                <MultiSelectCombobox
-                                options={techOptions}
+                                options={allTechnologies}
                                 selected={field.value}
                                 onChange={field.onChange}
                                 placeholder="e.g. Stripe, Shopify"
@@ -223,7 +232,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
                             name="technologiesOr"
                             render={({ field }) => (
                                <MultiSelectCombobox
-                                options={techOptions}
+                                options={allTechnologies}
                                 selected={field.value}
                                 onChange={field.onChange}
                                 placeholder="e.g. Next.js, React"
@@ -238,7 +247,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
                             name="technologiesNot"
                             render={({ field }) => (
                                <MultiSelectCombobox
-                                options={techOptions}
+                                options={allTechnologies}
                                 selected={field.value}
                                 onChange={field.onChange}
                                 placeholder="e.g. Intercom"
@@ -259,7 +268,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
                         name="industries"
                         render={({ field }) => (
                            <MultiSelectCombobox
-                            options={industryOptions}
+                            options={allIndustries}
                             selected={field.value}
                             onChange={field.onChange}
                             placeholder="Select industries..."
@@ -274,7 +283,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
                         name="countries"
                         render={({ field }) => (
                            <MultiSelectCombobox
-                            options={countryOptions}
+                            options={allCountries}
                             selected={field.value}
                             onChange={field.onChange}
                             placeholder="Select countries..."
@@ -289,7 +298,7 @@ export function SearchSidebar({ onSearch, onReset }: SearchSidebarProps) {
                         name="officeLocations"
                         render={({ field }) => (
                            <MultiSelectCombobox
-                            options={officeLocationOptions}
+                            options={allOfficeLocations}
                             selected={field.value}
                             onChange={field.onChange}
                             placeholder="Select office locations..."

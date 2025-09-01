@@ -4,21 +4,39 @@
 import type { z } from 'zod';
 import React, { useState, useEffect } from 'react';
 import { SidebarProvider, Sidebar, SidebarInset, useSidebar, SidebarContent } from '@/components/ui/sidebar';
-import { SearchSidebar, type FiltersSchema } from '@/components/search-sidebar';
+import { SearchSidebar } from '@/components/search-sidebar';
 import { ResultsTable } from '@/components/results-table';
-import { companies, type Company } from '@/lib/data';
+import { type Company } from '@/lib/data';
 import { Button } from '@/components/ui/button';
-import { PanelLeft } from 'lucide-react';
+import { PanelLeft, CircleDashed } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { useCompanySearch } from '@/hooks/use-company-search';
+import { db } from '@/lib/firebase';
+import { collection, getDocs } from 'firebase/firestore';
 
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
-  const { results, search, reset } = useCompanySearch(companies);
+  const [allCompanies, setAllCompanies] = useState<Company[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  const { results, search, reset } = useCompanySearch(allCompanies);
   const [mainSearchTerm, setMainSearchTerm] = useState('');
 
   useEffect(() => {
+    const fetchCompanies = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "companies"));
+        const companiesData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Company[];
+        setAllCompanies(companiesData);
+      } catch (error) {
+        console.error("Error fetching companies:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchCompanies();
     setIsMounted(true);
   }, []);
   
@@ -29,15 +47,22 @@ export default function Home() {
       )
     : results;
 
-  if (!isMounted) {
-    return null; // or a loading skeleton
+  if (!isMounted || isLoading) {
+    return (
+       <div className="flex h-screen w-screen items-center justify-center">
+         <div className="flex flex-col items-center gap-4">
+            <CircleDashed className="h-12 w-12 animate-spin text-primary" />
+            <p className="text-muted-foreground">Loading companies...</p>
+         </div>
+       </div>
+    );
   }
 
   return (
     <SidebarProvider>
       <Sidebar variant="inset" collapsible="icon">
         <SidebarContent>
-          <SearchSidebar onSearch={search} onReset={reset} />
+          <SearchSidebar allCompanies={allCompanies} onSearch={search} onReset={reset} />
         </SidebarContent>
       </Sidebar>
       <SidebarInset>
