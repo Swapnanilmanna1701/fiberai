@@ -15,22 +15,39 @@ const firebaseConfig = {
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 const db = getFirestore(app);
 
+// Firestore allows a maximum of 500 operations in a single batch.
+const BATCH_SIZE = 499;
+
 async function seedDatabase() {
   const companiesCollection = collection(db, 'companies');
-  const batch = writeBatch(db);
+  
+  console.log(`Starting to seed ${companies.length} companies...`);
 
-  companies.forEach((company) => {
-    const { id, ...companyData } = company;
-    const docRef = doc(companiesCollection, String(id));
-    batch.set(docRef, companyData);
-  });
+  for (let i = 0; i < companies.length; i += BATCH_SIZE) {
+    const batch = writeBatch(db);
+    const chunk = companies.slice(i, i + BATCH_SIZE);
+    
+    console.log(`Processing chunk ${i / BATCH_SIZE + 1}...`);
 
-  try {
-    await batch.commit();
-    console.log('Successfully seeded the database with mock company data!');
-  } catch (error) {
-    console.error('Error seeding database:', error);
+    chunk.forEach((company) => {
+      const { id, ...companyData } = company;
+      if (id !== undefined) {
+        const docRef = doc(companiesCollection, String(id));
+        batch.set(docRef, companyData);
+      }
+    });
+
+    try {
+      await batch.commit();
+      console.log(`Successfully committed a batch of ${chunk.length} companies.`);
+    } catch (error) {
+      console.error('Error committing batch:', error);
+      // If one batch fails, we stop the whole process.
+      return;
+    }
   }
+
+  console.log('Successfully seeded the database with all mock company data!');
 }
 
 seedDatabase();
