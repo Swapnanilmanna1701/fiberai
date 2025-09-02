@@ -70,8 +70,11 @@ export function useCompanySearch(allCompanies: Company[]) {
         }
 
         // Founded year filter
-        if (company.founded < filters.foundedYear[0] || company.founded > filters.foundedYear[1]) {
-            return false;
+        if (filters.startYear !== undefined && company.founded < filters.startYear) {
+          return false;
+        }
+        if (filters.endYear !== undefined && company.founded > filters.endYear) {
+          return false;
         }
         
         // Office location count filter
