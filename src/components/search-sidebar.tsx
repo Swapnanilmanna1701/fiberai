@@ -57,6 +57,9 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
     const officeLocations = [...new Set(allCompanies.flatMap(c => c.office_locations))].sort();
     const categories = [...new Set(allCompanies.map(c => c.category))].sort();
     const foundedYears = allCompanies.map(c => c.founded);
+
+    const minYear = Math.min(...foundedYears);
+    const maxYear = Math.max(...foundedYears);
     
     return { 
       allTechnologies: technologies.map(t => ({ label: t, value: t })),
@@ -64,8 +67,8 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
       allCountries: countries.map(c => ({ label: c, value: c })),
       allOfficeLocations: officeLocations.map(l => ({ label: l, value: l })),
       allCategories: categories.map(c => ({ label: c, value: c })),
-      minFoundedYear: Math.min(...foundedYears),
-      maxFoundedYear: Math.max(...foundedYears),
+      minFoundedYear: Number.isFinite(minYear) ? minYear : 1900,
+      maxFoundedYear: Number.isFinite(maxYear) ? maxYear : new Date().getFullYear(),
     };
   }, [allCompanies]);
 
@@ -168,6 +171,7 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
         title: 'Natural Language Search',
         description: 'Please type a search query first.',
         variant: 'destructive',
+        
       });
       return;
     }
@@ -356,8 +360,8 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
                    <div className="space-y-2 pt-2">
                     <Label>Founded Year</Label>
                     <div className="flex justify-between text-sm text-muted-foreground">
-                        <span>{foundedYearValue[0]}</span>
-                        <span>{foundedYearValue[1]}</span>
+                        <span>{foundedYearValue?.[0] ?? ''}</span>
+                        <span>{foundedYearValue?.[1] ?? ''}</span>
                     </div>
                     <Controller
                         control={form.control}
@@ -581,3 +585,5 @@ function MultiSelectCombobox({
     </div>
   );
 }
+
+    
