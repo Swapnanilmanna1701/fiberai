@@ -27,13 +27,16 @@ async function seedDatabase() {
     const batch = writeBatch(db);
     const chunk = companies.slice(i, i + BATCH_SIZE);
     
-    console.log(`Processing chunk ${i / BATCH_SIZE + 1}...`);
+    console.log(`Processing chunk ${Math.floor(i / BATCH_SIZE) + 1}...`);
 
     chunk.forEach((company) => {
       const { id, ...companyData } = company;
       if (id !== undefined) {
         const docRef = doc(companiesCollection, String(id));
-        batch.set(docRef, companyData);
+        batch.set(docRef, {
+            ...companyData,
+            totalTechnologies: company.technologies.length,
+        });
       }
     });
 
