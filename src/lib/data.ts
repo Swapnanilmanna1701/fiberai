@@ -13,7 +13,8 @@ export type Company = {
   office_locations: string[];
   founded: number;
   totalTechnologies: number;
-  category: 'Product Based' | 'Service Based' | 'Startup' | 'MNC' | 'Consulting Firm' | 'E-commerce' | 'Government' | 'Non-profit' | 'YC Backed';
+  category: 'Product Based' | 'Service Based' | 'Startup' | 'MNC' | 'Consulting Firm' | 'E-commerce' | 'Government' | 'Non-profit' | 'YC Backed' | 'Industrial' | 'Social Media' | 'Robotics' | 'Aquaculture' | 'Environmental Tech' | 'Cybersecurity' | 'Apparel' | 'Mental Health' | 'Aerospace' | 'AgriTech' | 'Chemicals' | 'Consumer Electronics' | 'FoodTech' | 'Maritime' | 'Software Development' | 'Mining' | 'Veterinary' | 'Quantum Computing' | 'Packaging' | 'LegalTech' | 'Water Treatment' | 'Fitness' | 'Textiles' | 'Developer Tools' | 'Food Distribution' | 'FinTech' | 'Drones' | 'Organic Food' | 'Travel & Tourism' | 'Industrial Automation' | 'Streaming Services' | 'FashionTech' | 'Energy Management' | 'Construction Tech' | 'Data Analytics' | 'Food Delivery' | 'Database' | 'Software' | 'Technology' | 'IT Consulting' | 'Professional Services' | 'Research' | 'Investment Management' | 'Financial Services' | 'Aviation' | 'Banking' | 'Insurance';
+  telephone: string;
 };
 
 /**
@@ -32,7 +33,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Austin", "Seattle", "Chicago"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-212-555-0101"
   },
   {
     id: 2,
@@ -46,7 +48,8 @@ export const companies: Company[] = [
     office_locations: ["Berlin", "Munich", "Hamburg", "Frankfurt", "Stuttgart"],
     founded: 2008,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+49-30-555-0102"
   },
   {
     id: 3,
@@ -60,7 +63,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Edinburgh", "Manchester", "Bristol"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+44-20-7946-0103"
   },
   {
     id: 4,
@@ -74,7 +78,8 @@ export const companies: Company[] = [
     office_locations: ["Toronto", "Vancouver", "Montreal", "Calgary"],
     founded: 2015,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-416-555-0104"
   },
   {
     id: 5,
@@ -88,7 +93,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Los Angeles", "Chicago", "Miami", "Dallas"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "E-commerce"
+    category: "E-commerce",
+    telephone: "+1-212-555-0105"
   },
   {
     id: 6,
@@ -102,7 +108,8 @@ export const companies: Company[] = [
     office_locations: ["Shanghai", "Shenzhen", "Beijing", "Guangzhou"],
     founded: 2005,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+86-21-5555-0106"
   },
   {
     id: 7,
@@ -116,7 +123,8 @@ export const companies: Company[] = [
     office_locations: ["Tokyo", "Nagoya", "Osaka", "Hiroshima"],
     founded: 1988,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+81-3-5555-0107"
   },
   {
     id: 8,
@@ -130,7 +138,8 @@ export const companies: Company[] = [
     office_locations: ["Madrid", "Barcelona", "Seville", "Valencia"],
     founded: 2009,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+34-915-55-0108"
   },
   {
     id: 9,
@@ -144,7 +153,8 @@ export const companies: Company[] = [
     office_locations: ["Seoul", "Busan", "Incheon"],
     founded: 2002,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+82-2-555-0109"
   },
   {
     id: 10,
@@ -158,7 +168,8 @@ export const companies: Company[] = [
     office_locations: ["Los Angeles", "San Francisco", "Austin"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-310-555-0110"
   },
   {
     id: 11,
@@ -172,7 +183,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Manchester", "Cambridge"],
     founded: 2016,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+44-20-7946-0111"
   },
   {
     id: 12,
@@ -186,7 +198,8 @@ export const companies: Company[] = [
     office_locations: ["Sydney", "Melbourne", "Brisbane"],
     founded: 2007,
     totalTechnologies: 4,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+61-2-9211-0112"
   },
   {
     id: 13,
@@ -200,7 +213,8 @@ export const companies: Company[] = [
     office_locations: ["Amsterdam", "Rotterdam", "Eindhoven"],
     founded: 2013,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+31-20-555-0113"
   },
   {
     id: 14,
@@ -214,7 +228,8 @@ export const companies: Company[] = [
     office_locations: ["Sao Paulo", "Brasilia", "Recife"],
     founded: 2014,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+55-11-5555-0114"
   },
   {
     id: 15,
@@ -228,7 +243,8 @@ export const companies: Company[] = [
     office_locations: ["Riyadh", "Jeddah", "Dammam"],
     founded: 1995,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+966-11-555-0115"
   },
   {
     id: 16,
@@ -242,7 +258,8 @@ export const companies: Company[] = [
     office_locations: ["Zurich", "Geneva", "Basel"],
     founded: 1985,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+41-44-555-0116"
   },
   {
     id: 17,
@@ -256,7 +273,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "Lyon", "Marseille"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+33-1-44-55-01-17"
   },
   {
     id: 18,
@@ -270,7 +288,8 @@ export const companies: Company[] = [
     office_locations: ["Los Angeles", "Seattle", "Houston", "Washington"],
     founded: 1979,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-310-555-0118"
   },
   {
     id: 19,
@@ -284,7 +303,8 @@ export const companies: Company[] = [
     office_locations: ["Mumbai", "Bangalore", "Delhi", "Gurgaon"],
     founded: 2004,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+91-22-5555-0119"
   },
   {
     id: 20,
@@ -298,7 +318,8 @@ export const companies: Company[] = [
     office_locations: ["Rome", "Milan", "Venice", "Florence"],
     founded: 1992,
     totalTechnologies: 4,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+39-06-555-0120"
   },
   {
     id: 21,
@@ -312,7 +333,8 @@ export const companies: Company[] = [
     office_locations: ["Dublin", "Cork", "Galway"],
     founded: 2017,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+353-1-555-0121"
   },
   {
     id: 22,
@@ -326,7 +348,8 @@ export const companies: Company[] = [
     office_locations: ["Tel Aviv", "Haifa", "Jerusalem"],
     founded: 2018,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+972-3-555-0122"
   },
   {
     id: 23,
@@ -340,7 +363,8 @@ export const companies: Company[] = [
     office_locations: ["Singapore", "Hong Kong", "Tokyo", "London"],
     founded: 2003,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+65-6555-0123"
   },
   {
     id: 24,
@@ -354,7 +378,8 @@ export const companies: Company[] = [
     office_locations: ["Stockholm", "Gothenburg", "Malmo"],
     founded: 2016,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+46-8-555-0124"
   },
   {
     id: 25,
@@ -368,7 +393,8 @@ export const companies: Company[] = [
     office_locations: ["Berlin", "Munich", "Hamburg", "Cologne"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "E-commerce"
+    category: "E-commerce",
+    telephone: "+49-30-555-0125"
   },
   {
     id: 26,
@@ -382,7 +408,8 @@ export const companies: Company[] = [
     office_locations: ["Monterrey", "Mexico City", "Tijuana"],
     founded: 1998,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+52-81-5555-0126"
   },
   {
     id: 27,
@@ -396,7 +423,8 @@ export const companies: Company[] = [
     office_locations: ["Detroit", "Palo Alto", "Austin", "Phoenix"],
     founded: 2019,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+1-313-555-0127"
   },
   {
     id: 28,
@@ -410,7 +438,8 @@ export const companies: Company[] = [
     office_locations: ["Oslo", "Bergen", "Trondheim"],
     founded: 2007,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+47-22-55-01-28"
   },
   {
     id: 29,
@@ -424,7 +453,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Manchester", "Glasgow", "Belfast"],
     founded: 2001,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+44-20-7946-0129"
   },
   {
     id: 30,
@@ -438,7 +468,8 @@ export const companies: Company[] = [
     office_locations: ["Tokyo", "Kyoto", "Fukuoka"],
     founded: 2013,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+81-3-5555-0130"
   },
   {
     id: 31,
@@ -452,7 +483,8 @@ export const companies: Company[] = [
     office_locations: ["Toronto", "Waterloo", "Vancouver"],
     founded: 2017,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+1-416-555-0131"
   },
   {
     id: 32,
@@ -466,7 +498,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Miami", "San Diego", "Denver"],
     founded: 2004,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-212-555-0132"
   },
   {
     id: 33,
@@ -480,7 +513,8 @@ export const companies: Company[] = [
     office_locations: ["Berlin", "Hamburg", "Leipzig", "Dortmund"],
     founded: 2015,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+49-30-555-0133"
   },
   {
     id: 34,
@@ -494,7 +528,8 @@ export const companies: Company[] = [
     office_locations: ["Buenos Aires", "Cordoba", "Rosario"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+54-11-5555-0134"
   },
   {
     id: 35,
@@ -508,7 +543,8 @@ export const companies: Company[] = [
     office_locations: ["Beijing", "Shanghai", "Chengdu", "Wuhan"],
     founded: 2001,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+86-10-5555-0135"
   },
   {
     id: 36,
@@ -522,7 +558,8 @@ export const companies: Company[] = [
     office_locations: ["Boston", "San Francisco", "San Diego", "Raleigh"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-617-555-0136"
   },
   {
     id: 37,
@@ -536,7 +573,8 @@ export const companies: Company[] = [
     office_locations: ["Sydney", "Melbourne", "Perth"],
     founded: 2009,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+61-2-9211-0137"
   },
   {
     id: 38,
@@ -550,7 +588,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "Toulouse", "Bordeaux"],
     founded: 1982,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+33-1-44-55-01-38"
   },
   {
     id: 39,
@@ -564,7 +603,8 @@ export const companies: Company[] = [
     office_locations: ["Geneva", "Zurich", "Bern"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+41-22-555-0139"
   },
   {
     id: 40,
@@ -578,7 +618,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "Nice", "Cannes", "Lyon"],
     founded: 1997,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+33-1-44-55-01-40"
   },
   {
     id: 41,
@@ -592,7 +633,8 @@ export const companies: Company[] = [
     office_locations: ["Cambridge", "Oxford", "London"],
     founded: 2014,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+44-1223-555-0141"
   },
   {
     id: 42,
@@ -606,7 +648,8 @@ export const companies: Company[] = [
     office_locations: ["Toronto", "Vancouver", "Ottawa"],
     founded: 2018,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+1-416-555-0142"
   },
   {
     id: 43,
@@ -620,7 +663,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Chicago", "Boston", "Charlotte"],
     founded: 1990,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-212-555-0143"
   },
   {
     id: 44,
@@ -634,7 +678,8 @@ export const companies: Company[] = [
     office_locations: ["Berlin", "Heidelberg", "Munich"],
     founded: 2015,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+49-30-555-0144"
   },
   {
     id: 45,
@@ -648,7 +693,8 @@ export const companies: Company[] = [
     office_locations: ["Milan", "Florence", "Rome", "Paris"],
     founded: 2003,
     totalTechnologies: 5,
-    category: "E-commerce"
+    category: "E-commerce",
+    telephone: "+39-02-5555-0145"
   },
   {
     id: 46,
@@ -662,7 +708,8 @@ export const companies: Company[] = [
     office_locations: ["Moscow", "Saint Petersburg", "Yekaterinburg"],
     founded: 1994,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+7-495-555-0146"
   },
   {
     id: 47,
@@ -676,7 +723,8 @@ export const companies: Company[] = [
     office_locations: ["Seoul", "Ulsan", "Busan"],
     founded: 2000,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+82-2-555-0147"
   },
   {
     id: 48,
@@ -690,7 +738,8 @@ export const companies: Company[] = [
     office_locations: ["Brussels", "Antwerp", "Ghent"],
     founded: 2008,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+32-2-555-0148"
   },
   {
     id: 49,
@@ -704,7 +753,8 @@ export const companies: Company[] = [
     office_locations: ["Delhi", "Mumbai", "Pune", "Chennai"],
     founded: 2005,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+91-11-5555-0149"
   },
   {
     id: 50,
@@ -718,7 +768,8 @@ export const companies: Company[] = [
     office_locations: ["Vancouver", "Toronto", "Montreal"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-604-555-0150"
   },
   {
     id: 51,
@@ -732,7 +783,8 @@ export const companies: Company[] = [
     office_locations: ["Bangalore", "Pune", "Hyderabad"],
     founded: 2019,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+91-80-5555-0151"
   },
   {
     id: 52,
@@ -746,7 +798,8 @@ export const companies: Company[] = [
     office_locations: ["Singapore", "Kuala Lumpur", "Bangkok"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+65-6555-0152"
   },
   {
     id: 53,
@@ -760,7 +813,8 @@ export const companies: Company[] = [
     office_locations: ["Shanghai", "Qingdao", "Tianjin", "Ningbo"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+86-21-5555-0153"
   },
   {
     id: 54,
@@ -774,7 +828,8 @@ export const companies: Company[] = [
     office_locations: ["Jakarta", "Surabaya", "Medan"],
     founded: 2013,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+62-21-555-0154"
   },
   {
     id: 55,
@@ -788,7 +843,8 @@ export const companies: Company[] = [
     office_locations: ["Istanbul", "Ankara", "Izmir"],
     founded: 1996,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+90-212-555-0155"
   },
   {
     id: 56,
@@ -802,7 +858,8 @@ export const companies: Company[] = [
     office_locations: ["Berlin", "Frankfurt", "Leverkusen", "Darmstadt"],
     founded: 1989,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-30-555-0156"
   },
   {
     id: 57,
@@ -816,7 +873,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Manchester", "Bristol", "Cardiff"],
     founded: 2014,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+44-20-7946-0157"
   },
   {
     id: 58,
@@ -830,7 +888,8 @@ export const companies: Company[] = [
     office_locations: ["Moscow", "Baikonur", "Samara"],
     founded: 1975,
     totalTechnologies: 5,
-    category: "Government"
+    category: "Government",
+    telephone: "+7-495-555-0158"
   },
   {
     id: 59,
@@ -844,7 +903,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "San Francisco", "London", "Tel Aviv"],
     founded: 1995,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+1-212-555-0159"
   },
   {
     id: 60,
@@ -858,7 +918,8 @@ export const companies: Company[] = [
     office_locations: ["Geneva", "Interlaken", "Zermatt", "St. Moritz"],
     founded: 1998,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+41-22-555-0160"
   },
   {
     id: 61,
@@ -872,7 +933,8 @@ export const companies: Company[] = [
     office_locations: ["Boston", "Cambridge", "South San Francisco"],
     founded: 2016,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-617-555-0161"
   },
   {
     id: 62,
@@ -886,7 +948,8 @@ export const companies: Company[] = [
     office_locations: ["Tokyo", "Osaka", "Kyoto"],
     founded: 2020,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+81-3-5555-0162"
   },
   {
     id: 63,
@@ -900,7 +963,8 @@ export const companies: Company[] = [
     office_locations: ["Hong Kong", "Singapore", "Shanghai"],
     founded: 2008,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+852-5555-0163"
   },
   {
     id: 64,
@@ -914,7 +978,8 @@ export const companies: Company[] = [
     office_locations: ["Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata"],
     founded: 2005,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+91-22-5555-0164"
   },
   {
     id: 65,
@@ -928,7 +993,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "Milan", "New York", "London"],
     founded: 2009,
     totalTechnologies: 5,
-    category: "E-commerce"
+    category: "E-commerce",
+    telephone: "+33-1-44-55-01-65"
   },
   {
     id: 66,
@@ -942,7 +1008,8 @@ export const companies: Company[] = [
     office_locations: ["Istanbul", "Bursa", "Denizli"],
     founded: 1997,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+90-212-555-0166"
   },
   {
     id: 67,
@@ -956,7 +1023,8 @@ export const companies: Company[] = [
     office_locations: ["Stuttgart", "Munich", "Ingolstadt", "Wolfsburg"],
     founded: 1986,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-711-555-0167"
   },
   {
     id: 68,
@@ -970,7 +1038,8 @@ export const companies: Company[] = [
     office_locations: ["Dhahran", "Riyadh", "Jubail"],
     founded: 1991,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+966-13-555-0168"
   },
   {
     id: 69,
@@ -984,7 +1053,8 @@ export const companies: Company[] = [
     office_locations: ["Dallas", "Atlanta", "Denver", "Chicago"],
     founded: 2007,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-214-555-0169"
   },
   {
     id: 70,
@@ -998,7 +1068,8 @@ export const companies: Company[] = [
     office_locations: ["Mumbai", "Hyderabad", "Chennai"],
     founded: 2008,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-22-5555-0170"
   },
   {
     id: 71,
@@ -1012,7 +1083,8 @@ export const companies: Company[] = [
     office_locations: ["Sydney", "Melbourne", "Brisbane", "Canberra"],
     founded: 2018,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+61-2-9211-0171"
   },
   {
     id: 72,
@@ -1026,7 +1098,8 @@ export const companies: Company[] = [
     office_locations: ["Dubai", "Abu Dhabi", "Sharjah"],
     founded: 2005,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+971-4-555-0172"
   },
   {
     id: 73,
@@ -1040,7 +1113,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Birmingham", "Leeds", "Liverpool"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+44-20-7946-0173"
   },
   {
     id: 74,
@@ -1054,7 +1128,8 @@ export const companies: Company[] = [
     office_locations: ["Chicago", "Kansas City", "Omaha", "Des Moines"],
     founded: 1993,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-312-555-0174"
   },
   {
     id: 75,
@@ -1068,7 +1143,8 @@ export const companies: Company[] = [
     office_locations: ["Toronto", "Calgary", "Edmonton", "Vancouver"],
     founded: 1990,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-416-555-0175"
   },
   {
     id: 76,
@@ -1082,7 +1158,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Cambridge", "Oxford", "Manchester"],
     founded: 1996,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+44-20-7946-0176"
   },
   {
     id: 77,
@@ -1096,7 +1173,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Washington", "Los Angeles", "Chicago"],
     founded: 2009,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-212-555-0177"
   },
   {
     id: 78,
@@ -1110,7 +1188,8 @@ export const companies: Company[] = [
     office_locations: ["Houston", "Cape Canaveral", "Huntsville", "Denver"],
     founded: 1981,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-713-555-0178"
   },
   {
     id: 79,
@@ -1124,7 +1203,8 @@ export const companies: Company[] = [
     office_locations: ["Berlin", "Frankfurt", "Munich", "Düsseldorf"],
     founded: 2002,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+49-30-555-0179"
   },
   {
     id: 80,
@@ -1138,7 +1218,8 @@ export const companies: Company[] = [
     office_locations: ["Tokyo", "Kyoto", "Osaka", "Sapporo"],
     founded: 1995,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+81-3-5555-0180"
   },
   {
     id: 81,
@@ -1152,7 +1233,8 @@ export const companies: Company[] = [
     office_locations: ["Seoul", "Daejeon", "Pohang"],
     founded: 2017,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+82-2-555-0181"
   },
   {
     id: 82,
@@ -1166,7 +1248,8 @@ export const companies: Company[] = [
     office_locations: ["Stockholm", "Lund", "Uppsala"],
     founded: 2019,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+46-8-555-0182"
   },
   {
     id: 83,
@@ -1180,7 +1263,8 @@ export const companies: Company[] = [
     office_locations: ["Zurich", "Geneva", "Lugano", "Bern"],
     founded: 1984,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+41-44-555-0183"
   },
   {
     id: 84,
@@ -1194,7 +1278,8 @@ export const companies: Company[] = [
     office_locations: ["Sydney", "Melbourne", "Brisbane", "Adelaide"],
     founded: 2014,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+61-2-9211-0184"
   },
   {
     id: 85,
@@ -1208,7 +1293,8 @@ export const companies: Company[] = [
     office_locations: ["Toronto", "Montreal", "Vancouver", "Calgary"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "E-commerce"
+    category: "E-commerce",
+    telephone: "+1-416-555-0185"
   },
   {
     id: 86,
@@ -1222,7 +1308,8 @@ export const companies: Company[] = [
     office_locations: ["Johannesburg", "Cape Town", "Durban", "Port Elizabeth"],
     founded: 1993,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+27-11-555-0186"
   },
   {
     id: 87,
@@ -1236,7 +1323,8 @@ export const companies: Company[] = [
     office_locations: ["Turin", "Milan", "Modena", "Bologna"],
     founded: 1980,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+39-011-555-0187"
   },
   {
     id: 88,
@@ -1250,7 +1338,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "Marseille", "Lyon", "Toulouse"],
     founded: 2009,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+33-1-44-55-01-88"
   },
   {
     id: 89,
@@ -1264,7 +1353,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "Toulouse", "Cannes"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+33-1-44-55-01-89"
   },
   {
     id: 90,
@@ -1278,7 +1368,8 @@ export const companies: Company[] = [
     office_locations: ["Stockholm", "Malmo", "Gothenburg"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+46-8-555-0190"
   },
   {
     id: 91,
@@ -1292,7 +1383,8 @@ export const companies: Company[] = [
     office_locations: ["Singapore", "Penang", "Ho Chi Minh City"],
     founded: 2018,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+65-6555-0191"
   },
   {
     id: 92,
@@ -1306,7 +1398,8 @@ export const companies: Company[] = [
     office_locations: ["Toronto", "Vancouver", "Calgary", "Victoria"],
     founded: 2002,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-416-555-0192"
   },
   {
     id: 93,
@@ -1320,7 +1413,8 @@ export const companies: Company[] = [
     office_locations: ["Singapore", "Jakarta", "Manila", "Kuala Lumpur"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+65-6555-0193"
   },
   {
     id: 94,
@@ -1334,7 +1428,8 @@ export const companies: Company[] = [
     office_locations: ["Amsterdam", "Wageningen", "Utrecht"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+31-20-555-0194"
   },
   {
     id: 95,
@@ -1348,7 +1443,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Chicago", "San Francisco", "Houston"],
     founded: 1988,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-212-555-0195"
   },
   {
     id: 96,
@@ -1362,7 +1458,8 @@ export const companies: Company[] = [
     office_locations: ["Tokyo", "Osaka", "Kobe", "Kyoto"],
     founded: 1983,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+81-3-5555-0196"
   },
   {
     id: 97,
@@ -1376,7 +1473,8 @@ export const companies: Company[] = [
     office_locations: ["Seoul", "Busan", "Gwangju"],
     founded: 2013,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+82-2-555-0197"
   },
   {
     id: 98,
@@ -1390,7 +1488,8 @@ export const companies: Company[] = [
     office_locations: ["Beijing", "Xi'an", "Wenchang", "Jiuquan"],
     founded: 1992,
     totalTechnologies: 5,
-    category: "Government"
+    category: "Government",
+    telephone: "+86-10-5555-0198"
   },
   {
     id: 99,
@@ -1404,7 +1503,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Edinburgh", "Leeds", "Birmingham"],
     founded: 2007,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+44-20-7946-0199"
   },
   {
     id: 100,
@@ -1418,7 +1518,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "London", "Berlin"],
     founded: 2018,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+1-415-555-0100"
   },
   {
     id: 101,
@@ -1432,7 +1533,8 @@ export const companies: Company[] = [
     office_locations: ["Tokyo", "Osaka", "Fukuoka", "Kyoto"],
     founded: 2015,
     totalTechnologies: 6,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+81-3-5555-0101"
   },
   {
     id: 102,
@@ -1446,7 +1548,8 @@ export const companies: Company[] = [
     office_locations: ["Bergen", "Trondheim", "Stavanger"],
     founded: 2016,
     totalTechnologies: 4,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+47-55-55-01-02"
   },
   {
     id: 103,
@@ -1460,7 +1563,8 @@ export const companies: Company[] = [
     office_locations: ["Amsterdam", "Wageningen", "Rotterdam"],
     founded: 2020,
     totalTechnologies: 6,
-    category: "YC Backed"
+    category: "YC Backed",
+    telephone: "+31-20-555-0103"
   },
   {
     id: 104,
@@ -1474,7 +1578,8 @@ export const companies: Company[] = [
     office_locations: ["Tel Aviv", "Beersheba", "Herzliya"],
     founded: 2013,
     totalTechnologies: 7,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+972-3-555-0104"
   },
   {
     id: 105,
@@ -1488,7 +1593,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "Lyon", "Marseille", "Lille"],
     founded: 1998,
     totalTechnologies: 3,
-    category: "E-commerce"
+    category: "E-commerce",
+    telephone: "+33-1-44-55-01-05"
   },
   {
     id: 106,
@@ -1502,7 +1608,8 @@ export const companies: Company[] = [
     office_locations: ["Houston", "Dallas", "Phoenix", "Atlanta"],
     founded: 1985,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-713-555-0106"
   },
   {
     id: 107,
@@ -1516,7 +1623,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "Boston"],
     founded: 2019,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+1-415-555-0107"
   },
   {
     id: 108,
@@ -1530,7 +1638,8 @@ export const companies: Company[] = [
     office_locations: ["Mojave", "Los Angeles"],
     founded: 2021,
     totalTechnologies: 5,
-    category: "YC Backed"
+    category: "YC Backed",
+    telephone: "+1-661-555-0108"
   },
   {
     id: 109,
@@ -1544,7 +1653,8 @@ export const companies: Company[] = [
     office_locations: ["Pune", "Bangalore", "Chandigarh"],
     founded: 2017,
     totalTechnologies: 6,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-20-5555-0109"
   },
   {
     id: 110,
@@ -1558,7 +1668,8 @@ export const companies: Company[] = [
     office_locations: ["Frankfurt", "Ludwigshafen", "Leverkusen", "Düsseldorf"],
     founded: 1978,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-69-555-0110"
   },
   {
     id: 111,
@@ -1572,7 +1683,8 @@ export const companies: Company[] = [
     office_locations: ["Seoul", "Suwon", "Gumi"],
     founded: 1995,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+82-2-555-0111"
   },
   {
     id: 112,
@@ -1586,7 +1698,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Los Angeles"],
     founded: 2020,
     totalTechnologies: 4,
-    category: "YC Backed"
+    category: "YC Backed",
+    telephone: "+1-415-555-0112"
   },
   {
     id: 113,
@@ -1600,7 +1713,8 @@ export const companies: Company[] = [
     office_locations: ["Singapore", "Hong Kong", "London"],
     founded: 2014,
     totalTechnologies: 7,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+65-6555-0113"
   },
   {
     id: 114,
@@ -1614,7 +1728,8 @@ export const companies: Company[] = [
     office_locations: ["Kyiv", "Lviv", "Kharkiv", "Remote"],
     founded: 2010,
     totalTechnologies: 8,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+380-44-555-0114"
   },
   {
     id: 115,
@@ -1628,7 +1743,8 @@ export const companies: Company[] = [
     office_locations: ["Perth", "Brisbane", "Melbourne", "Sydney"],
     founded: 1980,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+61-8-9555-0115"
   },
   {
     id: 116,
@@ -1642,7 +1758,8 @@ export const companies: Company[] = [
     office_locations: ["Austin", "Denver", "San Diego"],
     founded: 2012,
     totalTechnologies: 3,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-512-555-0116"
   },
   {
     id: 117,
@@ -1656,7 +1773,8 @@ export const companies: Company[] = [
     office_locations: ["Waterloo", "Vancouver", "Montreal"],
     founded: 2018,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+1-519-555-0117"
   },
   {
     id: 118,
@@ -1670,7 +1788,8 @@ export const companies: Company[] = [
     office_locations: ["Stockholm", "Jönköping", "Lund"],
     founded: 2008,
     totalTechnologies: 3,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+46-8-555-0118"
   },
   {
     id: 119,
@@ -1684,7 +1803,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "San Francisco"],
     founded: 2021,
     totalTechnologies: 5,
-    category: "YC Backed"
+    category: "YC Backed",
+    telephone: "+1-212-555-0119"
   },
   {
     id: 120,
@@ -1698,7 +1818,8 @@ export const companies: Company[] = [
     office_locations: ["Tel Aviv", "Haifa", "Eilat"],
     founded: 2007,
     totalTechnologies: 4,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+972-3-555-0120"
   },
   {
     id: 121,
@@ -1712,7 +1833,8 @@ export const companies: Company[] = [
     office_locations: ["Los Angeles", "New York", "Miami", "Chicago", "Austin"],
     founded: 2018,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+1-310-555-0121"
   },
   {
     id: 122,
@@ -1726,7 +1848,8 @@ export const companies: Company[] = [
     office_locations: ["Mumbai", "Surat", "Ludhiana", "Delhi"],
     founded: 2001,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+91-22-5555-0122"
   },
   {
     id: 123,
@@ -1740,7 +1863,8 @@ export const companies: Company[] = [
     office_locations: ["Tallinn", "Remote"],
     founded: 2022,
     totalTechnologies: 5,
-    category: "YC Backed"
+    category: "YC Backed",
+    telephone: "+372-6-555-0123"
   },
   {
     id: 124,
@@ -1754,7 +1878,8 @@ export const companies: Company[] = [
     office_locations: ["Austin", "Phoenix", "San Jose", "Denver"],
     founded: 2011,
     totalTechnologies: 4,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-512-555-0124"
   },
   {
     id: 125,
@@ -1768,7 +1893,8 @@ export const companies: Company[] = [
     office_locations: ["Chicago", "Atlanta", "Dallas", "Los Angeles", "New York"],
     founded: 1982,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-312-555-0125"
   },
   {
     id: 126,
@@ -1782,7 +1908,8 @@ export const companies: Company[] = [
     office_locations: ["Berlin", "Munich", "Hamburg"],
     founded: 2016,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+49-30-555-0126"
   },
   {
     id: 127,
@@ -1796,7 +1923,8 @@ export const companies: Company[] = [
     office_locations: ["Singapore", "Hong Kong", "Sydney"],
     founded: 2019,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+65-6555-0127"
   },
   {
     id: 128,
@@ -1810,7 +1938,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Austin", "Boston"],
     founded: 2017,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+1-415-555-0128"
   },
   {
     id: 129,
@@ -1824,7 +1953,8 @@ export const companies: Company[] = [
     office_locations: ["Vancouver", "Toronto", "Montreal"],
     founded: 2010,
     totalTechnologies: 3,
-    category: "E-commerce"
+    category: "E-commerce",
+    telephone: "+1-604-555-0129"
   },
   {
     id: 130,
@@ -1838,7 +1968,8 @@ export const companies: Company[] = [
     office_locations: ["Sao Paulo", "Rio de Janeiro", "Brasilia"],
     founded: 1991,
     totalTechnologies: 4,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+55-11-5555-0130"
   },
   {
     id: 131,
@@ -1852,7 +1983,8 @@ export const companies: Company[] = [
     office_locations: ["Bangalore", "Remote"],
     founded: 2021,
     totalTechnologies: 5,
-    category: "YC Backed"
+    category: "YC Backed",
+    telephone: "+91-80-5555-0131"
   },
   {
     id: 132,
@@ -1866,7 +1998,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Manchester", "Edinburgh", "Cardiff"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+44-20-7946-0132"
   },
   {
     id: 133,
@@ -1880,7 +2013,8 @@ export const companies: Company[] = [
     office_locations: ["Stuttgart", "Munich", "Berlin", "Hamburg"],
     founded: 2005,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+49-711-555-0133"
   },
   {
     id: 134,
@@ -1894,7 +2028,8 @@ export const companies: Company[] = [
     office_locations: ["New Jersey", "Boston", "San Diego"],
     founded: 2016,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-908-555-0134"
   },
   {
     id: 135,
@@ -1908,7 +2043,8 @@ export const companies: Company[] = [
     office_locations: ["Los Angeles", "New York", "Seattle"],
     founded: 2013,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-310-555-0135"
   },
   {
     id: 136,
@@ -1922,7 +2058,8 @@ export const companies: Company[] = [
     office_locations: ["Toronto", "Vancouver", "Calgary", "Saskatoon"],
     founded: 1988,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-416-555-0136"
   },
   {
     id: 137,
@@ -1936,7 +2073,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Cambridge", "Manchester"],
     founded: 2015,
     totalTechnologies: 6,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+44-20-7946-0137"
   },
   {
     id: 138,
@@ -1950,7 +2088,8 @@ export const companies: Company[] = [
     office_locations: ["Shanghai", "Beijing", "Guangzhou", "Shenzhen"],
     founded: 2018,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+86-21-5555-0138"
   },
   {
     id: 139,
@@ -1964,7 +2103,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Los Angeles", "San Francisco"],
     founded: 2020,
     totalTechnologies: 4,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+1-212-555-0139"
   },
   {
     id: 140,
@@ -1978,7 +2118,8 @@ export const companies: Company[] = [
     office_locations: ["Berlin", "Munich", "Hamburg"],
     founded: 2014,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+49-30-555-0140"
   },
   {
     id: 141,
@@ -1992,7 +2133,8 @@ export const companies: Company[] = [
     office_locations: ["Austin", "San Francisco", "Denver"],
     founded: 2019,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+1-512-555-0141"
   },
   {
     id: 142,
@@ -2006,7 +2148,8 @@ export const companies: Company[] = [
     office_locations: ["Bangalore", "Mumbai", "Pune", "Hyderabad"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+91-80-5555-0142"
   },
   {
     id: 143,
@@ -2020,7 +2163,8 @@ export const companies: Company[] = [
     office_locations: ["Zurich", "Geneva", "Lausanne"],
     founded: 2013,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+41-44-555-0143"
   },
   {
     id: 144,
@@ -2034,7 +2178,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Chicago", "Los Angeles", "San Francisco", "Miami"],
     founded: 2015,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-212-555-0144"
   },
   {
     id: 145,
@@ -2048,7 +2193,8 @@ export const companies: Company[] = [
     office_locations: ["San Jose", "Austin", "Washington", "New York"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-408-555-0145"
   },
   {
     id: 146,
@@ -2062,7 +2208,8 @@ export const companies: Company[] = [
     office_locations: ["Wageningen", "Amsterdam", "Rotterdam"],
     founded: 2015,
     totalTechnologies: 6,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+31-317-555-0146"
   },
   {
     id: 147,
@@ -2076,7 +2223,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Manchester", "Bristol"],
     founded: 2017,
     totalTechnologies: 5,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+44-20-7946-0147"
   },
   {
     id: 148,
@@ -2090,7 +2238,8 @@ export const companies: Company[] = [
     office_locations: ["Boston", "New York", "Remote"],
     founded: 2020,
     totalTechnologies: 5,
-    category: "YC Backed"
+    category: "YC Backed",
+    telephone: "+1-617-555-0148"
   },
   {
     id: 149,
@@ -2104,7 +2253,8 @@ export const companies: Company[] = [
     office_locations: ["Copenhagen", "Aarhus", "Odense"],
     founded: 2006,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+45-33-55-01-49"
   },
   {
     id: 150,
@@ -2118,7 +2268,8 @@ export const companies: Company[] = [
     office_locations: ["Singapore", "Jakarta", "Bangkok"],
     founded: 2018,
     totalTechnologies: 6,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+65-6555-0150"
   },
   {
     id: 151,
@@ -2132,7 +2283,8 @@ export const companies: Company[] = [
     office_locations: ["Houston", "Costa Rica"],
     founded: 2005,
     totalTechnologies: 4,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-281-555-0151"
   },
   {
     id: 152,
@@ -2146,7 +2298,8 @@ export const companies: Company[] = [
     office_locations: ["Austin", "New York", "London"],
     founded: 2013,
     totalTechnologies: 6,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-512-555-0152"
   },
   {
     id: 153,
@@ -2160,7 +2313,8 @@ export const companies: Company[] = [
     office_locations: ["Oslo", "Bergen", "Stavanger", "Trondheim"],
     founded: 1905,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+47-22-55-01-53"
   },
   {
     id: 154,
@@ -2174,7 +2328,8 @@ export const companies: Company[] = [
     office_locations: ["Boston", "San Francisco", "Shenzhen"],
     founded: 2010,
     totalTechnologies: 4,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-617-555-0154"
   },
   {
     id: 155,
@@ -2188,7 +2343,8 @@ export const companies: Company[] = [
     office_locations: ["Toronto", "Montreal", "Vancouver"],
     founded: 2016,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-416-555-0155"
   },
   {
     id: 156,
@@ -2202,7 +2358,8 @@ export const companies: Company[] = [
     office_locations: ["Rio de Janeiro", "Sao Paulo", "Salvador"],
     founded: 1953,
     totalTechnologies: 6,
-    category: "Government"
+    category: "Government",
+    telephone: "+55-21-5555-0156"
   },
   {
     id: 157,
@@ -2216,7 +2373,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "San Francisco"],
     founded: 2009,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-212-555-0157"
   },
   {
     id: 158,
@@ -2230,7 +2388,8 @@ export const companies: Company[] = [
     office_locations: ["Mumbai", "Jamshedpur", "Kolkata"],
     founded: 1907,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+91-22-5555-0158"
   },
   {
     id: 159,
@@ -2244,7 +2403,8 @@ export const companies: Company[] = [
     office_locations: ["San Jose", "Austin", "Manila"],
     founded: 1985,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-408-555-0159"
   },
   {
     id: 160,
@@ -2258,7 +2418,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Manchester", "Dublin", "Amsterdam", "Hong Kong", "Singapore"],
     founded: 2013,
     totalTechnologies: 4,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+44-20-7946-0160"
   },
   {
     id: 161,
@@ -2272,7 +2433,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Copenhagen", "Helsinki", "Montreal"],
     founded: 2004,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-555-0161"
   },
   {
     id: 162,
@@ -2286,7 +2448,8 @@ export const companies: Company[] = [
     office_locations: ["Seattle", "San Francisco", "Irvine", "New York"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-206-555-0162"
   },
   {
     id: 163,
@@ -2300,7 +2463,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Seattle", "Chicago", "Dublin", "Sydney"],
     founded: 2003,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-555-0163"
   },
   {
     id: 164,
@@ -2314,7 +2478,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Dublin", "London", "Singapore"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-888-555-0164"
   },
   {
     id: 165,
@@ -2328,7 +2493,8 @@ export const companies: Company[] = [
     office_locations: ["Ottawa", "Toronto", "Waterloo", "Montreal"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-888-746-7439"
   },
   {
     id: 166,
@@ -2342,7 +2508,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Denver", "London", "Tallinn"],
     founded: 2008,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-877-889-4636"
   },
   {
     id: 167,
@@ -2356,7 +2523,8 @@ export const companies: Company[] = [
     office_locations: ["Sydney", "San Francisco", "Austin", "Amsterdam"],
     founded: 2002,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+61-2-9266-5000"
   },
   {
     id: 168,
@@ -2370,7 +2538,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Boston", "Paris", "Dublin"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-866-329-4466"
   },
   {
     id: 169,
@@ -2384,7 +2553,8 @@ export const companies: Company[] = [
     office_locations: ["San Mateo", "Bellevue", "Denver", "London"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-844-766-9355"
   },
   {
     id: 170,
@@ -2398,7 +2568,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Bucharest", "London", "Tokyo"],
     founded: 2005,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-800-589-7284"
   },
   {
     id: 171,
@@ -2412,7 +2583,8 @@ export const companies: Company[] = [
     office_locations: ["Sunnyvale", "Austin", "London", "Pune"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-888-512-8906"
   },
   {
     id: 172,
@@ -2426,7 +2598,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Bellevue", "London", "Toronto"],
     founded: 2009,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-888-722-7871"
   },
   {
     id: 173,
@@ -2440,7 +2613,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Dublin", "Sydney", "Palo Alto"],
     founded: 2007,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-866-237-8815"
   },
   {
     id: 174,
@@ -2454,7 +2628,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "London"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-890-5400"
   },
   {
     id: 175,
@@ -2468,7 +2643,8 @@ export const companies: Company[] = [
     office_locations: ["Sydney", "Manila", "Beijing"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+61-1800-85- कैनवा"
   },
   {
     id: 176,
@@ -2482,7 +2658,8 @@ export const companies: Company[] = [
     office_locations: ["Singapore", "Jakarta", "Ho Chi Minh City", "Kuala Lumpur"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+65-6655-0005"
   },
   {
     id: 177,
@@ -2496,7 +2673,8 @@ export const companies: Company[] = [
     office_locations: ["Jakarta", "Bangalore", "Singapore", "Bangkok"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+62-21-5084-3000"
   },
   {
     id: 178,
@@ -2510,7 +2688,8 @@ export const companies: Company[] = [
     office_locations: ["Buenos Aires", "Sao Paulo", "Mexico City", "Bogota"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "E-commerce"
+    category: "E-commerce",
+    telephone: "+54-11-4640-8000"
   },
   {
     id: 179,
@@ -2524,7 +2703,8 @@ export const companies: Company[] = [
     office_locations: ["Sao Paulo", "Berlin", "Mexico City", "Buenos Aires"],
     founded: 2013,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+55-11-2039-0655"
   },
   {
     id: 180,
@@ -2538,7 +2718,8 @@ export const companies: Company[] = [
     office_locations: ["Stockholm", "Berlin", "Columbus", "London"],
     founded: 2005,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+46-8-120-120-10"
   },
   {
     id: 181,
@@ -2552,7 +2733,8 @@ export const companies: Company[] = [
     office_locations: ["Amsterdam", "San Francisco", "Singapore", "London"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+31-85-888-8133"
   },
   {
     id: 182,
@@ -2566,7 +2748,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Krakow", "Vilnius", "Moscow"],
     founded: 2015,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+44-203-322-8352"
   },
   {
     id: 183,
@@ -2580,7 +2763,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "Salt Lake City", "London"],
     founded: 2013,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-800-752-4346"
   },
   {
     id: 184,
@@ -2594,7 +2778,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "London", "Dublin", "Remote"],
     founded: 2012,
     totalTechnologies: 6,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-888-908-7930"
   },
   {
     id: 185,
@@ -2608,7 +2793,8 @@ export const companies: Company[] = [
     office_locations: ["Remote"],
     founded: 2017,
     totalTechnologies: 6,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "Not Available"
   },
   {
     id: 186,
@@ -2622,7 +2808,8 @@ export const companies: Company[] = [
     office_locations: ["Los Angeles", "St. Louis", "Hong Kong", "Dublin"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-310-337-7468"
   },
   {
     id: 187,
@@ -2636,7 +2823,8 @@ export const companies: Company[] = [
     office_locations: ["Cary", "Seattle", "Berlin", "Seoul"],
     founded: 1991,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-919-854-0070"
   },
   {
     id: 188,
@@ -2650,7 +2838,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "Amsterdam"],
     founded: 2015,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-888-510-3310"
   },
   {
     id: 189,
@@ -2664,7 +2853,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Vancouver", "Dublin", "Melbourne"],
     founded: 2009,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-579-9127"
   },
   {
     id: 190,
@@ -2678,7 +2868,8 @@ export const companies: Company[] = [
     office_locations: ["San Jose", "Denver", "Kansas City", "Sydney"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-888-799-9666"
   },
   {
     id: 191,
@@ -2692,7 +2883,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Amsterdam", "Perm", "Austin"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-855-9 MiroHQ"
   },
   {
     id: 192,
@@ -2706,7 +2898,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "Dublin", "Tokyo"],
     founded: 2016,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-800-608-3778"
   },
   {
     id: 193,
@@ -2720,7 +2913,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Austin", "New York", "London"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-814-7220"
   },
   {
     id: 194,
@@ -2734,7 +2928,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "Dublin", "Sydney"],
     founded: 2008,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-525-3888"
   },
   {
     id: 195,
@@ -2748,7 +2943,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "San Francisco", "Remote"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-877-929-2333"
   },
   {
     id: 196,
@@ -2762,7 +2958,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Dublin", "Chicago", "Sydney"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-877-747-4587"
   },
   {
     id: 197,
@@ -2776,7 +2973,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Copenhagen", "Dublin", "Melbourne"],
     founded: 2007,
     totalTechnologies: 4,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-888-670-4887"
   },
   {
     id: 198,
@@ -2790,7 +2988,8 @@ export const companies: Company[] = [
     office_locations: ["Cambridge", "Dublin", "Singapore", "Berlin"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-888-482-7768"
   },
   {
     id: 199,
@@ -2804,7 +3003,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "London", "Tokyo", "Sydney"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-800-667-6389"
   },
   {
     id: 200,
@@ -2818,7 +3018,8 @@ export const companies: Company[] = [
     office_locations: ["San Jose", "San Francisco", "New York", "Bangalore"],
     founded: 1982,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-408-536-6000"
   },
   {
     id: 201,
@@ -2832,7 +3033,8 @@ export const companies: Company[] = [
     office_locations: ["Walldorf", "Palo Alto", "Bangalore", "Shanghai"],
     founded: 1972,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+49-6227-7-47474"
   },
   {
     id: 202,
@@ -2846,7 +3048,8 @@ export const companies: Company[] = [
     office_locations: ["Austin", "Redwood City", "Bangalore", "Reading"],
     founded: 1977,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-800-633-0738"
   },
   {
     id: 203,
@@ -2860,7 +3063,8 @@ export const companies: Company[] = [
     office_locations: ["Redmond", "Bellevue", "Hyderabad", "Dublin"],
     founded: 1975,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-425-882-8080"
   },
   {
     id: 204,
@@ -2874,7 +3078,8 @@ export const companies: Company[] = [
     office_locations: ["Cupertino", "London", "Shanghai", "Cork"],
     founded: 1976,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-800-MY-APPLE"
   },
   {
     id: 205,
@@ -2888,7 +3093,8 @@ export const companies: Company[] = [
     office_locations: ["Seattle", "Arlington", "Hyderabad", "London"],
     founded: 1994,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-206-266-1000"
   },
   {
     id: 206,
@@ -2902,7 +3108,8 @@ export const companies: Company[] = [
     office_locations: ["Mountain View", "New York", "London", "Zurich"],
     founded: 1998,
     totalTechnologies: 6,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-650-253-0000"
   },
   {
     id: 207,
@@ -2916,7 +3123,8 @@ export const companies: Company[] = [
     office_locations: ["Menlo Park", "New York", "London", "Tel Aviv"],
     founded: 2004,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-650-543-4800"
   },
   {
     id: 208,
@@ -2930,7 +3138,8 @@ export const companies: Company[] = [
     office_locations: ["Los Gatos", "Los Angeles", "Amsterdam", "Singapore"],
     founded: 1997,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-866-579-7172"
   },
   {
     id: 209,
@@ -2944,7 +3153,8 @@ export const companies: Company[] = [
     office_locations: ["Austin", "Palo Alto", "Fremont", "Berlin"],
     founded: 2003,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-888-518-3752"
   },
   {
     id: 210,
@@ -2958,7 +3168,8 @@ export const companies: Company[] = [
     office_locations: ["Santa Clara", "Taipei", "Munich", "Bangalore"],
     founded: 1993,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-408-486-2000"
   },
   {
     id: 211,
@@ -2972,7 +3183,8 @@ export const companies: Company[] = [
     office_locations: ["Santa Clara", "Hillsboro", "Haifa", "Penang"],
     founded: 1968,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-408-765-8080"
   },
   {
     id: 212,
@@ -2986,7 +3198,8 @@ export const companies: Company[] = [
     office_locations: ["Santa Clara", "Austin", "Markham", "Hyderabad"],
     founded: 1969,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-408-749-4000"
   },
   {
     id: 213,
@@ -3000,7 +3213,8 @@ export const companies: Company[] = [
     office_locations: ["San Diego", "Santa Clara", "Bangalore", "Shanghai"],
     founded: 1985,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-858-587-1121"
   },
   {
     id: 214,
@@ -3014,7 +3228,8 @@ export const companies: Company[] = [
     office_locations: ["San Jose", "Irvine", "Singapore", "Bangalore"],
     founded: 1961,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-408-433-8000"
   },
   {
     id: 215,
@@ -3028,7 +3243,8 @@ export const companies: Company[] = [
     office_locations: ["Dallas", "Santa Clara", "Bangalore", "Shanghai"],
     founded: 1930,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-972-995-2011"
   },
   {
     id: 216,
@@ -3042,7 +3258,8 @@ export const companies: Company[] = [
     office_locations: ["Armonk", "Austin", "Bangalore", "Zurich"],
     founded: 1911,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-914-499-1900"
   },
   {
     id: 217,
@@ -3056,7 +3273,8 @@ export const companies: Company[] = [
     office_locations: ["Dublin", "Chicago", "Bangalore", "Manila"],
     founded: 1989,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+353-1-646-2000"
   },
   {
     id: 218,
@@ -3070,7 +3288,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "Utrecht", "Mumbai", "Krakow"],
     founded: 1967,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+33-1-47-54-50-00"
   },
   {
     id: 219,
@@ -3084,7 +3303,8 @@ export const companies: Company[] = [
     office_locations: ["Mumbai", "Chennai", "New York", "London"],
     founded: 1968,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+91-22-6778-9595"
   },
   {
     id: 220,
@@ -3098,7 +3318,8 @@ export const companies: Company[] = [
     office_locations: ["Bangalore", "Pune", "Plano", "London"],
     founded: 1981,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+91-80-2852-0261"
   },
   {
     id: 221,
@@ -3112,7 +3333,8 @@ export const companies: Company[] = [
     office_locations: ["Bangalore", "Pune", "East Brunswick", "London"],
     founded: 1945,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+91-80-2844-0011"
   },
   {
     id: 222,
@@ -3126,7 +3348,8 @@ export const companies: Company[] = [
     office_locations: ["Noida", "Chennai", "Sunnyvale", "London"],
     founded: 1976,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+91-120-252-0917"
   },
   {
     id: 223,
@@ -3140,7 +3363,8 @@ export const companies: Company[] = [
     office_locations: ["Teaneck", "Chennai", "Pune", "London"],
     founded: 1994,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+1-201-801-0233"
   },
   {
     id: 224,
@@ -3154,7 +3378,8 @@ export const companies: Company[] = [
     office_locations: ["Mumbai", "Pune", "Edison", "London"],
     founded: 1997,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+91-22-6776-6776"
   },
   {
     id: 225,
@@ -3168,7 +3393,8 @@ export const companies: Company[] = [
     office_locations: ["Pune", "Hyderabad", "Plano", "London"],
     founded: 1986,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+91-20-4225-0000"
   },
   {
     id: 226,
@@ -3182,7 +3408,8 @@ export const companies: Company[] = [
     office_locations: ["Beijing", "Shanghai", "Mountain View", "London"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+86-10-5836-1188"
   },
   {
     id: 227,
@@ -3196,7 +3423,8 @@ export const companies: Company[] = [
     office_locations: ["Shenzhen", "Beijing", "Palo Alto", "Hong Kong"],
     founded: 1998,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+86-755-8601-3388"
   },
   {
     id: 228,
@@ -3210,7 +3438,8 @@ export const companies: Company[] = [
     office_locations: ["Hangzhou", "Beijing", "San Mateo", "Singapore"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+86-571-8502-2088"
   },
   {
     id: 229,
@@ -3224,7 +3453,8 @@ export const companies: Company[] = [
     office_locations: ["Beijing", "Shanghai", "Sunnyvale", "Shenzhen"],
     founded: 2000,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+86-10-5992-8888"
   },
   {
     id: 230,
@@ -3238,7 +3468,8 @@ export const companies: Company[] = [
     office_locations: ["Beijing", "Bangalore", "Singapore", "Madrid"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+86-10-6060-6666"
   },
   {
     id: 231,
@@ -3252,7 +3483,8 @@ export const companies: Company[] = [
     office_locations: ["Shenzhen", "Beijing", "Munich", "Stockholm"],
     founded: 1987,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+86-755-2878-0808"
   },
   {
     id: 232,
@@ -3266,7 +3498,8 @@ export const companies: Company[] = [
     office_locations: ["Shenzhen", "Beijing", "Los Angeles", "Frankfurt"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+86-755-2665-6677"
   },
   {
     id: 233,
@@ -3280,7 +3513,8 @@ export const companies: Company[] = [
     office_locations: ["Tokyo", "San Carlos", "London", "Hong Kong"],
     founded: 1981,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+81-3-6889-2000"
   },
   {
     id: 234,
@@ -3294,7 +3528,8 @@ export const companies: Company[] = [
     office_locations: ["Tokyo", "San Mateo", "Singapore", "Paris"],
     founded: 1997,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+81-50-5581-6910"
   },
   {
     id: 235,
@@ -3308,7 +3543,8 @@ export const companies: Company[] = [
     office_locations: ["Tokyo", "San Mateo", "London", "Beijing"],
     founded: 1946,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+81-3-6748-2111"
   },
   {
     id: 236,
@@ -3322,7 +3558,8 @@ export const companies: Company[] = [
     office_locations: ["Osaka", "Tokyo", "Newark", "Singapore"],
     founded: 1918,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+81-6-6908-1121"
   },
   {
     id: 237,
@@ -3336,7 +3573,8 @@ export const companies: Company[] = [
     office_locations: ["Toyota City", "Tokyo", "Plano", "Brussels"],
     founded: 1937,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+81-565-28-2121"
   },
   {
     id: 238,
@@ -3350,7 +3588,8 @@ export const companies: Company[] = [
     office_locations: ["Tokyo", "Marysville", "Swindon", "Bangkok"],
     founded: 1948,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+81-3-3423-1111"
   },
   {
     id: 239,
@@ -3364,7 +3603,8 @@ export const companies: Company[] = [
     office_locations: ["Suwon", "Seoul", "San Jose", "Noida"],
     founded: 1938,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+82-2-2255-0114"
   },
   {
     id: 240,
@@ -3378,7 +3618,8 @@ export const companies: Company[] = [
     office_locations: ["Seoul", "Englewood Cliffs", "Düsseldorf", "Singapore"],
     founded: 1947,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+82-2-3777-1114"
   },
   {
     id: 241,
@@ -3392,7 +3633,8 @@ export const companies: Company[] = [
     office_locations: ["Seoul", "Ulsan", "Montgomery", "Frankfurt"],
     founded: 1967,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+82-2-3464-1114"
   },
   {
     id: 242,
@@ -3406,7 +3648,8 @@ export const companies: Company[] = [
     office_locations: ["Icheon", "Cheongju", "San Jose", "Wuxi"],
     founded: 1983,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+82-31-639-7114"
   },
   {
     id: 243,
@@ -3420,7 +3663,8 @@ export const companies: Company[] = [
     office_locations: ["Seongnam", "Chuncheon", "Tokyo", "Ho Chi Minh City"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+82-1588-3830"
   },
   {
     id: 244,
@@ -3434,7 +3678,8 @@ export const companies: Company[] = [
     office_locations: ["Jeju", "Pangyo", "Tokyo", "Palo Alto"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+82-1577-3754"
   },
   {
     id: 245,
@@ -3448,7 +3693,8 @@ export const companies: Company[] = [
     office_locations: ["Seattle", "Seoul", "Shanghai", "Mountain View"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "E-commerce"
+    category: "E-commerce",
+    telephone: "+1-844-302-7667"
   },
   {
     id: 246,
@@ -3462,7 +3708,8 @@ export const companies: Company[] = [
     office_locations: ["Berlin", "Istanbul", "Singapore", "Buenos Aires"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+49-30-5444-59000"
   },
   {
     id: 247,
@@ -3476,7 +3723,8 @@ export const companies: Company[] = [
     office_locations: ["Berlin", "New York", "London", "Sydney"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+49-30-208-48-26-00"
   },
   {
     id: 248,
@@ -3490,7 +3738,8 @@ export const companies: Company[] = [
     office_locations: ["Berlin", "Dortmund", "Helsinki", "Dublin"],
     founded: 2008,
     totalTechnologies: 5,
-    category: "E-commerce"
+    category: "E-commerce",
+    telephone: "+49-30-209-68-10-00"
   },
   {
     id: 249,
@@ -3504,7 +3753,8 @@ export const companies: Company[] = [
     office_locations: ["Stockholm", "New York", "London", "Boston"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+46-8-456-7890"
   },
   {
     id: 250,
@@ -3518,7 +3768,8 @@ export const companies: Company[] = [
     office_locations: ["Stockholm", "Plano", "Beijing", "Kista"],
     founded: 1876,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+46-10-719-00-00"
   },
   {
     id: 251,
@@ -3532,7 +3783,8 @@ export const companies: Company[] = [
     office_locations: ["Espoo", "Oulu", "Murray Hill", "Bangalore"],
     founded: 1865,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+358-10-44-88-000"
   },
   {
     id: 252,
@@ -3546,7 +3798,8 @@ export const companies: Company[] = [
     office_locations: ["Gothenburg", "Stockholm", "Greensboro", "Shanghai"],
     founded: 1927,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+46-31-66-90-00"
   },
   {
     id: 253,
@@ -3560,7 +3813,8 @@ export const companies: Company[] = [
     office_locations: ["Stockholm", "New York", "London", "Shanghai"],
     founded: 1947,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+46-8-796-55-00"
   },
   {
     id: 254,
@@ -3574,7 +3828,8 @@ export const companies: Company[] = [
     office_locations: ["Delft", "Malmö", "Conshohocken", "Shanghai"],
     founded: 1943,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+31-15-215-3815"
   },
   {
     id: 255,
@@ -3588,7 +3843,8 @@ export const companies: Company[] = [
     office_locations: ["Billund", "London", "Enfield", "Shanghai"],
     founded: 1932,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+45-79-50-60-70"
   },
   {
     id: 256,
@@ -3602,7 +3858,8 @@ export const companies: Company[] = [
     office_locations: ["Copenhagen", "The Hague", "Mumbai", "Charlotte"],
     founded: 1904,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+45-3363-3363"
   },
   {
     id: 257,
@@ -3616,7 +3873,8 @@ export const companies: Company[] = [
     office_locations: ["Bagsværd", "Plainsboro", "Zurich", "Bangalore"],
     founded: 1923,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+45-4444-8888"
   },
   {
     id: 258,
@@ -3630,7 +3888,8 @@ export const companies: Company[] = [
     office_locations: ["Copenhagen", "Baltimore", "Bangkok", "Hamburg"],
     founded: 1982,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+45-36-72-00-44"
   },
   {
     id: 259,
@@ -3644,7 +3903,8 @@ export const companies: Company[] = [
     office_locations: ["Stavanger", "Oslo", "Houston", "London"],
     founded: 1972,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+47-51-99-00-00"
   },
   {
     id: 260,
@@ -3658,7 +3918,8 @@ export const companies: Company[] = [
     office_locations: ["Oslo", "Brussels", "Tampa", "Singapore"],
     founded: 1905,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+47-24-15-70-00"
   },
   {
     id: 261,
@@ -3672,7 +3933,8 @@ export const companies: Company[] = [
     office_locations: ["Espoo", "Hyvinkää", "Lisle", "Shanghai"],
     founded: 1910,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+358-204-75-1"
   },
   {
     id: 262,
@@ -3686,7 +3948,8 @@ export const companies: Company[] = [
     office_locations: ["Helsinki", "San Francisco", "Seoul", "Shanghai"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+358-10-218-9700"
   },
   {
     id: 263,
@@ -3700,7 +3963,8 @@ export const companies: Company[] = [
     office_locations: ["Espoo", "Stockholm", "London", "Los Angeles"],
     founded: 2003,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+358-207-888-300"
   },
   {
     id: 264,
@@ -3714,7 +3978,8 @@ export const companies: Company[] = [
     office_locations: ["Helsinki", "Berlin", "Tokyo", "Tel Aviv"],
     founded: 2014,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+358-9-4245-0321"
   },
   {
     id: 265,
@@ -3728,7 +3993,8 @@ export const companies: Company[] = [
     office_locations: ["Espoo", "Porvoo", "Singapore", "Rotterdam"],
     founded: 1948,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+358-10-458-11"
   },
   {
     id: 266,
@@ -3742,7 +4008,8 @@ export const companies: Company[] = [
     office_locations: ["Warsaw", "Krakow", "Wrocław", "Vancouver"],
     founded: 1994,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+48-22-519-69-00"
   },
   {
     id: 267,
@@ -3756,7 +4023,8 @@ export const companies: Company[] = [
     office_locations: ["Wrocław", "Warsaw", "Ostrow Wielkopolski"],
     founded: 1991,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+48-71-355-63-55"
   },
   {
     id: 268,
@@ -3770,7 +4038,8 @@ export const companies: Company[] = [
     office_locations: ["Poznan", "Warsaw", "Krakow", "Torun"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "E-commerce"
+    category: "E-commerce",
+    telephone: "+48-61-630-60-00"
   },
   {
     id: 269,
@@ -3784,7 +4053,8 @@ export const companies: Company[] = [
     office_locations: ["Warsaw", "Bielsko-Biala", "Chicago", "Sao Paulo"],
     founded: 2013,
     totalTechnologies: 4,
-    category: "Startup"
+    category: "Startup",
+    telephone: "+48-22-123-45-67"
   },
   {
     id: 270,
@@ -3798,7 +4068,8 @@ export const companies: Company[] = [
     office_locations: ["Warsaw", "Barcelona", "Istanbul", "Mexico City"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+48-22-307-27-27"
   },
   {
     id: 271,
@@ -3812,7 +4083,8 @@ export const companies: Company[] = [
     office_locations: ["Prague", "Brno", "Redwood City", "London"],
     founded: 1988,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+420-274-006-111"
   },
   {
     id: 272,
@@ -3826,7 +4098,8 @@ export const companies: Company[] = [
     office_locations: ["Mlada Boleslav", "Prague", "Kvasiny", "Vrchlabi"],
     founded: 1895,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+420-326-811-111"
   },
   {
     id: 273,
@@ -3840,7 +4113,8 @@ export const companies: Company[] = [
     office_locations: ["Amsterdam", "Lagos", "Mexico City", "Ho Chi Minh City"],
     founded: 1864,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+31-20-523-9239"
   },
   {
     id: 274,
@@ -3854,7 +4128,8 @@ export const companies: Company[] = [
     office_locations: ["Amsterdam", "Eindhoven", "Cambridge", "Bangalore"],
     founded: 1891,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+31-20-59-77777"
   },
   {
     id: 275,
@@ -3868,7 +4143,8 @@ export const companies: Company[] = [
     office_locations: ["Veldhoven", "Wilton", "San Diego", "Hsinchu"],
     founded: 1984,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+31-40-268-3000"
   },
   {
     id: 276,
@@ -3882,7 +4158,8 @@ export const companies: Company[] = [
     office_locations: ["Amsterdam", "Cambridge", "Mumbai", "Shanghai"],
     founded: 1996,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+31-70-770-3884"
   },
   {
     id: 277,
@@ -3896,7 +4173,8 @@ export const companies: Company[] = [
     office_locations: ["Amsterdam", "Eindhoven", "Pune", "Berlin"],
     founded: 1991,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+31-20-757-5000"
   },
   {
     id: 278,
@@ -3910,7 +4188,8 @@ export const companies: Company[] = [
     office_locations: ["Zurich", "Vasteras", "Raleigh", "Bangalore"],
     founded: 1988,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+41-43-317-7111"
   },
   {
     id: 279,
@@ -3924,7 +4203,8 @@ export const companies: Company[] = [
     office_locations: ["Basel", "South San Francisco", "Penzberg", "Shanghai"],
     founded: 1896,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+41-61-688-1111"
   },
   {
     id: 280,
@@ -3938,7 +4218,8 @@ export const companies: Company[] = [
     office_locations: ["Basel", "Cambridge", "Hyderabad", "Shanghai"],
     founded: 1996,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+41-61-324-1111"
   },
   {
     id: 281,
@@ -3952,7 +4233,8 @@ export const companies: Company[] = [
     office_locations: ["Vevey", "Arlington", "Panama City", "Dubai"],
     founded: 1866,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+41-21-924-2111"
   },
   {
     id: 282,
@@ -3966,7 +4248,8 @@ export const companies: Company[] = [
     office_locations: ["Zurich", "London", "New York", "Hong Kong"],
     founded: 1862,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+41-44-234-1111"
   },
   {
     id: 283,
@@ -3980,7 +4263,8 @@ export const companies: Company[] = [
     office_locations: ["Zurich", "London", "New York", "Singapore"],
     founded: 1856,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+41-44-333-1111"
   },
   {
     id: 284,
@@ -3994,7 +4278,8 @@ export const companies: Company[] = [
     office_locations: ["Zurich", "London", "Armonk", "Bangalore"],
     founded: 1863,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+41-43-285-2121"
   },
   {
     id: 285,
@@ -4008,7 +4293,8 @@ export const companies: Company[] = [
     office_locations: ["Lausanne", "Newark", "Hsinchu", "Cork"],
     founded: 1981,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+41-21-863-5511"
   },
   {
     id: 286,
@@ -4022,7 +4308,8 @@ export const companies: Company[] = [
     office_locations: ["Hergiswil", "Morristown", "Shanghai", "Mumbai"],
     founded: 1874,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+41-41-445-3232"
   },
   {
     id: 287,
@@ -4036,7 +4323,8 @@ export const companies: Company[] = [
     office_locations: ["Biel/Bienne", "Miami", "Hong Kong", "Tokyo"],
     founded: 1983,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+41-32-343-6811"
   },
   {
     id: 288,
@@ -4050,7 +4338,8 @@ export const companies: Company[] = [
     office_locations: ["Geneva", "Paris", "New York", "Hong Kong"],
     founded: 1988,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+41-22-721-3500"
   },
   {
     id: 289,
@@ -4064,7 +4353,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "Milan", "New York", "Tokyo"],
     founded: 1987,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+33-1-44-13-22-22"
   },
   {
     id: 290,
@@ -4078,7 +4368,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "Milan", "New York", "Hong Kong"],
     founded: 1963,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+33-1-45-64-61-00"
   },
   {
     id: 291,
@@ -4092,7 +4383,8 @@ export const companies: Company[] = [
     office_locations: ["Clichy", "New York", "Shanghai", "Mumbai"],
     founded: 1909,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+33-1-47-56-70-00"
   },
   {
     id: 292,
@@ -4106,7 +4398,8 @@ export const companies: Company[] = [
     office_locations: ["Vélizy-Villacoublay", "Waltham", "Shanghai", "Pune"],
     founded: 1981,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+33-1-61-62-61-62"
   },
   {
     id: 293,
@@ -4120,7 +4413,8 @@ export const companies: Company[] = [
     office_locations: ["Montreuil", "Montreal", "Toronto", "Kyiv"],
     founded: 1986,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+33-1-48-18-50-00"
   },
   {
     id: 294,
@@ -4134,7 +4428,8 @@ export const companies: Company[] = [
     office_locations: ["Bezons", "Munich", "Irving", "Pune"],
     founded: 1997,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+33-1-73-26-00-00"
   },
   {
     id: 295,
@@ -4148,7 +4443,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "Toulouse", "Hamburg", "Madrid"],
     founded: 2014,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+33-1-40-67-29-29"
   },
   {
     id: 296,
@@ -4162,7 +4458,8 @@ export const companies: Company[] = [
     office_locations: ["Leiden", "Toulouse", "Hamburg", "Mobile"],
     founded: 1970,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+31-71-524-2222"
   },
   {
     id: 297,
@@ -4176,7 +4473,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "Reading", "Singapore", "Irvine"],
     founded: 2000,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+33-1-57-77-80-00"
   },
   {
     id: 298,
@@ -4190,7 +4488,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "Bordeaux", "Dallas", "Querétaro"],
     founded: 2005,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+33-1-40-60-80-80"
   },
   {
     id: 299,
@@ -4204,7 +4503,8 @@ export const companies: Company[] = [
     office_locations: ["Boulogne-Billancourt", "Guyancourt", "Bucharest", "Chennai"],
     founded: 1899,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+33-1-76-84-04-04"
   },
   {
     id: 300,
@@ -4218,7 +4518,8 @@ export const companies: Company[] = [
     office_locations: ["Amsterdam", "Turin", "Auburn Hills", "Paris"],
     founded: 2021,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+31-20-717-7600"
   },
   {
     id: 301,
@@ -4232,7 +4533,8 @@ export const companies: Company[] = [
     office_locations: ["Clermont-Ferrand", "Greenville", "Shanghai", "Gurgaon"],
     founded: 1889,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+33-4-73-32-20-00"
   },
   {
     id: 302,
@@ -4246,7 +4548,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "Houston", "Port Harcourt", "Abu Dhabi"],
     founded: 1924,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+33-1-47-44-45-46"
   },
   {
     id: 303,
@@ -4260,7 +4563,8 @@ export const companies: Company[] = [
     office_locations: ["Rome", "Milan", "Houston", "Luanda"],
     founded: 1953,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+39-06-598-21"
   },
   {
     id: 304,
@@ -4274,7 +4578,8 @@ export const companies: Company[] = [
     office_locations: ["Madrid", "Houston", "Lima", "Lisbon"],
     founded: 1987,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+34-91-753-81-00"
   },
   {
     id: 305,
@@ -4288,7 +4593,8 @@ export const companies: Company[] = [
     office_locations: ["Rome", "Madrid", "Boston", "Santiago"],
     founded: 1962,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+39-06-8305-1"
   },
   {
     id: 306,
@@ -4302,7 +4608,8 @@ export const companies: Company[] = [
     office_locations: ["Bilbao", "Madrid", "Portland", "Glasgow"],
     founded: 1992,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+34-94-415-14-11"
   },
   {
     id: 307,
@@ -4316,7 +4623,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "London", "Beijing", "Brussels"],
     founded: 1946,
     totalTechnologies: 5,
-    category: "Government"
+    category: "Government",
+    telephone: "+33-1-40-42-22-22"
   },
   {
     id: 308,
@@ -4330,7 +4638,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "Brussels", "Houston", "Singapore"],
     founded: 2008,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+33-1-44-22-00-00"
   },
   {
     id: 309,
@@ -4344,7 +4653,8 @@ export const companies: Company[] = [
     office_locations: ["Munich", "Berlin", "Plano", "Shanghai"],
     founded: 1847,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-89-636-00"
   },
   {
     id: 310,
@@ -4358,7 +4668,8 @@ export const companies: Company[] = [
     office_locations: ["Gerlingen", "Stuttgart", "Farmington Hills", "Bangalore"],
     founded: 1886,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-711-811-0"
   },
   {
     id: 311,
@@ -4372,7 +4683,8 @@ export const companies: Company[] = [
     office_locations: ["Hanover", "Auburn Hills", "Shanghai", "Timisoara"],
     founded: 1871,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-511-938-01"
   },
   {
     id: 312,
@@ -4386,7 +4698,8 @@ export const companies: Company[] = [
     office_locations: ["Friedrichshafen", "Livonia", "Shanghai", "Pune"],
     founded: 1915,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-7541-77-0"
   },
   {
     id: 313,
@@ -4400,7 +4713,8 @@ export const companies: Company[] = [
     office_locations: ["Ludwigshafen", "Florham Park", "Shanghai", "Mumbai"],
     founded: 1865,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-621-60-0"
   },
   {
     id: 314,
@@ -4414,7 +4728,8 @@ export const companies: Company[] = [
     office_locations: ["Leverkusen", "Whippany", "Berlin", "Shanghai"],
     founded: 1863,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-214-30-1"
   },
   {
     id: 315,
@@ -4428,7 +4743,8 @@ export const companies: Company[] = [
     office_locations: ["Darmstadt", "Billerica", "Shanghai", "Bangalore"],
     founded: 1668,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-6151-72-0"
   },
   {
     id: 316,
@@ -4442,7 +4758,8 @@ export const companies: Company[] = [
     office_locations: ["Düsseldorf", "Rocky Hill", "Shanghai", "Pune"],
     founded: 1876,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-211-797-0"
   },
   {
     id: 317,
@@ -4456,7 +4773,8 @@ export const companies: Company[] = [
     office_locations: ["Frankfurt", "London", "New York", "Singapore"],
     founded: 1870,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+49-69-910-00"
   },
   {
     id: 318,
@@ -4470,7 +4788,8 @@ export const companies: Company[] = [
     office_locations: ["Munich", "Paris", "St. Louis", "Singapore"],
     founded: 1890,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-89-3800-0"
   },
   {
     id: 319,
@@ -4484,7 +4803,8 @@ export const companies: Company[] = [
     office_locations: ["Munich", "Princeton", "London", "Singapore"],
     founded: 1880,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+49-89-3891-0"
   },
   {
     id: 320,
@@ -4498,7 +4818,8 @@ export const companies: Company[] = [
     office_locations: ["Wolfsburg", "Ingolstadt", "Stuttgart", "Chattanooga"],
     founded: 1937,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-5361-9-0"
   },
   {
     id: 321,
@@ -4512,7 +4833,8 @@ export const companies: Company[] = [
     office_locations: ["Stuttgart", "Portland", "Chennai", "Sao Bernardo do Campo"],
     founded: 2021,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-711-8485-0"
   },
   {
     id: 322,
@@ -4526,7 +4848,8 @@ export const companies: Company[] = [
     office_locations: ["Munich", "Spartanburg", "Shenyang", "Oxford"],
     founded: 1916,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-89-382-0"
   },
   {
     id: 323,
@@ -4540,7 +4863,8 @@ export const companies: Company[] = [
     office_locations: ["Bonn", "Leipzig", "Plantation", "Singapore"],
     founded: 1995,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-228-182-0"
   },
   {
     id: 324,
@@ -4554,7 +4878,8 @@ export const companies: Company[] = [
     office_locations: ["Cologne", "Frankfurt", "Munich", "Zurich"],
     founded: 1953,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-69-696-0"
   },
   {
     id: 325,
@@ -4568,7 +4893,8 @@ export const companies: Company[] = [
     office_locations: ["Herzogenaurach", "Portland", "Amsterdam", "Shanghai"],
     founded: 1949,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-9132-84-0"
   },
   {
     id: 326,
@@ -4582,7 +4908,8 @@ export const companies: Company[] = [
     office_locations: ["Herzogenaurach", "Boston", "Hong Kong", "Ho Chi Minh City"],
     founded: 1948,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+49-9132-81-0"
   },
   {
     id: 327,
@@ -4596,7 +4923,8 @@ export const companies: Company[] = [
     office_locations: ["Arteixo", "Barcelona", "Madrid", "New York"],
     founded: 1975,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+34-981-185-400"
   },
   {
     id: 328,
@@ -4610,7 +4938,8 @@ export const companies: Company[] = [
     office_locations: ["Madrid", "Barcelona", "Sao Paulo", "London"],
     founded: 1924,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+34-91-482-87-00"
   },
   {
     id: 329,
@@ -4624,7 +4953,8 @@ export const companies: Company[] = [
     office_locations: ["Madrid", "London", "Boston", "Mexico City"],
     founded: 1857,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+34-91-289-00-00"
   },
   {
     id: 330,
@@ -4638,7 +4968,8 @@ export const companies: Company[] = [
     office_locations: ["Bilbao", "Madrid", "Mexico City", "Houston"],
     founded: 1857,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+34-91-374-62-01"
   },
   {
     id: 331,
@@ -4652,7 +4983,8 @@ export const companies: Company[] = [
     office_locations: ["Madrid", "Nice", "Erding", "Bangalore"],
     founded: 1987,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+34-91-582-10-00"
   },
   {
     id: 332,
@@ -4666,7 +4998,8 @@ export const companies: Company[] = [
     office_locations: ["Amsterdam", "Turin", "Auburn Hills", "London"],
     founded: 2014,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+31-20-717-7600"
   },
   {
     id: 333,
@@ -4680,7 +5013,8 @@ export const companies: Company[] = [
     office_locations: ["Maranello", "Modena", "Englewood Cliffs"],
     founded: 1939,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+39-0536-949111"
   },
   {
     id: 334,
@@ -4694,7 +5028,8 @@ export const companies: Company[] = [
     office_locations: ["Sant'Agata Bolognese", "Bologna"],
     founded: 1963,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+39-051-681-7711"
   },
   {
     id: 335,
@@ -4708,7 +5043,8 @@ export const companies: Company[] = [
     office_locations: ["Milan", "Rome", "Sao Paulo", "Shanghai"],
     founded: 1872,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+39-02-64421"
   },
   {
     id: 336,
@@ -4722,7 +5058,8 @@ export const companies: Company[] = [
     office_locations: ["Milan", "Mason", "Hong Kong", "Dongguan"],
     founded: 1961,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+39-02-863341"
   },
   {
     id: 337,
@@ -4736,7 +5073,8 @@ export const companies: Company[] = [
     office_locations: ["Parma", "Northbrook", "Ames"],
     founded: 1877,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+39-0521-2621"
   },
   {
     id: 338,
@@ -4750,7 +5088,8 @@ export const companies: Company[] = [
     office_locations: ["Alba", "Luxembourg", "Parsippany", "Singapore"],
     founded: 1946,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+352-34-93-1"
   },
   {
     id: 339,
@@ -4764,7 +5103,8 @@ export const companies: Company[] = [
     office_locations: ["Trieste", "Milan", "Prague", "Sao Paulo"],
     founded: 1831,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+39-040-671111"
   },
   {
     id: 340,
@@ -4778,7 +5118,8 @@ export const companies: Company[] = [
     office_locations: ["Milan", "Munich", "Vienna", "Warsaw"],
     founded: 1870,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+39-02-88621"
   },
   {
     id: 341,
@@ -4792,7 +5133,8 @@ export const companies: Company[] = [
     office_locations: ["Turin", "Milan", "Rome", "London"],
     founded: 2007,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+39-011-555-1"
   },
   {
     id: 342,
@@ -4806,7 +5148,8 @@ export const companies: Company[] = [
     office_locations: ["Kuala Lumpur", "Houston", "London", "Dubai"],
     founded: 1974,
     totalTechnologies: 5,
-    category: "Government"
+    category: "Government",
+    telephone: "+60-3-2051-5000"
   },
   {
     id: 343,
@@ -4820,7 +5163,8 @@ export const companies: Company[] = [
     office_locations: ["Kuala Lumpur", "Singapore", "Hong Kong", "Sydney"],
     founded: 1910,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+60-3-7848-4000"
   },
   {
     id: 344,
@@ -4834,7 +5178,8 @@ export const companies: Company[] = [
     office_locations: ["Kuala Lumpur", "Bangkok", "Jakarta", "Manila"],
     founded: 1993,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+60-3-8660-4333"
   },
   {
     id: 345,
@@ -4848,7 +5193,8 @@ export const companies: Company[] = [
     office_locations: ["Singapore", "Sydney", "Mumbai", "Jakarta"],
     founded: 1879,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+65-6838-3388"
   },
   {
     id: 346,
@@ -4862,7 +5208,8 @@ export const companies: Company[] = [
     office_locations: ["Singapore", "Hong Kong", "Mumbai", "Shanghai"],
     founded: 1968,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+65-6878-8888"
   },
   {
     id: 347,
@@ -4876,7 +5223,8 @@ export const companies: Company[] = [
     office_locations: ["Singapore", "Kuala Lumpur", "Shanghai", "Hong Kong"],
     founded: 1932,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+65-6363-3333"
   },
   {
     id: 348,
@@ -4890,7 +5238,8 @@ export const companies: Company[] = [
     office_locations: ["Singapore", "Bangkok", "Jakarta", "Kuala Lumpur"],
     founded: 1935,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+65-6222-2121"
   },
   {
     id: 349,
@@ -4904,7 +5253,8 @@ export const companies: Company[] = [
     office_locations: ["Singapore", "Tianjin", "Rio de Janeiro", "Baku"],
     founded: 1968,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+65-6270-6666"
   },
   {
     id: 350,
@@ -4918,7 +5268,8 @@ export const companies: Company[] = [
     office_locations: ["Singapore", "Frankfurt", "Los Angeles", "Sydney"],
     founded: 1972,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+65-6223-8888"
   },
   {
     id: 351,
@@ -4932,7 +5283,8 @@ export const companies: Company[] = [
     office_locations: ["Tel Aviv", "New York", "Berlin", "Kyiv"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+972-72-228-0910"
   },
   {
     id: 352,
@@ -4946,7 +5298,8 @@ export const companies: Company[] = [
     office_locations: ["Tel Aviv", "New York", "Vilnius", "Kyiv"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+972-3-545-4900"
   },
   {
     id: 353,
@@ -4960,7 +5313,8 @@ export const companies: Company[] = [
     office_locations: ["Tel Aviv", "New York", "London", "Sydney"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+972-77-996-6010"
   },
   {
     id: 354,
@@ -4974,7 +5328,8 @@ export const companies: Company[] = [
     office_locations: ["Jerusalem", "Haifa", "Düsseldorf", "Shanghai"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+972-2-541-7300"
   },
   {
     id: 355,
@@ -4988,7 +5343,8 @@ export const companies: Company[] = [
     office_locations: ["Tel Aviv", "San Carlos", "London", "Singapore"],
     founded: 1993,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+972-3-753-4555"
   },
   {
     id: 356,
@@ -5002,7 +5358,8 @@ export const companies: Company[] = [
     office_locations: ["Petah Tikva", "Newton", "London", "Singapore"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+972-3-918-0000"
   },
   {
     id: 357,
@@ -5016,7 +5373,8 @@ export const companies: Company[] = [
     office_locations: ["Herzliya", "Fremont", "Munich", "Sydney"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+972-9-957-6620"
   },
   {
     id: 358,
@@ -5030,7 +5388,8 @@ export const companies: Company[] = [
     office_locations: ["Tel Aviv", "Petah Tikva", "North Wales", "Frazer"],
     founded: 1901,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+972-3-926-7267"
   },
   {
     id: 359,
@@ -5044,7 +5403,8 @@ export const companies: Company[] = [
     office_locations: ["Dhahran", "Riyadh", "Houston", "The Hague"],
     founded: 1933,
     totalTechnologies: 5,
-    category: "Government"
+    category: "Government",
+    telephone: "+966-13-872-0115"
   },
   {
     id: 360,
@@ -5058,7 +5418,8 @@ export const companies: Company[] = [
     office_locations: ["Riyadh", "Jubail", "Houston", "Shanghai"],
     founded: 1976,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+966-11-225-8000"
   },
   {
     id: 361,
@@ -5072,7 +5433,8 @@ export const companies: Company[] = [
     office_locations: ["Dubai", "London", "New York", "Sydney"],
     founded: 1985,
     totalTechnologies: 5,
-    category: "Government"
+    category: "Government",
+    telephone: "+971-4-708-1111"
   },
   {
     id: 362,
@@ -5086,7 +5448,8 @@ export const companies: Company[] = [
     office_locations: ["Abu Dhabi", "London", "New York", "Sydney"],
     founded: 2003,
     totalTechnologies: 5,
-    category: "Government"
+    category: "Government",
+    telephone: "+971-2-511-0000"
   },
   {
     id: 363,
@@ -5100,7 +5463,8 @@ export const companies: Company[] = [
     office_locations: ["Dubai", "London", "Rotterdam", "Singapore"],
     founded: 2005,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+971-4-881-1110"
   },
   {
     id: 364,
@@ -5114,7 +5478,8 @@ export const companies: Company[] = [
     office_locations: ["Dubai", "Cairo", "Riyadh", "Mumbai"],
     founded: 1997,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+971-4-366-1688"
   },
   {
     id: 365,
@@ -5128,7 +5493,8 @@ export const companies: Company[] = [
     office_locations: ["Doha", "London", "New York", "Sydney"],
     founded: 1993,
     totalTechnologies: 5,
-    category: "Government"
+    category: "Government",
+    telephone: "+974-4023-0000"
   },
   {
     id: 366,
@@ -5142,7 +5508,8 @@ export const companies: Company[] = [
     office_locations: ["Istanbul", "Ankara", "New York", "London"],
     founded: 1933,
     totalTechnologies: 5,
-    category: "Government"
+    category: "Government",
+    telephone: "+90-212-463-63-63"
   },
   {
     id: 367,
@@ -5156,7 +5523,8 @@ export const companies: Company[] = [
     office_locations: ["Istanbul", "Ankara", "Izmir", "Bursa"],
     founded: 1926,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+90-216-531-00-00"
   },
   {
     id: 368,
@@ -5170,7 +5538,8 @@ export const companies: Company[] = [
     office_locations: ["Istanbul", "Ankara", "Adana", "Izmir"],
     founded: 1967,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+90-212-385-80-80"
   },
   {
     id: 369,
@@ -5184,7 +5553,8 @@ export const companies: Company[] = [
     office_locations: ["Luxembourg", "London", "East Chicago", "Dofasco"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+352-4792-1"
   },
   {
     id: 370,
@@ -5198,7 +5568,8 @@ export const companies: Company[] = [
     office_locations: ["San Jose", "Raleigh", "Bangalore", "London"],
     founded: 1984,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-408-526-4000"
   },
   {
     id: 371,
@@ -5212,7 +5583,8 @@ export const companies: Company[] = [
     office_locations: ["Palo Alto", "Cambridge", "Bangalore", "Sofia"],
     founded: 1998,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-650-427-5000"
   },
   {
     id: 372,
@@ -5226,7 +5598,8 @@ export const companies: Company[] = [
     office_locations: ["Round Rock", "Hopkinton", "Bangalore", "Limerick"],
     founded: 1984,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-800-289-3355"
   },
   {
     id: 373,
@@ -5240,7 +5613,8 @@ export const companies: Company[] = [
     office_locations: ["Palo Alto", "Houston", "Boise", "Singapore"],
     founded: 2015,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-650-857-1501"
   },
   {
     id: 374,
@@ -5254,7 +5628,8 @@ export const companies: Company[] = [
     office_locations: ["Houston", "San Jose", "Bangalore", "Galway"],
     founded: 2015,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-678-259-9860"
   },
   {
     id: 375,
@@ -5268,7 +5643,8 @@ export const companies: Company[] = [
     office_locations: ["Beijing", "Morrisville", "Hong Kong", "Singapore"],
     founded: 1984,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+86-10-5886-8888"
   },
   {
     id: 376,
@@ -5282,7 +5658,8 @@ export const companies: Company[] = [
     office_locations: ["Taipei", "Fremont", "Hamburg", "Singapore"],
     founded: 1989,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+886-2-2894-3447"
   },
   {
     id: 377,
@@ -5296,7 +5673,8 @@ export const companies: Company[] = [
     office_locations: ["New Taipei City", "San Jose", "Hamburg", "Singapore"],
     founded: 1976,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+886-2-2696-1234"
   },
   {
     id: 378,
@@ -5310,7 +5688,8 @@ export const companies: Company[] = [
     office_locations: ["Hsinchu", "Tainan", "Phoenix", "Nanjing"],
     founded: 1987,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+886-3-563-6688"
   },
   {
     id: 379,
@@ -5324,7 +5703,8 @@ export const companies: Company[] = [
     office_locations: ["Hsinchu", "San Diego", "Cambridge", "Bangalore"],
     founded: 1997,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+886-3-567-0766"
   },
   {
     id: 380,
@@ -5338,7 +5718,8 @@ export const companies: Company[] = [
     office_locations: ["New Taipei City", "Shenzhen", "Chennai", "Mount Pleasant"],
     founded: 1974,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+886-2-2268-3466"
   },
   {
     id: 381,
@@ -5352,7 +5733,8 @@ export const companies: Company[] = [
     office_locations: ["Mumbai", "Navi Mumbai", "Jamnagar", "Delhi"],
     founded: 1973,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+91-22-3555-5000"
   },
   {
     id: 382,
@@ -5366,7 +5748,8 @@ export const companies: Company[] = [
     office_locations: ["Mumbai", "Pune", "London", "New York"],
     founded: 1868,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+91-22-6665-8282"
   },
   {
     id: 383,
@@ -5380,7 +5763,8 @@ export const companies: Company[] = [
     office_locations: ["Ahmedabad", "Mumbai", "Delhi", "Singapore"],
     founded: 1988,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+91-79-2656-5555"
   },
   {
     id: 384,
@@ -5394,7 +5778,8 @@ export const companies: Company[] = [
     office_locations: ["New Delhi", "Gurgaon", "Bangalore", "Nairobi"],
     founded: 1995,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+91-11-4666-6100"
   },
   {
     id: 385,
@@ -5408,7 +5793,8 @@ export const companies: Company[] = [
     office_locations: ["Mumbai", "Gandhinagar", "Delhi", "Pune"],
     founded: 2018,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+91-79-6671-4000"
   },
   {
     id: 386,
@@ -5422,7 +5808,8 @@ export const companies: Company[] = [
     office_locations: ["Noida", "Bangalore", "Mumbai", "Toronto"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-120-4770770"
   },
   {
     id: 387,
@@ -5436,7 +5823,8 @@ export const companies: Company[] = [
     office_locations: ["Bangalore", "Delhi", "Mumbai", "Chennai"],
     founded: 2007,
     totalTechnologies: 5,
-    category: "E-commerce"
+    category: "E-commerce",
+    telephone: "+91-80-4940-0000"
   },
   {
     id: 388,
@@ -5450,7 +5838,8 @@ export const companies: Company[] = [
     office_locations: ["Bangalore", "Gurgaon", "Mumbai", "Hyderabad"],
     founded: 2014,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-80-6746-6789"
   },
   {
     id: 389,
@@ -5464,7 +5853,8 @@ export const companies: Company[] = [
     office_locations: ["Gurgaon", "Bangalore", "Delhi", "Mumbai"],
     founded: 2008,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-124-422-2222"
   },
   {
     id: 390,
@@ -5478,7 +5868,8 @@ export const companies: Company[] = [
     office_locations: ["Bangalore", "Delhi", "Mumbai", "London"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-80-3710-0000"
   },
   {
     id: 391,
@@ -5492,7 +5883,8 @@ export const companies: Company[] = [
     office_locations: ["Bangalore", "Delhi", "Mumbai", "Palo Alto"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-92413-33666"
   },
   {
     id: 392,
@@ -5506,7 +5898,8 @@ export const companies: Company[] = [
     office_locations: ["Bangalore", "Delhi", "Mumbai", "Pune"],
     founded: 2015,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-85858-58585"
   },
   {
     id: 393,
@@ -5520,7 +5913,8 @@ export const companies: Company[] = [
     office_locations: ["Bangalore", "Delhi", "Mumbai", "Pune"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-80-4660-9600"
   },
   {
     id: 394,
@@ -5534,7 +5928,8 @@ export const companies: Company[] = [
     office_locations: ["Bangalore", "Mumbai", "Delhi", "Pune"],
     founded: 2015,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-80-6872-7374"
   },
   {
     id: 395,
@@ -5548,7 +5943,8 @@ export const companies: Company[] = [
     office_locations: ["New Delhi", "Bangalore", "Mumbai", "Pune"],
     founded: 2018,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-11-4118-8291"
   },
   {
     id: 396,
@@ -5562,7 +5958,8 @@ export const companies: Company[] = [
     office_locations: ["Bangalore", "Mumbai", "Delhi"],
     founded: 2018,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-80-4889-1000"
   },
   {
     id: 397,
@@ -5576,7 +5973,8 @@ export const companies: Company[] = [
     office_locations: ["Bangalore", "Mumbai", "Delhi"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-80-4913-2020"
   },
   {
     id: 398,
@@ -5590,7 +5988,8 @@ export const companies: Company[] = [
     office_locations: ["Mumbai", "Bangalore", "Delhi"],
     founded: 2009,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-22-6130-9999"
   },
   {
     id: 399,
@@ -5604,7 +6003,8 @@ export const companies: Company[] = [
     office_locations: ["Bangalore", "Mumbai", "Delhi"],
     founded: 2016,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-91088-00604"
   },
   {
     id: 400,
@@ -5618,7 +6018,8 @@ export const companies: Company[] = [
     office_locations: ["Gurgaon", "Mumbai", "Bangalore"],
     founded: 2008,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-124-456-2900"
   },
   {
     id: 401,
@@ -5632,7 +6033,8 @@ export const companies: Company[] = [
     office_locations: ["San Mateo", "Chennai", "Bangalore", "Berlin"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-866-832-3090"
   },
   {
     id: 402,
@@ -5646,7 +6048,8 @@ export const companies: Company[] = [
     office_locations: ["Chennai", "Pleasanton", "Tenkasi", "Yokohama"],
     founded: 1996,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-44-6744-7070"
   },
   {
     id: 403,
@@ -5660,7 +6063,8 @@ export const companies: Company[] = [
     office_locations: ["Mumbai", "Dublin", "San Francisco"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+91-22-6196-5100"
   },
   {
     id: 404,
@@ -5674,7 +6078,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Bangalore", "Remote"],
     founded: 2014,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-650-353-8822"
   },
   {
     id: 405,
@@ -5688,7 +6093,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Chennai", "Amsterdam", "Salt Lake City"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-800-692-6794"
   },
   {
     id: 406,
@@ -5702,7 +6108,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Mumbai", "Bangalore"],
     founded: 2004,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-801-3456"
   },
   {
     id: 407,
@@ -5716,7 +6123,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Pune", "London"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-855-682-1244"
   },
   {
     id: 408,
@@ -5730,7 +6138,8 @@ export const companies: Company[] = [
     office_locations: ["Bellevue", "Pune", "Stuttgart", "Singapore"],
     founded: 2009,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-425-882-7600"
   },
   {
     id: 409,
@@ -5744,7 +6153,8 @@ export const companies: Company[] = [
     office_locations: ["Sunnyvale", "Pune", "Singapore", "Reading"],
     founded: 2008,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-877-378-8246"
   },
   {
     id: 410,
@@ -5758,7 +6168,8 @@ export const companies: Company[] = [
     office_locations: ["Bellevue", "Hyderabad", "Manila", "Melbourne"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-888-410-6310"
   },
   {
     id: 411,
@@ -5772,7 +6183,8 @@ export const companies: Company[] = [
     office_locations: ["Houston", "Hyderabad", "Amsterdam", "London"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-281-968-4473"
   },
   {
     id: 412,
@@ -5786,7 +6198,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Noida", "Remote"],
     founded: 2014,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-650-471-7057"
   },
   {
     id: 413,
@@ -5800,7 +6213,8 @@ export const companies: Company[] = [
     office_locations: ["Princeton", "Mumbai", "Bangalore", "Rochester"],
     founded: 2005,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-609-772-4000"
   },
   {
     id: 414,
@@ -5814,7 +6228,8 @@ export const companies: Company[] = [
     office_locations: ["San Jose", "Noida", "Krakow", "Buenos Aires"],
     founded: 2000,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-408-273-8900"
   },
   {
     id: 415,
@@ -5828,7 +6243,8 @@ export const companies: Company[] = [
     office_locations: ["Newtown", "Kyiv", "Minsk", "Budapest"],
     founded: 1993,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-267-759-9000"
   },
   {
     id: 416,
@@ -5842,7 +6258,8 @@ export const companies: Company[] = [
     office_locations: ["Chicago", "Bangalore", "London", "Hamburg"],
     founded: 1993,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+1-312-373-1000"
   },
   {
     id: 417,
@@ -5856,7 +6273,8 @@ export const companies: Company[] = [
     office_locations: ["Seattle", "Chicago", "London", "Toronto"],
     founded: 2001,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+1-206-438-5700"
   },
   {
     id: 418,
@@ -5870,7 +6288,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "London", "Hong Kong", "Dubai"],
     founded: 1926,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+1-212-446-7000"
   },
   {
     id: 419,
@@ -5884,7 +6303,8 @@ export const companies: Company[] = [
     office_locations: ["Boston", "London", "Munich", "Tokyo"],
     founded: 1963,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+1-617-973-1200"
   },
   {
     id: 420,
@@ -5898,7 +6318,8 @@ export const companies: Company[] = [
     office_locations: ["Boston", "London", "Singapore", "Sydney"],
     founded: 1973,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+1-617-572-2000"
   },
   {
     id: 421,
@@ -5912,7 +6333,8 @@ export const companies: Company[] = [
     office_locations: ["London", "New York", "Toronto", "Hyderabad"],
     founded: 1845,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+44-20-7936-3000"
   },
   {
     id: 422,
@@ -5926,7 +6348,8 @@ export const companies: Company[] = [
     office_locations: ["London", "New York", "Frankfurt", "Bangalore"],
     founded: 1998,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+44-20-7583-5000"
   },
   {
     id: 423,
@@ -5940,7 +6363,8 @@ export const companies: Company[] = [
     office_locations: ["London", "New York", "Hong Kong", "Gurgaon"],
     founded: 1989,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+44-20-7951-2000"
   },
   {
     id: 424,
@@ -5954,7 +6378,8 @@ export const companies: Company[] = [
     office_locations: ["Amstelveen", "New York", "Toronto", "Mumbai"],
     founded: 1987,
     totalTechnologies: 5,
-    category: "Consulting Firm"
+    category: "Consulting Firm",
+    telephone: "+31-20-656-7890"
   },
   {
     id: 425,
@@ -5968,7 +6393,8 @@ export const companies: Company[] = [
     office_locations: ["Geneva", "Meyrin"],
     founded: 1954,
     totalTechnologies: 5,
-    category: "Non-profit"
+    category: "Non-profit",
+    telephone: "+41-22-767-6111"
   },
   {
     id: 426,
@@ -5982,7 +6408,8 @@ export const companies: Company[] = [
     office_locations: ["Washington", "Houston", "Pasadena", "Cape Canaveral"],
     founded: 1958,
     totalTechnologies: 5,
-    category: "Government"
+    category: "Government",
+    telephone: "+1-202-358-0000"
   },
   {
     id: 427,
@@ -5996,7 +6423,8 @@ export const companies: Company[] = [
     office_locations: ["Hawthorne", "Boca Chica", "Cape Canaveral", "Redmond"],
     founded: 2002,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-310-363-6000"
   },
   {
     id: 428,
@@ -6010,7 +6438,8 @@ export const companies: Company[] = [
     office_locations: ["Kent", "Cape Canaveral", "Huntsville", "Van Horn"],
     founded: 2000,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-253-437-9300"
   },
   {
     id: 429,
@@ -6024,7 +6453,8 @@ export const companies: Company[] = [
     office_locations: ["Mojave", "Las Cruces", "Tustin"],
     founded: 2004,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-661-824-6600"
   },
   {
     id: 430,
@@ -6038,7 +6468,8 @@ export const companies: Company[] = [
     office_locations: ["Long Beach", "Auckland", "Wallops Island"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-562-432-2121"
   },
   {
     id: 431,
@@ -6052,7 +6483,8 @@ export const companies: Company[] = [
     office_locations: ["Alameda", "Kodiak"],
     founded: 2016,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-510-995-2400"
   },
   {
     id: 432,
@@ -6066,7 +6498,8 @@ export const companies: Company[] = [
     office_locations: ["Long Beach", "Stennis Space Center", "Cape Canaveral"],
     founded: 2015,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-310-965-0222"
   },
   {
     id: 433,
@@ -6080,7 +6513,8 @@ export const companies: Company[] = [
     office_locations: ["Cedar Park", "Briggs", "Vandenberg"],
     founded: 2017,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-512-259-3330"
   },
   {
     id: 434,
@@ -6094,7 +6528,8 @@ export const companies: Company[] = [
     office_locations: ["Long Beach", "Mojave"],
     founded: 2017,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-562-366-2000"
   },
   {
     id: 435,
@@ -6108,7 +6543,8 @@ export const companies: Company[] = [
     office_locations: ["Reston", "Falls Church", "San Diego", "Groton"],
     founded: 1899,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-703-876-3000"
   },
   {
     id: 436,
@@ -6122,7 +6558,8 @@ export const companies: Company[] = [
     office_locations: ["Bethesda", "Fort Worth", "Sunnyvale", "Orlando"],
     founded: 1995,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-301-897-6000"
   },
   {
     id: 437,
@@ -6136,7 +6573,8 @@ export const companies: Company[] = [
     office_locations: ["Falls Church", "Redondo Beach", "Melbourne", "Baltimore"],
     founded: 1994,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-703-280-2900"
   },
   {
     id: 438,
@@ -6150,7 +6588,8 @@ export const companies: Company[] = [
     office_locations: ["Arlington", "Waltham", "East Hartford", "Cedar Rapids"],
     founded: 2020,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-781-522-3000"
   },
   {
     id: 439,
@@ -6164,7 +6603,8 @@ export const companies: Company[] = [
     office_locations: ["Arlington", "Everett", "St. Louis", "Charleston"],
     founded: 1916,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-312-544-2000"
   },
   {
     id: 440,
@@ -6178,7 +6618,8 @@ export const companies: Company[] = [
     office_locations: ["Boston", "Schenectady", "Cincinnati", "Greenville"],
     founded: 1892,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-617-443-3000"
   },
   {
     id: 441,
@@ -6192,7 +6633,8 @@ export const companies: Company[] = [
     office_locations: ["Charlotte", "Phoenix", "Minneapolis", "Atlanta"],
     founded: 1906,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-704-627-6200"
   },
   {
     id: 442,
@@ -6206,7 +6648,8 @@ export const companies: Company[] = [
     office_locations: ["Saint Paul", "Austin", "Maplewood", "Singapore"],
     founded: 1902,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-888-364-3577"
   },
   {
     id: 443,
@@ -6220,7 +6663,8 @@ export const companies: Company[] = [
     office_locations: ["Irving", "Peoria", "San Diego", "Mossville"],
     founded: 1925,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-224-551-4000"
   },
   {
     id: 444,
@@ -6234,7 +6678,8 @@ export const companies: Company[] = [
     office_locations: ["Moline", "Cary", "Waterloo", "Mannheim"],
     founded: 1837,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-309-765-8000"
   },
   {
     id: 445,
@@ -6248,7 +6693,8 @@ export const companies: Company[] = [
     office_locations: ["Dearborn", "Palo Alto", "Cologne", "Shanghai"],
     founded: 1903,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-800-392-3673"
   },
   {
     id: 446,
@@ -6262,7 +6708,8 @@ export const companies: Company[] = [
     office_locations: ["Detroit", "Warren", "Austin", "Shanghai"],
     founded: 1908,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-313-556-5000"
   },
   {
     id: 447,
@@ -6276,7 +6723,8 @@ export const companies: Company[] = [
     office_locations: ["Irving", "Houston", "Baytown", "Singapore"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-972-940-6000"
   },
   {
     id: 448,
@@ -6290,7 +6738,8 @@ export const companies: Company[] = [
     office_locations: ["San Ramon", "Houston", "Bakersfield", "Singapore"],
     founded: 1879,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-925-842-1000"
   },
   {
     id: 449,
@@ -6304,7 +6753,8 @@ export const companies: Company[] = [
     office_locations: ["London", "The Hague", "Houston", "Bangalore"],
     founded: 1907,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+44-20-7934-1234"
   },
   {
     id: 450,
@@ -6318,7 +6768,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Houston", "Sunbury", "Pune"],
     founded: 1909,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+44-20-7496-4000"
   },
   {
     id: 451,
@@ -6332,7 +6783,8 @@ export const companies: Company[] = [
     office_locations: ["Baar", "London", "Hong Kong", "Johannesburg"],
     founded: 1974,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+41-41-709-2000"
   },
   {
     id: 452,
@@ -6346,7 +6798,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Melbourne", "Perth", "Montreal"],
     founded: 1873,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+44-20-7781-2000"
   },
   {
     id: 453,
@@ -6360,7 +6813,8 @@ export const companies: Company[] = [
     office_locations: ["Melbourne", "Perth", "Santiago", "Singapore"],
     founded: 1885,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+61-3-9609-3333"
   },
   {
     id: 454,
@@ -6374,7 +6828,8 @@ export const companies: Company[] = [
     office_locations: ["Rio de Janeiro", "Belo Horizonte", "Sudbury", "Maputo"],
     founded: 1942,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+55-21-3485-5000"
   },
   {
     id: 455,
@@ -6388,7 +6843,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Johannesburg", "Santiago", "Brisbane"],
     founded: 1917,
     totalTechnologies: 4,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+44-20-7968-8888"
   },
   {
     id: 456,
@@ -6402,7 +6858,8 @@ export const companies: Company[] = [
     office_locations: ["Atlanta", "Mexico City", "Shanghai", "Brussels"],
     founded: 1886,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-404-676-2121"
   },
   {
     id: 457,
@@ -6416,7 +6873,8 @@ export const companies: Company[] = [
     office_locations: ["Purchase", "Plano", "Cork", "Mexico City"],
     founded: 1965,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-914-253-2000"
   },
   {
     id: 458,
@@ -6430,7 +6888,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Rotterdam", "Englewood Cliffs", "Mumbai"],
     founded: 1929,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+44-20-7822-5252"
   },
   {
     id: 459,
@@ -6444,7 +6903,8 @@ export const companies: Company[] = [
     office_locations: ["Cincinnati", "Geneva", "Singapore", "Mexico City"],
     founded: 1837,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-513-983-1100"
   },
   {
     id: 460,
@@ -6458,7 +6918,8 @@ export const companies: Company[] = [
     office_locations: ["New Brunswick", "Beerse", "Shanghai", "Mumbai"],
     founded: 1886,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-732-524-0400"
   },
   {
     id: 461,
@@ -6472,7 +6933,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Groton", "Collegeville", "Sandwich"],
     founded: 1849,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-212-733-2323"
   },
   {
     id: 462,
@@ -6486,7 +6948,8 @@ export const companies: Company[] = [
     office_locations: ["Kenilworth", "West Point", "Boston", "Singapore"],
     founded: 1891,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-908-740-4000"
   },
   {
     id: 463,
@@ -6500,7 +6963,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Lawrenceville", "Redwood City", "Uxbridge"],
     founded: 1989,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-800-332-2056"
   },
   {
     id: 464,
@@ -6514,7 +6978,8 @@ export const companies: Company[] = [
     office_locations: ["North Chicago", "Worcester", "Ludwigshafen", "Singapore"],
     founded: 2013,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-847-937-6100"
   },
   {
     id: 465,
@@ -6528,7 +6993,8 @@ export const companies: Company[] = [
     office_locations: ["Thousand Oaks", "South San Francisco", "Cambridge", "Breda"],
     founded: 1980,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-805-447-1000"
   },
   {
     id: 466,
@@ -6542,7 +7008,8 @@ export const companies: Company[] = [
     office_locations: ["Foster City", "Seattle", "Morris Plains", "Cambridge"],
     founded: 1987,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-650-574-3000"
   },
   {
     id: 467,
@@ -6556,7 +7023,8 @@ export const companies: Company[] = [
     office_locations: ["Cambridge", "Research Triangle Park", "Solothurn", "Hillerød"],
     founded: 1978,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-781-464-2000"
   },
   {
     id: 468,
@@ -6570,7 +7038,8 @@ export const companies: Company[] = [
     office_locations: ["Cambridge", "Norwood", "Basel"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-617-714-6500"
   },
   {
     id: 469,
@@ -6584,7 +7053,8 @@ export const companies: Company[] = [
     office_locations: ["Mainz", "Marburg", "Cambridge"],
     founded: 2008,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+49-6131-9084-0"
   },
   {
     id: 470,
@@ -6598,7 +7068,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "Bridgewater", "Cambridge", "Frankfurt"],
     founded: 2004,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+33-1-53-77-40-00"
   },
   {
     id: 471,
@@ -6612,7 +7083,8 @@ export const companies: Company[] = [
     office_locations: ["Cambridge", "Gothenburg", "Gaithersburg", "Shanghai"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+44-1223-345-800"
   },
   {
     id: 472,
@@ -6626,7 +7098,8 @@ export const companies: Company[] = [
     office_locations: ["Brentford", "Philadelphia", "Upper Providence", "Singapore"],
     founded: 2000,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+44-20-8047-5000"
   },
   {
     id: 473,
@@ -6640,7 +7113,8 @@ export const companies: Company[] = [
     office_locations: ["Tokyo", "Osaka", "Cambridge", "Singapore"],
     founded: 1781,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+81-3-3278-2111"
   },
   {
     id: 474,
@@ -6654,7 +7128,8 @@ export const companies: Company[] = [
     office_locations: ["Indianapolis", "San Diego", "New York", "Shanghai"],
     founded: 1876,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-317-276-2000"
   },
   {
     id: 475,
@@ -6668,7 +7143,8 @@ export const companies: Company[] = [
     office_locations: ["Dublin", "Minneapolis", "Fridley", "Shanghai"],
     founded: 1949,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+353-1-438-1700"
   },
   {
     id: 476,
@@ -6682,7 +7158,8 @@ export const companies: Company[] = [
     office_locations: ["Kalamazoo", "Mahwah", "Freiburg", "Cork"],
     founded: 1941,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-269-385-2600"
   },
   {
     id: 477,
@@ -6696,7 +7173,8 @@ export const companies: Company[] = [
     office_locations: ["Marlborough", "Maple Grove", "Clonmel", "Yokohama"],
     founded: 1979,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-508-683-4000"
   },
   {
     id: 478,
@@ -6710,7 +7188,8 @@ export const companies: Company[] = [
     office_locations: ["Abbott Park", "Santa Clara", "Plano", "Singapore"],
     founded: 1888,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-224-667-6100"
   },
   {
     id: 479,
@@ -6724,7 +7203,8 @@ export const companies: Company[] = [
     office_locations: ["Washington", "Brea", "Sunnyvale", "Munich"],
     founded: 1969,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-202-828-0850"
   },
   {
     id: 480,
@@ -6738,7 +7218,8 @@ export const companies: Company[] = [
     office_locations: ["Waltham", "Carlsbad", "Shanghai", "Bangalore"],
     founded: 1956,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-781-622-1000"
   },
   {
     id: 481,
@@ -6752,7 +7233,8 @@ export const companies: Company[] = [
     office_locations: ["Bentonville", "Sunnyvale", "Reston", "Bangalore"],
     founded: 1962,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-800-925-6278"
   },
   {
     id: 482,
@@ -6766,7 +7248,8 @@ export const companies: Company[] = [
     office_locations: ["Issaquah", "Seattle", "Ottawa", "Busan"],
     founded: 1983,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-425-313-8100"
   },
   {
     id: 483,
@@ -6780,7 +7263,8 @@ export const companies: Company[] = [
     office_locations: ["Atlanta", "Austin", "Dallas", "Toronto"],
     founded: 1978,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-770-433-8211"
   },
   {
     id: 484,
@@ -6794,7 +7278,8 @@ export const companies: Company[] = [
     office_locations: ["Mooresville", "Charlotte", "Bangalore", "Albuquerque"],
     founded: 1921,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-800-445-6937"
   },
   {
     id: 485,
@@ -6808,7 +7293,8 @@ export const companies: Company[] = [
     office_locations: ["Minneapolis", "Brooklyn Park", "Bangalore", "Sunnyvale"],
     founded: 1902,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-612-304-6073"
   },
   {
     id: 486,
@@ -6822,7 +7308,8 @@ export const companies: Company[] = [
     office_locations: ["Cincinnati", "Portland", "Boca Raton", "Shelbyville"],
     founded: 1883,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-513-762-4000"
   },
   {
     id: 487,
@@ -6836,7 +7323,8 @@ export const companies: Company[] = [
     office_locations: ["Deerfield", "Chicago", "Nottingham", "Bern"],
     founded: 2014,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-847-315-3700"
   },
   {
     id: 488,
@@ -6850,7 +7338,8 @@ export const companies: Company[] = [
     office_locations: ["Woonsocket", "Scottsdale", "Hartford", "Buffalo Grove"],
     founded: 1963,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-401-765-1500"
   },
   {
     id: 489,
@@ -6864,7 +7353,8 @@ export const companies: Company[] = [
     office_locations: ["Minnetonka", "Hartford", "Gurgaon", "Basking Ridge"],
     founded: 1977,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-800-328-5979"
   },
   {
     id: 490,
@@ -6878,7 +7368,8 @@ export const companies: Company[] = [
     office_locations: ["Indianapolis", "Atlanta", "Mason", "Norfolk"],
     founded: 2004,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-317-488-6000"
   },
   {
     id: 491,
@@ -6892,7 +7383,8 @@ export const companies: Company[] = [
     office_locations: ["Bloomfield", "Philadelphia", "Nashville", "Denver"],
     founded: 1982,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-860-226-6000"
   },
   {
     id: 492,
@@ -6906,7 +7398,8 @@ export const companies: Company[] = [
     office_locations: ["Louisville", "Tampa", "Cincinnati", "Green Bay"],
     founded: 1961,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-502-580-1000"
   },
   {
     id: 493,
@@ -6920,7 +7413,8 @@ export const companies: Company[] = [
     office_locations: ["Hartford", "New York", "Phoenix", "Blue Bell"],
     founded: 1853,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-860-273-0123"
   },
   {
     id: 494,
@@ -6934,7 +7428,8 @@ export const companies: Company[] = [
     office_locations: ["St. Louis", "Charlotte", "Rancho Cordova", "Tampa"],
     founded: 1984,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-314-725-4477"
   },
   {
     id: 495,
@@ -6948,7 +7443,8 @@ export const companies: Company[] = [
     office_locations: ["Long Beach", "Columbus", "Phoenix", "Irving"],
     founded: 1980,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-562-435-3666"
   },
   {
     id: 496,
@@ -6962,7 +7458,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Charlotte", "Minneapolis", "Des Moines"],
     founded: 1852,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-800-869-3557"
   },
   {
     id: 497,
@@ -6976,7 +7473,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "London", "Hong Kong", "Mumbai"],
     founded: 2000,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-212-270-6000"
   },
   {
     id: 498,
@@ -6990,7 +7488,8 @@ export const companies: Company[] = [
     office_locations: ["Charlotte", "New York", "London", "Hong Kong"],
     founded: 1998,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-800-432-1000"
   },
   {
     id: 499,
@@ -7004,7 +7503,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "London", "Hong Kong", "Singapore"],
     founded: 1998,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-800-285-3000"
   },
   {
     id: 500,
@@ -7018,7 +7518,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "London", "Hong Kong", "Bangalore"],
     founded: 1869,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-212-902-1000"
   },
   {
     id: 501,
@@ -7032,7 +7533,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "London", "Hong Kong", "Mumbai"],
     founded: 1935,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-212-761-4000"
   },
   {
     id: 502,
@@ -7046,7 +7548,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "London", "San Francisco", "Gurgaon"],
     founded: 1988,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-212-810-5300"
   },
   {
     id: 503,
@@ -7060,7 +7563,8 @@ export const companies: Company[] = [
     office_locations: ["Malvern", "Charlotte", "Scottsdale", "London"],
     founded: 1975,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-610-669-1000"
   },
   {
     id: 504,
@@ -7074,7 +7578,8 @@ export const companies: Company[] = [
     office_locations: ["Boston", "Smithfield", "Westlake", "Durham"],
     founded: 1946,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-800-343-3548"
   },
   {
     id: 505,
@@ -7088,7 +7593,8 @@ export const companies: Company[] = [
     office_locations: ["Westlake", "San Francisco", "Denver", "Austin"],
     founded: 1971,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-800-435-4000"
   },
   {
     id: 506,
@@ -7102,7 +7608,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Phoenix", "Fort Lauderdale", "Gurgaon"],
     founded: 1850,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-800-528-4800"
   },
   {
     id: 507,
@@ -7116,7 +7623,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Foster City", "Ashburn", "Singapore"],
     founded: 1958,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-800-847-2911"
   },
   {
     id: 508,
@@ -7130,7 +7638,8 @@ export const companies: Company[] = [
     office_locations: ["Purchase", "O'Fallon", "Dublin", "Pune"],
     founded: 1966,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-914-249-2000"
   },
   {
     id: 509,
@@ -7144,7 +7653,8 @@ export const companies: Company[] = [
     office_locations: ["San Jose", "Omaha", "Chennai", "Dublin"],
     founded: 1998,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-408-967-1000"
   },
   {
     id: 510,
@@ -7158,7 +7668,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "St. Louis", "Atlanta", "Melbourne"],
     founded: 2009,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-375-3176"
   },
   {
     id: 511,
@@ -7172,7 +7683,8 @@ export const companies: Company[] = [
     office_locations: ["Mountain View", "San Diego", "Plano", "Bangalore"],
     founded: 1983,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-650-944-6000"
   },
   {
     id: 512,
@@ -7186,7 +7698,8 @@ export const companies: Company[] = [
     office_locations: ["Pleasanton", "Boulder", "Dublin", "Auckland"],
     founded: 2005,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-925-951-9000"
   },
   {
     id: 513,
@@ -7200,7 +7713,8 @@ export const companies: Company[] = [
     office_locations: ["Santa Clara", "San Diego", "Hyderabad", "Amsterdam"],
     founded: 2004,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-408-501-8500"
   },
   {
     id: 514,
@@ -7214,7 +7728,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Plano", "London", "Pune"],
     founded: 2003,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-848-8400"
   },
   {
     id: 515,
@@ -7228,7 +7743,8 @@ export const companies: Company[] = [
     office_locations: ["Santa Clara", "Plano", "Tel Aviv", "Amsterdam"],
     founded: 2005,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-408-753-4000"
   },
   {
     id: 516,
@@ -7242,7 +7758,8 @@ export const companies: Company[] = [
     office_locations: ["Sunnyvale", "Burnaby", "Sophia Antipolis", "Bangalore"],
     founded: 2000,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-408-235-7700"
   },
   {
     id: 517,
@@ -7256,7 +7773,8 @@ export const companies: Company[] = [
     office_locations: ["San Jose", "Pune", "Bangalore", "London"],
     founded: 2007,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-408-533-0288"
   },
   {
     id: 518,
@@ -7270,7 +7788,8 @@ export const companies: Company[] = [
     office_locations: ["Pleasanton", "Columbus", "Oxford", "Shanghai"],
     founded: 2007,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-925-452-6500"
   },
   {
     id: 519,
@@ -7284,7 +7803,8 @@ export const companies: Company[] = [
     office_locations: ["Belmont", "Denver", "Odessa", "Xiamen"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-877-925-8945"
   },
   {
     id: 520,
@@ -7298,7 +7818,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Remote"],
     founded: 2013,
     totalTechnologies: 4,
-    category: "YC Backed"
+    category: "YC Backed",
+    telephone: "+1-800-431-1854"
   },
   {
     id: 521,
@@ -7312,7 +7833,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Denver", "New York"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-800-936-0383"
   },
   {
     id: 522,
@@ -7326,7 +7848,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Salt Lake City", "Remote"],
     founded: 2017,
     totalTechnologies: 5,
-    category: "YC Backed"
+    category: "YC Backed",
+    telephone: "+1-833-273-9227"
   },
   {
     id: 523,
@@ -7340,7 +7863,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Bangalore", "Remote"],
     founded: 2016,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-855-974-7753"
   },
   {
     id: 524,
@@ -7354,7 +7878,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Chicago", "Amsterdam", "Hong Kong"],
     founded: 2013,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-969-9599"
   },
   {
     id: 525,
@@ -7368,7 +7893,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Atlanta", "Toronto"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-888-246-7822"
   },
   {
     id: 526,
@@ -7382,7 +7908,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "Phoenix", "Toronto"],
     founded: 2013,
     totalTechnologies: 6,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-855-973-1040"
   },
   {
     id: 527,
@@ -7396,7 +7923,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Dublin", "Beijing", "Singapore"],
     founded: 2008,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-800-5959"
   },
   {
     id: 528,
@@ -7410,7 +7938,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "Amsterdam", "Bangalore"],
     founded: 2009,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-801-4068"
   },
   {
     id: 529,
@@ -7424,7 +7953,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "Nashville", "Kyiv"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-855-865-9553"
   },
   {
     id: 530,
@@ -7438,7 +7968,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "Dublin", "Sao Paulo"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-762-7100"
   },
   {
     id: 531,
@@ -7452,7 +7983,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "London", "Tokyo"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-222-9670"
   },
   {
     id: 532,
@@ -7466,7 +7998,8 @@ export const companies: Company[] = [
     office_locations: ["Santa Monica", "New York", "London", "Shenzhen"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-310-399-3339"
   },
   {
     id: 533,
@@ -7480,7 +8013,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "Dublin", "Remote"],
     founded: 2005,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-985-3348"
   },
   {
     id: 534,
@@ -7494,7 +8028,8 @@ export const companies: Company[] = [
     office_locations: ["Mountain View", "New York", "Bangalore"],
     founded: 2009,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-650-485-6188"
   },
   {
     id: 535,
@@ -7508,7 +8043,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "Remote"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-964-1100"
   },
   {
     id: 536,
@@ -7522,7 +8058,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Remote"],
     founded: 2017,
     totalTechnologies: 4,
-    category: "YC Backed"
+    category: "YC Backed",
+    telephone: "+1-415-689-8646"
   },
   {
     id: 537,
@@ -7536,7 +8073,8 @@ export const companies: Company[] = [
     office_locations: ["Remote"],
     founded: 2014,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-829-2810"
   },
   {
     id: 538,
@@ -7550,7 +8088,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Amsterdam", "Tokyo", "Remote"],
     founded: 2008,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-877-448-4820"
   },
   {
     id: 539,
@@ -7564,7 +8103,8 @@ export const companies: Company[] = [
     office_locations: ["Sydney", "San Francisco", "Amsterdam"],
     founded: 2008,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+61-2-9266-5000"
   },
   {
     id: 540,
@@ -7578,7 +8118,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Remote"],
     founded: 2013,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-650-488-8228"
   },
   {
     id: 541,
@@ -7592,7 +8133,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Amsterdam", "Remote"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-301-3250"
   },
   {
     id: 542,
@@ -7606,7 +8148,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Amsterdam", "London", "Bangalore"],
     founded: 2013,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-866-330-0121"
   },
   {
     id: 543,
@@ -7620,7 +8163,8 @@ export const companies: Company[] = [
     office_locations: ["Mountain View", "London", "Bangalore", "Remote"],
     founded: 2014,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-650-450-7551"
   },
   {
     id: 544,
@@ -7634,7 +8178,8 @@ export const companies: Company[] = [
     office_locations: ["Mountain View", "Amsterdam", "Austin", "Remote"],
     founded: 2012,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-650-458-2625"
   },
   {
     id: 545,
@@ -7648,7 +8193,8 @@ export const companies: Company[] = [
     office_locations: ["Raleigh", "Westford", "Brno", "Pune"],
     founded: 1993,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-919-754-3700"
   },
   {
     id: 546,
@@ -7662,7 +8208,8 @@ export const companies: Company[] = [
     office_locations: ["Nuremberg", "Bracknell", "Provo", "Beijing"],
     founded: 1992,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+49-911-740-53-0"
   },
   {
     id: 547,
@@ -7676,7 +8223,8 @@ export const companies: Company[] = [
     office_locations: ["London", "Boston", "Taipei", "Remote"],
     founded: 2004,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+44-20-7630-2400"
   },
   {
     id: 548,
@@ -7690,7 +8238,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Cambridge", "Paris", "Remote"],
     founded: 2013,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-941-0080"
   },
   {
     id: 549,
@@ -7704,7 +8253,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Austin", "London", "Singapore"],
     founded: 2009,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-650-319-8930"
   },
   {
     id: 550,
@@ -7718,7 +8268,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Denver", "London", "Tokyo"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-844-327-8599"
   },
   {
     id: 551,
@@ -7732,7 +8283,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Remote"],
     founded: 2014,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-691-1100"
   },
   {
     id: 552,
@@ -7746,7 +8298,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Remote"],
     founded: 2015,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-916-538-6940"
   },
   {
     id: 553,
@@ -7760,7 +8313,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Cambridge", "Bangalore", "Amsterdam"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-646-827-4344"
   },
   {
     id: 554,
@@ -7774,7 +8328,8 @@ export const companies: Company[] = [
     office_locations: ["Philadelphia", "Atlanta", "London", "Tokyo"],
     founded: 2003,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-855-454-6633"
   },
   {
     id: 555,
@@ -7788,7 +8343,8 @@ export const companies: Company[] = [
     office_locations: ["Gunzenhausen", "Falkenstein", "Helsinki"],
     founded: 1997,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+49-9831-505-0"
   },
   {
     id: 556,
@@ -7802,7 +8358,8 @@ export const companies: Company[] = [
     office_locations: ["Roubaix", "Gravelines", "Strasbourg", "Montreal"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+33-9-72-10-10-07"
   },
   {
     id: 557,
@@ -7816,7 +8373,8 @@ export const companies: Company[] = [
     office_locations: ["Tempe", "Scottsdale", "Kirkland", "Santa Clara"],
     founded: 1997,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-480-505-8877"
   },
   {
     id: 558,
@@ -7830,7 +8388,8 @@ export const companies: Company[] = [
     office_locations: ["Phoenix", "Lviv", "Kharkiv", "Remote"],
     founded: 2000,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-661-310-2107"
   },
   {
     id: 559,
@@ -7844,7 +8403,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Dublin", "Portland"],
     founded: 2003,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-646-480-8730"
   },
   {
     id: 560,
@@ -7858,7 +8418,8 @@ export const companies: Company[] = [
     office_locations: ["Atlanta", "Brooklyn", "Oakland"],
     founded: 2001,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-800-339-0535"
   },
   {
     id: 561,
@@ -7872,7 +8433,8 @@ export const companies: Company[] = [
     office_locations: ["San Mateo", "Portland", "Ottawa", "Dublin"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-650-543-8400"
   },
   {
     id: 562,
@@ -7886,7 +8448,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Nashville", "Melbourne", "Mendoza"],
     founded: 2006,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-888-414-5119"
   },
   {
     id: 563,
@@ -7900,7 +8463,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "New York", "London", "Hamburg"],
     founded: 2004,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-908-3801"
   },
   {
     id: 564,
@@ -7914,7 +8478,8 @@ export const companies: Company[] = [
     office_locations: ["Needham", "London", "Singapore", "Sydney"],
     founded: 2000,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-781-800-5000"
   },
   {
     id: 565,
@@ -7928,7 +8493,8 @@ export const companies: Company[] = [
     office_locations: ["Seattle", "Chicago", "London", "Gurgaon"],
     founded: 1996,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-425-679-7200"
   },
   {
     id: 566,
@@ -7942,7 +8508,8 @@ export const companies: Company[] = [
     office_locations: ["Bethesda", "London", "Hong Kong", "Dubai"],
     founded: 1927,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-301-380-3000"
   },
   {
     id: 567,
@@ -7956,7 +8523,8 @@ export const companies: Company[] = [
     office_locations: ["McLean", "Memphis", "Watford", "Singapore"],
     founded: 1919,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-703-883-1000"
   },
   {
     id: 568,
@@ -7970,7 +8538,8 @@ export const companies: Company[] = [
     office_locations: ["Chicago", "Zurich", "Hong Kong", "Mumbai"],
     founded: 1957,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-312-750-1234"
   },
   {
     id: 569,
@@ -7984,7 +8553,8 @@ export const companies: Company[] = [
     office_locations: ["Issy-les-Moulineaux", "Singapore", "Sao Paulo", "Dubai"],
     founded: 1967,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+33-1-45-38-88-00"
   },
   {
     id: 570,
@@ -7998,7 +8568,8 @@ export const companies: Company[] = [
     office_locations: ["Denham", "Atlanta", "Singapore", "Shanghai"],
     founded: 2003,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+44-1895-512-000"
   },
   {
     id: 571,
@@ -8012,7 +8583,8 @@ export const companies: Company[] = [
     office_locations: ["Rockville", "Phoenix", "Tallahassee"],
     founded: 1939,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-301-592-5000"
   },
   {
     id: 572,
@@ -8026,7 +8598,8 @@ export const companies: Company[] = [
     office_locations: ["Parsippany", "London", "Singapore", "Shanghai"],
     founded: 2018,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-973-753-6000"
   },
   {
     id: 573,
@@ -8040,7 +8613,8 @@ export const companies: Company[] = [
     office_locations: ["Phoenix", "Milan", "Bangkok"],
     founded: 1946,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-623-780-6100"
   },
   {
     id: 574,
@@ -8054,7 +8628,8 @@ export const companies: Company[] = [
     office_locations: ["Minnetonka", "Brussels", "Singapore", "Shanghai"],
     founded: 1960,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+1-763-212-5000"
   },
   {
     id: 575,
@@ -8068,7 +8643,8 @@ export const companies: Company[] = [
     office_locations: ["Stamford", "Arlington", "London", "Gurgaon"],
     founded: 1979,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-203-964-0096"
   },
   {
     id: 576,
@@ -8082,7 +8658,8 @@ export const companies: Company[] = [
     office_locations: ["Cambridge", "New York", "London", "Singapore"],
     founded: 1983,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-617-613-6000"
   },
   {
     id: 577,
@@ -8096,7 +8673,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Chicago", "Mumbai", "Shanghai"],
     founded: 1923,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+1-646-654-5000"
   },
   {
     id: 578,
@@ -8110,7 +8688,8 @@ export const companies: Company[] = [
     office_locations: ["Paris", "London", "New York", "Shanghai"],
     founded: 1975,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+33-1-41-98-90-00"
   },
   {
     id: 579,
@@ -8124,7 +8703,8 @@ export const companies: Company[] = [
     office_locations: ["London", "New York", "Singapore", "Mumbai"],
     founded: 1992,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+44-20-7656-5700"
   },
   {
     id: 580,
@@ -8138,7 +8718,8 @@ export const companies: Company[] = [
     office_locations: ["Nuremberg", "London", "New York", "Hong Kong"],
     founded: 1934,
     totalTechnologies: 5,
-    category: "Service Based"
+    category: "Service Based",
+    telephone: "+49-911-395-0"
   },
   {
     id: 581,
@@ -8152,7 +8733,8 @@ export const companies: Company[] = [
     office_locations: ["Redwood City", "Orlando", "Vancouver", "Stockholm"],
     founded: 1982,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-650-628-1500"
   },
   {
     id: 582,
@@ -8166,7 +8748,8 @@ export const companies: Company[] = [
     office_locations: ["New York", "Novato", "Edinburgh", "Las Vegas"],
     founded: 1993,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-646-536-2842"
   },
   {
     id: 583,
@@ -8180,7 +8763,8 @@ export const companies: Company[] = [
     office_locations: ["Santa Monica", "Irvine", "Albany", "Shanghai"],
     founded: 2008,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-310-255-2000"
   },
   {
     id: 584,
@@ -8194,7 +8778,8 @@ export const companies: Company[] = [
     office_locations: ["Kyoto", "Redmond", "Frankfurt", "Tokyo"],
     founded: 1889,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+81-75-662-9600"
   },
   {
     id: 585,
@@ -8208,7 +8793,8 @@ export const companies: Company[] = [
     office_locations: ["Tokyo", "Santa Clara", "Lyon", "Singapore"],
     founded: 2005,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+81-3-6744-6112"
   },
   {
     id: 586,
@@ -8222,7 +8808,8 @@ export const companies: Company[] = [
     office_locations: ["Tokyo", "El Segundo", "London", "Montreal"],
     founded: 2003,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+81-3-5292-8100"
   },
   {
     id: 587,
@@ -8236,7 +8823,8 @@ export const companies: Company[] = [
     office_locations: ["Osaka", "San Francisco", "London", "Singapore"],
     founded: 1979,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+81-6-6920-3600"
   },
   {
     id: 588,
@@ -8250,7 +8838,8 @@ export const companies: Company[] = [
     office_locations: ["Tokyo", "Irvine", "London", "Seoul"],
     founded: 1960,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+81-3-5736-7111"
   },
   {
     id: 589,
@@ -8264,7 +8853,8 @@ export const companies: Company[] = [
     office_locations: ["Tokyo", "El Segundo", "Windsor", "Hong Kong"],
     founded: 1969,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+81-3-5771-0573"
   },
   {
     id: 590,
@@ -8278,7 +8868,8 @@ export const companies: Company[] = [
     office_locations: ["Karlstad", "Vienna", "Larkspur", "Paris"],
     founded: 2011,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+46-54-13-75-00"
   },
   {
     id: 591,
@@ -8292,7 +8883,8 @@ export const companies: Company[] = [
     office_locations: ["Stockholm", "Umeå", "Malmö", "Seattle"],
     founded: 1999,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+46-8-566-176-00"
   },
   {
     id: 592,
@@ -8306,7 +8898,8 @@ export const companies: Company[] = [
     office_locations: ["Hangzhou", "Guangzhou", "Beijing", "San Francisco"],
     founded: 1997,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+86-571-8985-3333"
   },
   {
     id: 593,
@@ -8320,7 +8913,8 @@ export const companies: Company[] = [
     office_locations: ["Singapore", "Shanghai", "Taipei", "Jakarta"],
     founded: 2009,
     totalTechnologies: 5,
-    category: "MNC"
+    category: "MNC",
+    telephone: "+65-6270-8100"
   },
   {
     id: 594,
@@ -8334,7 +8928,8 @@ export const companies: Company[] = [
     office_locations: ["San Mateo", "Shenzhen", "London", "Seoul"],
     founded: 2004,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-650-298-9500"
   },
   {
     id: 595,
@@ -8348,7 +8943,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Sunnyvale", "Hamburg", "Tokyo"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-415-570-8888"
   },
   {
     id: 596,
@@ -8362,7 +8958,8 @@ export const companies: Company[] = [
     office_locations: ["San Francisco", "Chicago", "Toronto", "Bangalore"],
     founded: 2007,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+1-855-449-9642"
   },
   {
     id: 597,
@@ -8376,7 +8973,8 @@ export const companies: Company[] = [
     office_locations: ["St. Julian's", "London", "Stockholm", "Barcelona"],
     founded: 2003,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+356-2137-0000"
   },
   {
     id: 598,
@@ -8390,7 +8988,8 @@ export const companies: Company[] = [
     office_locations: ["Herzliya", "Tel Aviv", "London", "Kyiv"],
     founded: 2010,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+972-73-393-9000"
   },
   {
     id: 599,
@@ -8404,7 +9003,8 @@ export const companies: Company[] = [
     office_locations: ["Seoul", "Los Angeles", "Tokyo", "Taipei"],
     founded: 2000,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+82-2-2271-7441"
   },
   {
     id: 600,
@@ -8418,7 +9018,8 @@ export const companies: Company[] = [
     office_locations: ["Seoul", "Austin", "San Mateo", "Tokyo"],
     founded: 1997,
     totalTechnologies: 5,
-    category: "Product Based"
+    category: "Product Based",
+    telephone: "+82-2-6201-7000"
   }
 ];
 
