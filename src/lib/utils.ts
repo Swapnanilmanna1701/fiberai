@@ -17,9 +17,10 @@ export function exportToCsv(filename: string, rows: object[]) {
     rows.map(row => {
       return keys.map(k => {
         let cell = (row as any)[k] === null || (row as any)[k] === undefined ? '' : (row as any)[k];
+        
+        // Handle array values for CSV
         cell = Array.isArray(cell) ? cell.join('; ') : cell;
         
-        // Handle numeric values that might be formatted with commas
         if (typeof cell === 'number') {
           cell = String(cell);
         }
@@ -33,6 +34,20 @@ export function exportToCsv(filename: string, rows: object[]) {
     }).join('\n');
 
   const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  triggerDownload(blob, filename);
+}
+
+export function exportToJson(filename: string, rows: object[]) {
+  if (!rows || rows.length === 0) {
+    return;
+  }
+  const jsonContent = JSON.stringify(rows, null, 2);
+  const blob = new Blob([jsonContent], { type: 'application/json;charset=utf-8;' });
+  triggerDownload(blob, filename);
+}
+
+
+function triggerDownload(blob: Blob, filename: string) {
   const link = document.createElement('a');
   if (link.download !== undefined) {
     const url = URL.createObjectURL(blob);

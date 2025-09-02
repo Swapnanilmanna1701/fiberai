@@ -20,7 +20,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowUpDown, Download, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
-import { exportToCsv } from '@/lib/utils';
+import { exportToCsv, exportToJson } from '@/lib/utils';
 import type { Company } from '@/lib/data';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
@@ -80,22 +80,33 @@ export function ResultsTable({ data }: { data: Company[] }) {
     }
   };
   
-  const handleExport = () => {
-    const dataToExport = sortedData.map(c => ({
-      name: c.name,
-      domain: c.domain,
-      industry: c.industry,
-      category: c.category,
-      founded: c.founded,
-      hq_country: c.hq_country,
-      revenue_usd: c.revenue,
-      employees: c.employees,
-      tech_count: c.technologies.length,
-      technologies: c.technologies.join(', '),
-      office_locations: c.office_locations.join(', '),
+  const dataToExport = useMemo(() => sortedData.map(c => ({
+    name: c.name,
+    domain: c.domain,
+    industry: c.industry,
+    category: c.category,
+    founded: c.founded,
+    hq_country: c.hq_country,
+    revenue_usd: c.revenue,
+    employees: c.employees,
+    tech_count: c.technologies.length,
+    technologies: c.technologies,
+    office_locations: c.office_locations,
+  })), [sortedData]);
+
+  const handleExportCsv = () => {
+    const csvData = dataToExport.map(row => ({
+      ...row,
+      technologies: row.technologies.join('; '),
+      office_locations: row.office_locations.join('; '),
     }));
-    exportToCsv('techstack_explorer_results.csv', dataToExport);
+    exportToCsv('techstack_explorer_results.csv', csvData);
   };
+
+  const handleExportJson = () => {
+    exportToJson('techstack_explorer_results.json', dataToExport);
+  };
+
 
   const formatRevenue = (value: number) => {
     if (value >= 1_000_000_000) {
@@ -174,10 +185,16 @@ export function ResultsTable({ data }: { data: Company[] }) {
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-bold">Search Results ({data.length})</h2>
-          <Button onClick={handleExport} disabled={data.length === 0} size="sm">
-            <Download className="mr-2 h-4 w-4" />
-            Export
-          </Button>
+          <div className="flex gap-2">
+            <Button onClick={handleExportJson} disabled={data.length === 0} size="sm">
+              <Download className="mr-2 h-4 w-4" />
+              JSON
+            </Button>
+            <Button onClick={handleExportCsv} disabled={data.length === 0} size="sm">
+              <Download className="mr-2 h-4 w-4" />
+              CSV
+            </Button>
+          </div>
         </div>
         {paginatedData.length > 0 ? (
           <div className="grid gap-4">
@@ -249,10 +266,16 @@ export function ResultsTable({ data }: { data: Company[] }) {
     <div className="space-y-4 h-full flex flex-col">
       <div className="flex items-center justify-between flex-shrink-0">
         <h2 className="text-2xl font-bold">Search Results ({data.length})</h2>
-        <Button onClick={handleExport} disabled={data.length === 0}>
-          <Download className="mr-2 h-4 w-4" />
-          Export CSV
-        </Button>
+        <div className="flex gap-2">
+            <Button onClick={handleExportJson} disabled={data.length === 0}>
+              <Download className="mr-2 h-4 w-4" />
+              Export JSON
+            </Button>
+            <Button onClick={handleExportCsv} disabled={data.length === 0}>
+              <Download className="mr-2 h-4 w-4" />
+              Export CSV
+            </Button>
+        </div>
       </div>
       <div className="rounded-lg border flex-grow overflow-auto">
         <Table>
