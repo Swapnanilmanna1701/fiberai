@@ -12,7 +12,7 @@ export function useCompanySearch(allCompanies: Company[]) {
 
   const miniSearch = useMemo(() => {
     const search = new MiniSearch<Company>({
-      fields: ['name', 'domain', 'industry', 'technologies', 'hq_country', 'office_locations'],
+      fields: ['name', 'domain', 'industry', 'technologies', 'hq_country', 'office_locations', 'category'],
       storeFields: ['id'],
       searchOptions: {
         prefix: true,
@@ -40,6 +40,11 @@ export function useCompanySearch(allCompanies: Company[]) {
           return false;
         }
 
+        // Category filter
+        if (filters.categories.length > 0 && !filters.categories.includes(company.category)) {
+          return false;
+        }
+
         // Country filter
         if (filters.countries.length > 0 && !filters.countries.includes(company.hq_country)) {
           return false;
@@ -62,6 +67,11 @@ export function useCompanySearch(allCompanies: Company[]) {
         // Technology count filter
         if (company.technologies.length < filters.techCount[0] || company.technologies.length > filters.techCount[1]) {
           return false;
+        }
+
+        // Founded year filter
+        if (company.founded < filters.foundedYear[0] || company.founded > filters.foundedYear[1]) {
+            return false;
         }
         
         // Office location count filter

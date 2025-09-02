@@ -20,6 +20,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Logo } from './icons';
 import { Badge } from '@/components/ui/badge';
 import type { Company } from '@/lib/data';
+import { Slider } from '@/components/ui/slider';
 
 
 export const FiltersSchema = z.object({
@@ -34,6 +35,8 @@ export const FiltersSchema = z.object({
   officeLocationCount: z.tuple([z.number(), z.number()]),
   minRevenue: z.number().optional(),
   maxRevenue: z.number().optional(),
+  categories: z.array(z.string()),
+  foundedYear: z.tuple([z.number(), z.number()]),
 });
 
 type SearchSidebarProps = {
@@ -47,16 +50,22 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
   const [isSuggesting, setIsSuggesting] = useState(false);
   const [isParsing, setIsParsing] = useState(false);
 
-  const { allTechnologies, allIndustries, allCountries, allOfficeLocations } = useMemo(() => {
+  const { allTechnologies, allIndustries, allCountries, allOfficeLocations, allCategories, minFoundedYear, maxFoundedYear } = useMemo(() => {
     const technologies = [...new Set(allCompanies.flatMap(c => c.technologies))].sort();
     const industries = [...new Set(allCompanies.map(c => c.industry))].sort();
     const countries = [...new Set(allCompanies.map(c => c.hq_country))].sort();
     const officeLocations = [...new Set(allCompanies.flatMap(c => c.office_locations))].sort();
+    const categories = [...new Set(allCompanies.map(c => c.category))].sort();
+    const foundedYears = allCompanies.map(c => c.founded);
+    
     return { 
       allTechnologies: technologies.map(t => ({ label: t, value: t })),
       allIndustries: industries.map(i => ({ label: i, value: i })),
       allCountries: countries.map(c => ({ label: c, value: c })),
       allOfficeLocations: officeLocations.map(l => ({ label: l, value: l })),
+      allCategories: categories.map(c => ({ label: c, value: c })),
+      minFoundedYear: Math.min(...foundedYears),
+      maxFoundedYear: Math.max(...foundedYears),
     };
   }, [allCompanies]);
 
@@ -74,8 +83,31 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
       officeLocationCount: [0, 50],
       minRevenue: undefined,
       maxRevenue: undefined,
+      categories: [],
+      foundedYear: [minFoundedYear, maxFoundedYear],
     },
   });
+  
+  const foundedYearValue = form.watch('foundedYear');
+
+  useEffect(() => {
+    form.reset({
+      search: '',
+      industries: [],
+      countries: [],
+      officeLocations: [],
+      technologiesAnd: [],
+      technologiesOr: [],
+      technologiesNot: [],
+      techCount: [0, 50],
+      officeLocationCount: [0, 50],
+      minRevenue: undefined,
+      maxRevenue: undefined,
+      categories: [],
+      foundedYear: [minFoundedYear, maxFoundedYear],
+    });
+  }, [minFoundedYear, maxFoundedYear, form]);
+
 
   const onSubmit = (data: z.infer<typeof FiltersSchema>) => {
     onSearch(data);
@@ -152,7 +184,7 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
 
       // Reset previous filters but apply new ones
       const searchInput = form.getValues('search');
-      form.reset({ search: searchInput }); // Keep the search input
+      form.reset({ search: searchInput, foundedYear: [minFoundedYear, maxFoundedYear] });
       
       form.setValue('search', filters.search || searchInput);
       form.setValue('industries', filters.industries || []);
@@ -277,6 +309,21 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
                         />
                   </div>
                   <div className="space-y-2">
+                    <Label>Category</Label>
+                    <Controller
+                        control={form.control}
+                        name="categories"
+                        render={({ field }) => (
+                           <MultiSelectCombobox
+                            options={allCategories}
+                            selected={field.value}
+                            onChange={field.onChange}
+                            placeholder="Select categories..."
+                           />
+                        )}
+                        />
+                  </div>
+                  <div className="space-y-2">
                     <Label>Headquarters Country</Label>
                      <Controller
                         control={form.control}
@@ -305,6 +352,26 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
                            />
                         )}
                         />
+                  </div>
+                   <div className="space-y-2 pt-2">
+                    <Label>Founded Year</Label>
+                    <div className="flex justify-between text-sm text-muted-foreground">
+                        <span>{foundedYearValue[0]}</span>
+                        <span>{foundedYearValue[1]}</span>
+                    </div>
+                    <Controller
+                        control={form.control}
+                        name="foundedYear"
+                        render={({ field }) => (
+                            <Slider
+                                value={field.value}
+                                onValueChange={field.onChange}
+                                min={minFoundedYear}
+                                max={maxFoundedYear}
+                                step={1}
+                            />
+                        )}
+                    />
                   </div>
                    <div className="space-y-2 pt-2">
                     <Label>Number of Office Locations</Label>

@@ -15,6 +15,7 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
+  CardDescription,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -29,7 +30,7 @@ type SortKey = keyof Company | 'tech_count' | '';
 type SortDirection = 'asc' | 'desc';
 
 export function ResultsTable({ data }: { data: Company[] }) {
-  const [sortKey, setSortKey] = useState<SortKey>('');
+  const [sortKey, setSortKey] = useState<SortKey>('name');
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -84,6 +85,8 @@ export function ResultsTable({ data }: { data: Company[] }) {
       name: c.name,
       domain: c.domain,
       industry: c.industry,
+      category: c.category,
+      founded: c.founded,
       hq_country: c.hq_country,
       revenue_usd: c.revenue,
       employees: c.employees,
@@ -191,13 +194,11 @@ export function ResultsTable({ data }: { data: Company[] }) {
                        </a>
                     </div>
                   </CardTitle>
-                  <p className="text-sm text-muted-foreground">{company.domain}</p>
+                  <CardDescription>
+                      {company.industry} &middot; {company.category} &middot; Founded {company.founded}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="grid gap-4">
-                  <div className="flex justify-between">
-                    <div className="text-sm text-muted-foreground">Industry</div>
-                    <div className="font-medium">{company.industry}</div>
-                  </div>
                   <div className="flex justify-between">
                     <div className="text-sm text-muted-foreground">HQ</div>
                     <div className="font-medium">{company.hq_country}</div>
@@ -259,6 +260,8 @@ export function ResultsTable({ data }: { data: Company[] }) {
             <TableRow>
               <SortableHeader sortKey="name">Company</SortableHeader>
               <SortableHeader sortKey="industry">Industry</SortableHeader>
+              <SortableHeader sortKey="category">Category</SortableHeader>
+              <SortableHeader sortKey="founded">Founded</SortableHeader>
               <SortableHeader sortKey="hq_country">HQ</SortableHeader>
               <SortableHeader sortKey="revenue">Revenue</SortableHeader>
               <SortableHeader sortKey="employees">Employees</SortableHeader>
@@ -281,6 +284,8 @@ export function ResultsTable({ data }: { data: Company[] }) {
                     <p className="text-sm text-muted-foreground">{company.domain}</p>
                   </TableCell>
                   <TableCell>{company.industry}</TableCell>
+                  <TableCell>{company.category}</TableCell>
+                  <TableCell>{company.founded}</TableCell>
                   <TableCell>{company.hq_country}</TableCell>
                   <TableCell>{formatRevenue(company.revenue)}</TableCell>
                   <TableCell>{company.employees.toLocaleString()}</TableCell>
@@ -309,7 +314,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={8} className="h-24 text-center">
+                <TableCell colSpan={10} className="h-24 text-center">
                   No results found. Try adjusting your filters.
                 </TableCell>
               </TableRow>
@@ -321,5 +326,3 @@ export function ResultsTable({ data }: { data: Company[] }) {
     </div>
   );
 }
-
-    
