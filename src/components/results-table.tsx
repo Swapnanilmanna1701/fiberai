@@ -83,6 +83,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
   const dataToExport = useMemo(() => sortedData.map(c => ({
     name: c.name,
     domain: c.domain,
+    telephone: c.telephone,
     industry: c.industry,
     category: c.category,
     founded: c.founded,
@@ -217,6 +218,10 @@ export function ResultsTable({ data }: { data: Company[] }) {
                 </CardHeader>
                 <CardContent className="grid gap-4">
                   <div className="flex justify-between">
+                    <div className="text-sm text-muted-foreground">Telephone</div>
+                    <div className="font-medium">{company.telephone}</div>
+                  </div>
+                  <div className="flex justify-between">
                     <div className="text-sm text-muted-foreground">HQ</div>
                     <div className="font-medium">{company.hq_country}</div>
                   </div>
@@ -282,6 +287,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
           <TableHeader className="sticky top-0 bg-card z-10">
             <TableRow>
               <SortableHeader sortKey="name">Company</SortableHeader>
+              <TableHead>Telephone</TableHead>
               <SortableHeader sortKey="industry">Industry</SortableHeader>
               <SortableHeader sortKey="category">Category</SortableHeader>
               <SortableHeader sortKey="founded">Founded</SortableHeader>
@@ -306,6 +312,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
                     </div>
                     <p className="text-sm text-muted-foreground">{company.domain}</p>
                   </TableCell>
+                  <TableCell>{company.telephone}</TableCell>
                   <TableCell>{company.industry}</TableCell>
                   <TableCell>{company.category}</TableCell>
                   <TableCell>{company.founded}</TableCell>
@@ -337,7 +344,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={10} className="h-24 text-center">
+                <TableCell colSpan={11} className="h-24 text-center">
                   No results found. Try adjusting your filters.
                 </TableCell>
               </TableRow>
@@ -349,3 +356,5 @@ export function ResultsTable({ data }: { data: Company[] }) {
     </div>
   );
 }
+
+    
