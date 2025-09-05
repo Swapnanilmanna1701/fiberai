@@ -30,7 +30,7 @@ export type NaturalLanguageToFiltersInput = z.infer<typeof NaturalLanguageToFilt
 const NaturalLanguageToFiltersOutputSchema = z.object({
   search: z.string().optional().describe('General search term.'),
   industries: z.array(z.string()).describe('Selected industries.'),
-  countries: z.array(z.string()).describe('Selected countries.'),
+  countries: z.array(z.string()).describe('Selected headquarters countries. If a city or location is mentioned, infer the country and place it here.'),
   officeLocations: z.array(z.string()).describe('Selected office locations.'),
   technologies: z.array(technologySchema).describe('Selected technologies with conditions. This is the main output for tech filters.'),
   techCount: z.tuple([z.number(), z.number()]).describe('A range for the number of technologies (min, max).'),
@@ -53,25 +53,26 @@ User Query: "{{query}}"
 
 Available Filter Options:
 - Industries: {{#each availableIndustries}}{{{this}}}{{#unless @last}}, {{/unless}}{{/each}}
-- Countries: {{#each availableCountries}}{{{this}}}{{#unless @last}}, {{/unless}}{{/each}}
+- Headquarters Countries: {{#each availableCountries}}{{{this}}}{{#unless @last}}, {{/unless}}{{/each}}
 - Technologies: {{#each availableTechnologies}}{{{this}}}{{#unless @last}}, {{/unless}}{{/each}}
-- Office Locations: {{#each availableOfficeLocations}}{{{this}}}{{#unless @last}}, {{/unless}}{{/each}}
+- Office Locations (Cities/States): {{#each availableOfficeLocations}}{{{this}}}{{#unless @last}}, {{/unless}}{{/each}}
 
 Your Task:
-1.  **Extract Filters**: Identify industries, countries, office locations, and technologies mentioned in the query. Only use values present in the "Available Filter Options".
-2.  **Determine Technology Logic**:
+1.  **Extract Filters**: Identify industries, headquarters countries, office locations, and technologies mentioned in the query. Only use values present in the "Available Filter Options".
+2.  **Headquarters vs. Office Location**: If the user mentions a country (e.g., "USA", "Germany"), it refers to the 'hq_country'. If they mention a city or state (e.g., "New York", "Kolkata"), treat it as an 'officeLocation'. If a query implies a headquarters (e.g., "companies from London"), you can populate both the 'countries' (with UK) and 'officeLocations' (with London) if appropriate.
+3.  **Determine Technology Logic**:
     - "AND": Use for queries like "uses React and Node.js". The company must use all specified technologies.
     - "OR": Use for queries like "uses React or Angular". The company can use any one of the specified technologies.
     - "NOT": Use for queries like "all but Java" or "not Java". The company must not use the specified technology.
     - **Default to "AND" if the logic is ambiguous or not specified.** For "React, Node.js", assume "React AND Node.js".
-3.  **Extract Tech Stack Size**:
+4.  **Extract Tech Stack Size**:
     - Look for phrases like "more than 10 technologies", "at least 5 techs", "less than 8 technologies", "between 5 and 10".
     - Set the \`techCount\` tuple accordingly. The first value is the minimum, the second is the maximum.
     - If only a minimum is specified (e.g., "more than 10"), set the maximum to a high number like 50.
     - If only a maximum is specified (e.g., "less than 8"), set the minimum to 0.
     - If not specified, the default is [0, 50].
-4.  **Identify General Search Term**: If parts of the query don't map to a specific filter (e.g., a company name like "Innovate Inc."), put that in the \`search\` field.
-5.  **Construct JSON Output**: Return a JSON object matching the required output schema. Populate the 'technologies' array with all extracted tech filters, each with its appropriate condition.
+5.  **Identify General Search Term**: If parts of the query don't map to a specific filter (e.g., a company name like "Innovate Inc."), put that in the \`search\` field.
+6.  **Construct JSON Output**: Return a JSON object matching the required output schema. Populate the 'technologies' array with all extracted tech filters, each with its appropriate condition.
 
 Example 1 (AND and NOT):
 Query: "Show me tech companies in the USA with an office in New York, using React but not Java, with at least 5 technologies"
@@ -103,21 +104,19 @@ Output:
   "techCount": [0, 50]
 }
 
-Example 3 (AND and OR):
-Query: "Companies in the UK that use (React or Angular) and also AWS"
-Output:
-{
+Example 3 (Specific Location and Tech):
+Query: "Kolkata, Typescript"
+Output: {
   "search": "",
   "industries": [],
-  "countries": ["UK"],
-  "officeLocations": [],
+  "countries": [],
+  "officeLocations": ["Kolkata"],
   "technologies": [
-    { "value": "React", "condition": "OR" },
-    { "value": "Angular", "condition": "OR" },
-    { "value": "AWS", "condition": "AND" }
+    { "value": "TypeScript", "condition": "AND" }
   ],
   "techCount": [0, 50]
 }
+
 
 Now, process the user's query.`,
 });
