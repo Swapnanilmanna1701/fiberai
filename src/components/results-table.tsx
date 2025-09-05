@@ -29,6 +29,26 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 type SortKey = keyof Company | 'tech_count' | '';
 type SortDirection = 'asc' | 'desc';
 
+const colorClasses = [
+  'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300 border-emerald-200 dark:border-emerald-700',
+  'bg-sky-100 text-sky-800 dark:bg-sky-900/50 dark:text-sky-300 border-sky-200 dark:border-sky-700',
+  'bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 border-amber-200 dark:border-amber-700',
+  'bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-300 border-rose-200 dark:border-rose-700',
+  'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300 border-indigo-200 dark:border-indigo-700',
+  'bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300 border-teal-200 dark:border-teal-700',
+  'bg-pink-100 text-pink-800 dark:bg-pink-900/50 dark:text-pink-300 border-pink-200 dark:border-pink-700',
+  'bg-lime-100 text-lime-800 dark:bg-lime-900/50 dark:text-lime-300 border-lime-200 dark:border-lime-700',
+];
+
+const getBadgeColor = (text: string) => {
+  let hash = 0;
+  for (let i = 0; i < text.length; i++) {
+    hash = text.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return colorClasses[Math.abs(hash) % colorClasses.length];
+};
+
+
 export function ResultsTable({ data }: { data: Company[] }) {
   const [sortKey, setSortKey] = useState<SortKey>('name');
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
@@ -241,7 +261,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
                     <h4 className="text-sm font-medium mb-2">Technologies</h4>
                     <div className="flex flex-wrap gap-1">
                       {company.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary">{tech}</Badge>
+                        <Badge key={tech} variant="secondary" className={cn(getBadgeColor(tech))}>{tech}</Badge>
                       ))}
                     </div>
                   </div>
@@ -249,7 +269,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
                     <h4 className="text-sm font-medium mb-2">Office Locations</h4>
                     <div className="flex flex-wrap gap-1">
                       {company.office_locations.map((location) => (
-                        <Badge key={location} variant="secondary">{location}</Badge>
+                        <Badge key={location} variant="secondary" className={cn(getBadgeColor(location))}>{location}</Badge>
                       ))}
                     </div>
                   </div>
@@ -323,7 +343,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
                   <TableCell>
                     <div className="flex flex-wrap gap-1 max-w-xs">
                       {company.technologies.slice(0, 3).map((tech) => (
-                        <Badge key={tech} variant="secondary">{tech}</Badge>
+                        <Badge key={tech} variant="secondary" className={cn(getBadgeColor(tech))}>{tech}</Badge>
                       ))}
                       {company.technologies.length > 3 && (
                          <Badge variant="outline">+{company.technologies.length - 3} more</Badge>
@@ -333,7 +353,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
                   <TableCell>
                     <div className="flex flex-wrap gap-1 max-w-xs">
                       {company.office_locations.slice(0, 3).map((location) => (
-                        <Badge key={location} variant="secondary">{location}</Badge>
+                        <Badge key={location} variant="secondary" className={cn(getBadgeColor(location))}>{location}</Badge>
                       ))}
                       {company.office_locations.length > 3 && (
                           <Badge variant="outline">+{company.office_locations.length - 3} more</Badge>
