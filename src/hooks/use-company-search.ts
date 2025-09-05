@@ -79,6 +79,11 @@ export function useCompanySearch(allCompanies: Company[]) {
           return false;
         }
 
+        // Employee count filter
+        if (company.employees < filters.employeeCount[0] || company.employees > filters.employeeCount[1]) {
+          return false;
+        }
+
         // Technology boolean logic
         const { technologiesAnd, technologiesOr, technologiesNot } = filters;
 

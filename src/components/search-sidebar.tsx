@@ -34,6 +34,7 @@ export const FiltersSchema = z.object({
   technologiesNot: z.array(z.string()),
   techCount: z.tuple([z.number(), z.number()]),
   officeLocationCount: z.tuple([z.number(), z.number()]),
+  employeeCount: z.tuple([z.number(), z.number()]),
   minRevenue: z.number().optional(),
   maxRevenue: z.number().optional(),
   categories: z.array(z.string()),
@@ -81,6 +82,7 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
       technologiesNot: [],
       techCount: [0, 50],
       officeLocationCount: [0, 50],
+      employeeCount: [0, 1000000],
       minRevenue: undefined,
       maxRevenue: undefined,
       categories: [],
@@ -353,6 +355,40 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
                             />
                         )}
                       />
+                  </div>
+                  <div className="space-y-2 pt-2">
+                    <Label>Number of Employees</Label>
+                    <div className="flex items-center gap-2">
+                      <Controller
+                          control={form.control}
+                          name="employeeCount.0"
+                          render={({ field }) => (
+                              <Input
+                                  type="number"
+                                  placeholder="Min"
+                                  className="w-full"
+                                  {...field}
+                                  value={field.value ?? ''}
+                                  onChange={e => field.onChange(e.target.value === '' ? 0 : Number(e.target.value))}
+                              />
+                          )}
+                      />
+                      <span>-</span>
+                      <Controller
+                          control={form.control}
+                          name="employeeCount.1"
+                           render={({ field }) => (
+                              <Input
+                                  type="number"
+                                  placeholder="Max"
+                                  className="w-full"
+                                  {...field}
+                                  value={field.value === 1000000 ? '' : (field.value ?? '')}
+                                  onChange={e => field.onChange(e.target.value === '' ? 1000000 : Number(e.target.value))}
+                              />
+                          )}
+                      />
+                    </div>
                   </div>
                    <div className="space-y-2 pt-2">
                     <Label>Number of Office Locations</Label>
