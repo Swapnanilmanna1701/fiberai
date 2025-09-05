@@ -15,7 +15,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { cn } from '@/lib/utils';
-import { Check, ChevronsUpDown, Sparkles, Wand2, X } from 'lucide-react';
+import { Check, ChevronsUpDown, Sparkles, Wand2, X, CircleDashed } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Logo } from './icons';
 import { Badge } from '@/components/ui/badge';
@@ -37,6 +37,8 @@ export const FiltersSchema = z.object({
   employeeCount: z.tuple([z.number(), z.number()]),
   minRevenue: z.number().optional(),
   maxRevenue: z.number().optional(),
+  minRevenueUnit: z.enum(['million', 'billion']).default('million'),
+  maxRevenueUnit: z.enum(['million', 'billion']).default('million'),
   categories: z.array(z.string()),
   foundedYear: z.number().optional(),
 });
@@ -45,9 +47,10 @@ type SearchSidebarProps = {
   allCompanies: Company[];
   onSearch: (filters: z.infer<typeof FiltersSchema>) => void;
   onReset: () => void;
+  isSearching: boolean;
 };
 
-export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebarProps) {
+export function SearchSidebar({ allCompanies, onSearch, onReset, isSearching }: SearchSidebarProps) {
   const { toast } = useToast();
   const [isSuggesting, setIsSuggesting] = useState(false);
   const [isParsing, setIsParsing] = useState(false);
@@ -85,6 +88,8 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
       employeeCount: [0, 1000000],
       minRevenue: undefined,
       maxRevenue: undefined,
+      minRevenueUnit: 'million',
+      maxRevenueUnit: 'million',
       categories: [],
       foundedYear: undefined,
     },
@@ -459,37 +464,68 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
                     </div>
                   </div>
                   <div className="space-y-2 pt-2">
-                    <Label>Revenue (USD Millions)</Label>
-                    <div className="flex items-center gap-2">
-                      <Controller
-                          control={form.control}
-                          name="minRevenue"
-                          render={({ field }) => (
-                              <Input
-                                  type="number"
-                                  placeholder="Min"
-                                  className="w-full"
-                                  {...field}
-                                  value={field.value === undefined ? '' : field.value}
-                                  onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))}
-                              />
-                          )}
-                      />
-                      <span>-</span>
-                      <Controller
-                          control={form.control}
-                          name="maxRevenue"
-                          render={({ field }) => (
-                              <Input
-                                  type="number"
-                                  placeholder="Max"
-                                  className="w-full"
-                                  {...field}
-                                   value={field.value === undefined ? '' : field.value}
-                                  onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))}
-                              />
-                          )}
-                      />
+                    <Label>Revenue</Label>
+                    <div className="grid grid-cols-2 gap-2">
+                        <div className="space-y-1">
+                            <Controller
+                                control={form.control}
+                                name="minRevenue"
+                                render={({ field }) => (
+                                    <Input
+                                        type="number"
+                                        placeholder="Min"
+                                        {...field}
+                                        value={field.value === undefined ? '' : field.value}
+                                        onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))}
+                                    />
+                                )}
+                            />
+                            <Controller
+                                control={form.control}
+                                name="minRevenueUnit"
+                                render={({ field }) => (
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <SelectTrigger>
+                                            <SelectValue />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="million">Millions</SelectItem>
+                                            <SelectItem value="billion">Billions</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                )}
+                            />
+                        </div>
+                        <div className="space-y-1">
+                            <Controller
+                                control={form.control}
+                                name="maxRevenue"
+                                render={({ field }) => (
+                                    <Input
+                                        type="number"
+                                        placeholder="Max"
+                                        {...field}
+                                        value={field.value === undefined ? '' : field.value}
+                                        onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))}
+                                    />
+                                )}
+                            />
+                            <Controller
+                                control={form.control}
+                                name="maxRevenueUnit"
+                                render={({ field }) => (
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <SelectTrigger>
+                                            <SelectValue />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="million">Millions</SelectItem>
+                                            <SelectItem value="billion">Billions</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                )}
+                            />
+                        </div>
                     </div>
                   </div>
                 </AccordionContent>
@@ -500,8 +536,10 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
         </ScrollArea>
         <div className="mt-auto border-t p-4">
           <div className="flex gap-2">
-            <Button type="submit" className="flex-1">Search</Button>
-            <Button type="button" variant="outline" onClick={handleReset} className="flex-1">Reset</Button>
+            <Button type="submit" className="flex-1" disabled={isSearching}>
+              {isSearching ? <CircleDashed className="animate-spin" /> : 'Search'}
+            </Button>
+            <Button type="button" variant="outline" onClick={handleReset} className="flex-1" disabled={isSearching}>Reset</Button>
           </div>
         </div>
       </form>

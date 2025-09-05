@@ -1,29 +1,34 @@
 
-'use client';
-
-import { useState, useMemo, useCallback } from 'react';
+import { NextResponse } from 'next/server';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 import type { Company } from '@/lib/data';
-import type { z } from 'zod';
-import type { FiltersSchema } from '@/components/search-sidebar';
+import { FiltersSchema } from '@/components/search-sidebar';
 import MiniSearch from 'minisearch';
 
-export function useCompanySearch(allCompanies: Company[]) {
-  const [results, setResults] = useState<Company[]>(allCompanies);
+export async function POST(request: Request) {
+  try {
+    const filters = FiltersSchema.parse(await request.json());
 
-  const miniSearch = useMemo(() => {
-    const search = new MiniSearch<Company>({
-      fields: ['name', 'domain', 'industry', 'technologies', 'hq_country', 'office_locations', 'category'],
-      storeFields: ['id'],
-      searchOptions: {
-        prefix: true,
-        fuzzy: 0.2,
-      },
+    const querySnapshot = await getDocs(collection(db, "companies"));
+    const allCompanies = querySnapshot.docs.map(doc => {
+      const data = doc.data();
+      return {
+        ...data,
+        id: parseInt(doc.id, 10),
+      } as Company;
     });
-    search.addAll(allCompanies);
-    return search;
-  }, [allCompanies]);
 
-  const search = useCallback((filters: z.infer<typeof FiltersSchema>) => {
+    const miniSearch = new MiniSearch<Company>({
+        fields: ['name', 'domain', 'industry', 'technologies', 'hq_country', 'office_locations', 'category'],
+        storeFields: ['id'],
+        searchOptions: {
+          prefix: true,
+          fuzzy: 0.2,
+        },
+      });
+    miniSearch.addAll(allCompanies);
+
     let filteredCompanies: Company[];
 
     if (filters.search) {
@@ -55,13 +60,15 @@ export function useCompanySearch(allCompanies: Company[]) {
           return false;
         }
 
-        // Revenue filter (in millions)
-        const companyRevenueMillions = company.revenue / 1_000_000;
-        if (filters.minRevenue !== undefined && companyRevenueMillions < filters.minRevenue) {
-          return false;
+        // Revenue filter
+        const minRevenueValue = filters.minRevenue !== undefined ? filters.minRevenue * (filters.minRevenueUnit === 'billion' ? 1000000000 : 1000000) : undefined;
+        const maxRevenueValue = filters.maxRevenue !== undefined ? filters.maxRevenue * (filters.maxRevenueUnit === 'billion' ? 1000000000 : 1000000) : undefined;
+
+        if (minRevenueValue !== undefined && company.revenue < minRevenueValue) {
+            return false;
         }
-        if (filters.maxRevenue !== undefined && companyRevenueMillions > filters.maxRevenue) {
-          return false;
+        if (maxRevenueValue !== undefined && company.revenue > maxRevenueValue) {
+            return false;
         }
         
         // Technology count filter
@@ -105,12 +112,9 @@ export function useCompanySearch(allCompanies: Company[]) {
         return true;
       });
 
-    setResults(furtherFiltered);
-  }, [allCompanies, miniSearch]);
-
-  const reset = useCallback(() => {
-    setResults(allCompanies);
-  }, [allCompanies]);
-
-  return { results, search, reset };
+    return NextResponse.json(furtherFiltered);
+  } catch (error) {
+    console.error('Search API error:', error);
+    return NextResponse.json({ message: 'An error occurred during search.' }, { status: 500 });
+  }
 }
