@@ -70,10 +70,7 @@ export function useCompanySearch(allCompanies: Company[]) {
         }
 
         // Founded year filter
-        if (filters.startYear !== undefined && company.founded < filters.startYear) {
-          return false;
-        }
-        if (filters.endYear !== undefined && company.founded > filters.endYear) {
+        if (filters.foundedYear !== undefined && company.founded !== filters.foundedYear) {
           return false;
         }
         

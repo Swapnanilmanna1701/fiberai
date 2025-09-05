@@ -36,8 +36,7 @@ export const FiltersSchema = z.object({
   minRevenue: z.number().optional(),
   maxRevenue: z.number().optional(),
   categories: z.array(z.string()),
-  startYear: z.number().optional(),
-  endYear: z.number().optional(),
+  foundedYear: z.number().optional(),
 });
 
 type SearchSidebarProps = {
@@ -84,8 +83,7 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
       minRevenue: undefined,
       maxRevenue: undefined,
       categories: [],
-      startYear: undefined,
-      endYear: undefined,
+      foundedYear: undefined,
     },
   });
 
@@ -176,10 +174,6 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
       form.setValue('technologiesNot', filters.technologies.filter(t => t.condition === 'NOT').map(t => t.value));
 
       form.setValue('techCount', filters.techCount || [0, 50]);
-      if (filters.techCount) {
-        form.setValue('startYear', filters.techCount[0]);
-        form.setValue('endYear', filters.techCount[1]);
-      }
 
 
       toast({
@@ -341,14 +335,13 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
                   </div>
                   <div className="space-y-2 pt-2">
                     <Label>Founded Year</Label>
-                    <div className="flex items-center gap-2">
                       <Controller
                         control={form.control}
-                        name="startYear"
+                        name="foundedYear"
                         render={({ field }) => (
                           <Select onValueChange={(v) => field.onChange(v ? parseInt(v) : undefined)} value={String(field.value ?? '')}>
                             <SelectTrigger>
-                              <SelectValue placeholder="Start Year" />
+                              <SelectValue placeholder="Select year" />
                             </SelectTrigger>
                             <SelectContent>
                               {allFoundedYears.map(year => (
@@ -358,24 +351,6 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
                           </Select>
                         )}
                       />
-                      <span>-</span>
-                      <Controller
-                        control={form.control}
-                        name="endYear"
-                        render={({ field }) => (
-                           <Select onValueChange={(v) => field.onChange(v ? parseInt(v) : undefined)} value={String(field.value ?? '')}>
-                            <SelectTrigger>
-                              <SelectValue placeholder="End Year" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {allFoundedYears.map(year => (
-                                <SelectItem key={year.value} value={year.value}>{year.label}</SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        )}
-                      />
-                    </div>
                   </div>
                    <div className="space-y-2 pt-2">
                     <Label>Number of Office Locations</Label>
@@ -585,5 +560,3 @@ function MultiSelectCombobox({
     </div>
   );
 }
-
-    
