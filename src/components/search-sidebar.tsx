@@ -24,6 +24,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Combobox, ComboboxOption } from './ui/combobox';
 
 
+const revenueSchema = z.object({
+  value: z.number().optional(),
+  unit: z.enum(['millions', 'billions']),
+});
+
 export const FiltersSchema = z.object({
   search: z.string().optional(),
   industries: z.array(z.string()),
@@ -35,8 +40,8 @@ export const FiltersSchema = z.object({
   techCount: z.tuple([z.number(), z.number()]),
   officeLocationCount: z.tuple([z.number(), z.number()]),
   employeeCount: z.tuple([z.number(), z.number()]),
-  minRevenue: z.number().optional(),
-  maxRevenue: z.number().optional(),
+  minRevenue: revenueSchema.optional(),
+  maxRevenue: revenueSchema.optional(),
   categories: z.array(z.string()),
   foundedYear: z.number().optional(),
 });
@@ -83,8 +88,8 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
       techCount: [0, 50],
       officeLocationCount: [0, 50],
       employeeCount: [0, 1000000],
-      minRevenue: undefined,
-      maxRevenue: undefined,
+      minRevenue: { value: undefined, unit: 'millions'},
+      maxRevenue: { value: undefined, unit: 'millions'},
       categories: [],
       foundedYear: undefined,
     },
@@ -459,37 +464,72 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
                     </div>
                   </div>
                   <div className="space-y-2 pt-2">
-                    <Label>Revenue (USD Millions)</Label>
-                    <div className="flex items-center gap-2">
-                      <Controller
-                          control={form.control}
-                          name="minRevenue"
-                          render={({ field }) => (
-                              <Input
-                                  type="number"
-                                  placeholder="Min"
-                                  className="w-full"
-                                  {...field}
-                                  value={field.value === undefined ? '' : field.value}
-                                  onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))}
-                              />
-                          )}
-                      />
-                      <span>-</span>
-                      <Controller
-                          control={form.control}
-                          name="maxRevenue"
-                          render={({ field }) => (
-                              <Input
-                                  type="number"
-                                  placeholder="Max"
-                                  className="w-full"
-                                  {...field}
-                                   value={field.value === undefined ? '' : field.value}
-                                  onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))}
-                              />
-                          )}
-                      />
+                    <Label>Revenue (USD)</Label>
+                    <div className="grid grid-cols-2 gap-2">
+                        <div className="space-y-1">
+                             <Label htmlFor='minRevenue' className="text-xs text-muted-foreground">Min</Label>
+                            <Controller
+                                control={form.control}
+                                name="minRevenue.value"
+                                render={({ field }) => (
+                                    <Input
+                                        id='minRevenue'
+                                        type="number"
+                                        placeholder="e.g. 100"
+                                        {...field}
+                                        value={field.value === undefined ? '' : field.value}
+                                        onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))}
+                                    />
+                                )}
+                            />
+                            <Controller
+                                control={form.control}
+                                name="minRevenue.unit"
+                                render={({ field }) => (
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <SelectTrigger>
+                                            <SelectValue />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="millions">Millions</SelectItem>
+                                            <SelectItem value="billions">Billions</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                )}
+                            />
+                        </div>
+                         <div className="space-y-1">
+                             <Label htmlFor='maxRevenue' className="text-xs text-muted-foreground">Max</Label>
+                            <Controller
+                                control={form.control}
+                                name="maxRevenue.value"
+                                render={({ field }) => (
+                                    <Input
+                                        id='maxRevenue'
+                                        type="number"
+                                        placeholder="e.g. 500"
+                                        {...field}
+                                        value={field.value === undefined ? '' : field.value}
+                                        onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))}
+                                    />
+                                )}
+                            />
+                             <Controller
+                                control={form.control}
+                                name="maxRevenue.unit"
+                                render={({ field }) => (
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <SelectTrigger>
+                                            <SelectValue />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="millions">Millions</SelectItem>
+                                            <SelectItem value="billions">Billions</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                )}
+                            />
+                        </div>
                     </div>
                   </div>
                 </AccordionContent>

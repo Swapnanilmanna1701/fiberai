@@ -55,13 +55,19 @@ export function useCompanySearch(allCompanies: Company[]) {
           return false;
         }
 
-        // Revenue filter (in millions)
-        const companyRevenueMillions = company.revenue / 1_000_000;
-        if (filters.minRevenue !== undefined && companyRevenueMillions < filters.minRevenue) {
-          return false;
+        // Revenue filter
+        const minRevenueValue = filters.minRevenue?.value;
+        const minRevenueUnit = filters.minRevenue?.unit || 'millions';
+        if (minRevenueValue !== undefined) {
+            const minRevenue = minRevenueValue * (minRevenueUnit === 'billions' ? 1_000_000_000 : 1_000_000);
+            if (company.revenue < minRevenue) return false;
         }
-        if (filters.maxRevenue !== undefined && companyRevenueMillions > filters.maxRevenue) {
-          return false;
+
+        const maxRevenueValue = filters.maxRevenue?.value;
+        const maxRevenueUnit = filters.maxRevenue?.unit || 'millions';
+        if (maxRevenueValue !== undefined) {
+            const maxRevenue = maxRevenueValue * (maxRevenueUnit === 'billions' ? 1_000_000_000 : 1_000_000);
+            if (company.revenue > maxRevenue) return false;
         }
         
         // Technology count filter
