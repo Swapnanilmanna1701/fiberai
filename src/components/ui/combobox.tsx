@@ -68,7 +68,15 @@ export function Combobox({
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
-        <Command>
+        <Command
+            filter={(optionValue, search) => {
+                const option = options.find(o => o.value === optionValue);
+                if (option) {
+                    return option.label.toLowerCase().includes(search.toLowerCase()) ? 1 : 0;
+                }
+                return 0;
+            }}
+        >
           <CommandInput 
             placeholder={searchPlaceholder} 
             value={inputValue}
@@ -77,8 +85,11 @@ export function Combobox({
           <CommandList>
             <CommandEmpty>
                 { emptyPlaceholder }
+            </CommandEmpty>
+            <ScrollArea className="h-64">
+            <CommandGroup>
                 { inputValue && !options.some(opt => opt.value === inputValue) && (
-                    <CommandItem
+                     <CommandItem
                         value={inputValue}
                         onSelect={() => {
                             onChange(inputValue)
@@ -88,9 +99,6 @@ export function Combobox({
                       Create "{inputValue}"
                     </CommandItem>
                 )}
-            </CommandEmpty>
-            <ScrollArea className="h-64">
-            <CommandGroup>
               {options.map((option) => (
                 <CommandItem
                   key={option.value}
