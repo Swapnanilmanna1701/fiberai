@@ -21,6 +21,7 @@ import { Logo } from './icons';
 import { Badge } from '@/components/ui/badge';
 import type { Company } from '@/lib/data';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+import { Combobox, ComboboxOption } from './ui/combobox';
 
 
 export const FiltersSchema = z.object({
@@ -56,7 +57,7 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
     const countries = [...new Set(allCompanies.map(c => c.hq_country))].sort();
     const officeLocations = [...new Set(allCompanies.flatMap(c => c.office_locations))].sort();
     const categories = [...new Set(allCompanies.map(c => c.category))].sort();
-    const foundedYears = [...new Set(allCompanies.map(c => c.founded))].sort((a,b) => a - b);
+    const foundedYears = [...new Set(allCompanies.map(c => c.founded))].sort((a,b) => b - a);
     
     return { 
       allTechnologies: technologies.map(t => ({ label: t, value: t })),
@@ -339,16 +340,17 @@ export function SearchSidebar({ allCompanies, onSearch, onReset }: SearchSidebar
                         control={form.control}
                         name="foundedYear"
                         render={({ field }) => (
-                          <Select onValueChange={(v) => field.onChange(v ? parseInt(v) : undefined)} value={String(field.value ?? '')}>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select year" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {allFoundedYears.map(year => (
-                                <SelectItem key={year.value} value={year.value}>{year.label}</SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
+                           <Combobox
+                                options={allFoundedYears}
+                                value={String(field.value ?? '')}
+                                onChange={(value) => {
+                                    const year = parseInt(value, 10);
+                                    field.onChange(isNaN(year) ? undefined : year);
+                                }}
+                                placeholder="Select or type a year..."
+                                searchPlaceholder="Search years..."
+                                emptyPlaceholder="No year found."
+                            />
                         )}
                       />
                   </div>
