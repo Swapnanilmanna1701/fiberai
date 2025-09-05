@@ -132,7 +132,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
   );
   
     const PaginationControls = () => (
-    <div className="flex items-center justify-between py-4">
+    <div className="flex shrink-0 items-center justify-between py-4">
       <div className="text-sm text-muted-foreground">
         Showing{' '}
         <strong>
@@ -269,7 +269,7 @@ export function ResultsTable({ data }: { data: Company[] }) {
 
   return (
     <div className="space-y-4 h-full flex flex-col">
-      <div className="flex items-center justify-between flex-shrink-0">
+      <div className="flex shrink-0 items-center justify-between">
         <h2 className="text-2xl font-bold">Search Results ({data.length})</h2>
         <div className="flex gap-2">
             <Button onClick={handleExportJson} disabled={data.length === 0}>
@@ -282,9 +282,9 @@ export function ResultsTable({ data }: { data: Company[] }) {
             </Button>
         </div>
       </div>
-      <div className="rounded-lg border flex-grow overflow-auto">
+      <div className="flex-1 overflow-auto rounded-lg border">
         <Table>
-          <TableHeader className="sticky top-0 bg-card z-10">
+          <TableHeader className="sticky top-0 z-10 bg-card">
             <TableRow>
               <SortableHeader sortKey="name">Company</SortableHeader>
               <TableHead>Telephone</TableHead>
