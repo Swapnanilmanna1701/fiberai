@@ -61,6 +61,7 @@ export async function POST(request: Request) {
         }
 
         // Revenue filter
+<<<<<<< HEAD:src/app/api/search/route.ts
         const minRevenueValue = filters.minRevenue !== undefined ? filters.minRevenue * (filters.minRevenueUnit === 'billion' ? 1000000000 : 1000000) : undefined;
         const maxRevenueValue = filters.maxRevenue !== undefined ? filters.maxRevenue * (filters.maxRevenueUnit === 'billion' ? 1000000000 : 1000000) : undefined;
 
@@ -69,6 +70,20 @@ export async function POST(request: Request) {
         }
         if (maxRevenueValue !== undefined && company.revenue > maxRevenueValue) {
             return false;
+=======
+        const minRevenueValue = filters.minRevenue?.value;
+        const minRevenueUnit = filters.minRevenue?.unit || 'millions';
+        if (minRevenueValue !== undefined) {
+            const minRevenue = minRevenueValue * (minRevenueUnit === 'billions' ? 1_000_000_000 : 1_000_000);
+            if (company.revenue < minRevenue) return false;
+        }
+
+        const maxRevenueValue = filters.maxRevenue?.value;
+        const maxRevenueUnit = filters.maxRevenue?.unit || 'millions';
+        if (maxRevenueValue !== undefined) {
+            const maxRevenue = maxRevenueValue * (maxRevenueUnit === 'billions' ? 1_000_000_000 : 1_000_000);
+            if (company.revenue > maxRevenue) return false;
+>>>>>>> 8386775 (make sure that user can chose revenue in million and billion for both ma):src/hooks/use-company-search.ts
         }
         
         // Technology count filter
