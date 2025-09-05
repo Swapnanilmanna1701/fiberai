@@ -75,7 +75,7 @@ export default function Home() {
         <div className="flex h-svh flex-col">
           <header className="relative flex h-14 items-center gap-4 border-b bg-background/95 px-4 backdrop-blur-sm sm:h-16 md:px-6">
             <AppSidebarTrigger />
-            <h1 className="text-lg font-semibold md:text-xl">TechStack Explorer</h1>
+            <h1 className="text-lg font-semibold md:text-xl">Fiber AI</h1>
           </header>
           <main className="flex-1 flex flex-col overflow-hidden p-4 sm:p-6">
             <div className="mb-4 flex-shrink-0">

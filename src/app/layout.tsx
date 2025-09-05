@@ -4,7 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { Inter } from 'next/font/google';
 
 export const metadata: Metadata = {
-  title: 'TechStack Explorer',
+  title: 'Fiber AI',
   description: 'Search for companies by technology, industry, and more.',
 };
 
