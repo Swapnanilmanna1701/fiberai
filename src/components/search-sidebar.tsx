@@ -40,20 +40,8 @@ export const FiltersSchema = z.object({
   techCount: z.tuple([z.number(), z.number()]),
   officeLocationCount: z.tuple([z.number(), z.number()]),
   employeeCount: z.tuple([z.number(), z.number()]),
-<<<<<<< HEAD
   minRevenue: revenueSchema.optional(),
   maxRevenue: revenueSchema.optional(),
-=======
-<<<<<<< HEAD
-  minRevenue: z.number().optional(),
-  maxRevenue: z.number().optional(),
-  minRevenueUnit: z.enum(['million', 'billion']).default('million'),
-  maxRevenueUnit: z.enum(['million', 'billion']).default('million'),
-=======
-  minRevenue: revenueSchema.optional(),
-  maxRevenue: revenueSchema.optional(),
->>>>>>> 8386775 (make sure that user can chose revenue in million and billion for both ma)
->>>>>>> 61da14a3713d275c996118bc2176fd7dc691e9e9
   categories: z.array(z.string()),
   foundedYear: z.number().optional(),
 });
@@ -101,20 +89,8 @@ export function SearchSidebar({ allCompanies, onSearch, onReset, isSearching }: 
       techCount: [0, 50],
       officeLocationCount: [0, 50],
       employeeCount: [0, 1000000],
-<<<<<<< HEAD
       minRevenue: { value: undefined, unit: 'millions'},
       maxRevenue: { value: undefined, unit: 'millions'},
-=======
-<<<<<<< HEAD
-      minRevenue: undefined,
-      maxRevenue: undefined,
-      minRevenueUnit: 'million',
-      maxRevenueUnit: 'million',
-=======
-      minRevenue: { value: undefined, unit: 'millions'},
-      maxRevenue: { value: undefined, unit: 'millions'},
->>>>>>> 8386775 (make sure that user can chose revenue in million and billion for both ma)
->>>>>>> 61da14a3713d275c996118bc2176fd7dc691e9e9
       categories: [],
       foundedYear: undefined,
     },
@@ -489,21 +465,6 @@ export function SearchSidebar({ allCompanies, onSearch, onReset, isSearching }: 
                     </div>
                   </div>
                   <div className="space-y-2 pt-2">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-                    <Label>Revenue</Label>
-                    <div className="grid grid-cols-2 gap-2">
-                        <div className="space-y-1">
-                            <Controller
-                                control={form.control}
-                                name="minRevenue"
-                                render={({ field }) => (
-                                    <Input
-                                        type="number"
-                                        placeholder="Min"
-=======
->>>>>>> 61da14a3713d275c996118bc2176fd7dc691e9e9
                     <Label>Revenue (USD)</Label>
                     <div className="grid grid-cols-2 gap-2">
                         <div className="space-y-1">
@@ -516,10 +477,6 @@ export function SearchSidebar({ allCompanies, onSearch, onReset, isSearching }: 
                                         id='minRevenue'
                                         type="number"
                                         placeholder="e.g. 100"
-<<<<<<< HEAD
-=======
->>>>>>> 8386775 (make sure that user can chose revenue in million and billion for both ma)
->>>>>>> 61da14a3713d275c996118bc2176fd7dc691e9e9
                                         {...field}
                                         value={field.value === undefined ? '' : field.value}
                                         onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))}
@@ -528,51 +485,20 @@ export function SearchSidebar({ allCompanies, onSearch, onReset, isSearching }: 
                             />
                             <Controller
                                 control={form.control}
-<<<<<<< HEAD
                                 name="minRevenue.unit"
-=======
-<<<<<<< HEAD
-                                name="minRevenueUnit"
-=======
-                                name="minRevenue.unit"
->>>>>>> 8386775 (make sure that user can chose revenue in million and billion for both ma)
->>>>>>> 61da14a3713d275c996118bc2176fd7dc691e9e9
                                 render={({ field }) => (
                                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                                         <SelectTrigger>
                                             <SelectValue />
                                         </SelectTrigger>
                                         <SelectContent>
-<<<<<<< HEAD
                                             <SelectItem value="millions">Millions</SelectItem>
                                             <SelectItem value="billions">Billions</SelectItem>
-=======
-<<<<<<< HEAD
-                                            <SelectItem value="million">Millions</SelectItem>
-                                            <SelectItem value="billion">Billions</SelectItem>
-=======
-                                            <SelectItem value="millions">Millions</SelectItem>
-                                            <SelectItem value="billions">Billions</SelectItem>
->>>>>>> 8386775 (make sure that user can chose revenue in million and billion for both ma)
->>>>>>> 61da14a3713d275c996118bc2176fd7dc691e9e9
                                         </SelectContent>
                                     </Select>
                                 )}
                             />
                         </div>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-                        <div className="space-y-1">
-                            <Controller
-                                control={form.control}
-                                name="maxRevenue"
-                                render={({ field }) => (
-                                    <Input
-                                        type="number"
-                                        placeholder="Max"
-=======
->>>>>>> 61da14a3713d275c996118bc2176fd7dc691e9e9
                          <div className="space-y-1">
                              <Label htmlFor='maxRevenue' className="text-xs text-muted-foreground">Max</Label>
                             <Controller
@@ -583,49 +509,23 @@ export function SearchSidebar({ allCompanies, onSearch, onReset, isSearching }: 
                                         id='maxRevenue'
                                         type="number"
                                         placeholder="e.g. 500"
-<<<<<<< HEAD
-=======
->>>>>>> 8386775 (make sure that user can chose revenue in million and billion for both ma)
->>>>>>> 61da14a3713d275c996118bc2176fd7dc691e9e9
                                         {...field}
                                         value={field.value === undefined ? '' : field.value}
                                         onChange={e => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))}
                                     />
                                 )}
                             />
-<<<<<<< HEAD
                              <Controller
                                 control={form.control}
                                 name="maxRevenue.unit"
-=======
-<<<<<<< HEAD
-                            <Controller
-                                control={form.control}
-                                name="maxRevenueUnit"
-=======
-                             <Controller
-                                control={form.control}
-                                name="maxRevenue.unit"
->>>>>>> 8386775 (make sure that user can chose revenue in million and billion for both ma)
->>>>>>> 61da14a3713d275c996118bc2176fd7dc691e9e9
                                 render={({ field }) => (
                                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                                         <SelectTrigger>
                                             <SelectValue />
                                         </SelectTrigger>
                                         <SelectContent>
-<<<<<<< HEAD
                                             <SelectItem value="millions">Millions</SelectItem>
                                             <SelectItem value="billions">Billions</SelectItem>
-=======
-<<<<<<< HEAD
-                                            <SelectItem value="million">Millions</SelectItem>
-                                            <SelectItem value="billion">Billions</SelectItem>
-=======
-                                            <SelectItem value="millions">Millions</SelectItem>
-                                            <SelectItem value="billions">Billions</SelectItem>
->>>>>>> 8386775 (make sure that user can chose revenue in million and billion for both ma)
->>>>>>> 61da14a3713d275c996118bc2176fd7dc691e9e9
                                         </SelectContent>
                                     </Select>
                                 )}
